@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       scaffoldMessengerKey: scaffoldMessengerKey,
 
       // ✅ GetX Router setup
-      initialRoute: AppRoutes.splash,
+      initialRoute: AppRoutes.onboarding,
       getPages: AppPages.pages,
 
       // optional fallback:
