@@ -36,14 +36,14 @@ class OnboardingController extends GetxController {
   }
 
   void skip() {
-    Get.offAllNamed(AppRoutes.home);
+    Get.offAllNamed(AppRoutes.personalInfo);
   }
 
   void nextOrFinish() {
     final isLast = currentIndex.value == total - 1;
 
     if (isLast) {
-      Get.offAllNamed(AppRoutes.home);
+      Get.offAllNamed(AppRoutes.personalInfo);
       return;
     }
 
