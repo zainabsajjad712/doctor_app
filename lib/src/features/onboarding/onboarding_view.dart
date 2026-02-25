@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'onboarding_controller.dart';
@@ -24,10 +25,10 @@ class OnboardingView extends GetView<OnboardingController> {
                 children: [
                   GestureDetector(
                     onTap: controller.skip,
-                    child: const Text(
+                    child: Text(
                       'skip',
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 14.sp,
                         color: Colors.black87,
                         fontWeight: FontWeight.w500,
                       ),
@@ -42,14 +43,14 @@ class OnboardingView extends GetView<OnboardingController> {
                 padding: const EdgeInsets.symmetric(horizontal: 18),
                 child: Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.only(top: 12, left: 12, right: 12),
+                  padding: EdgeInsets.only(top: 12.h, left: 12.w, right: 12.w),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(26),
                   ),
                   child: Column(
                     children: [
-                      const SizedBox(height: 10),
+                      SizedBox(height: 10.sp),
 
                       // PageView
                       Expanded(
