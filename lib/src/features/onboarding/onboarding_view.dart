@@ -1,4 +1,6 @@
+import 'package:doctor_app/src/common/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'onboarding_controller.dart';
@@ -8,13 +10,13 @@ class OnboardingView extends GetView<OnboardingController> {
 
   @override
   Widget build(BuildContext context) {
-    final w = MediaQuery.sizeOf(context).width;
     final h = MediaQuery.sizeOf(context).height;
 
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Top bar (Skip)
             Padding(
@@ -24,10 +26,10 @@ class OnboardingView extends GetView<OnboardingController> {
                 children: [
                   GestureDetector(
                     onTap: controller.skip,
-                    child: const Text(
+                    child: Text(
                       'skip',
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 14.sp,
                         color: Colors.black87,
                         fontWeight: FontWeight.w500,
                       ),
@@ -42,14 +44,14 @@ class OnboardingView extends GetView<OnboardingController> {
                 padding: const EdgeInsets.symmetric(horizontal: 18),
                 child: Container(
                   width: double.infinity,
-                  padding: const EdgeInsets.only(top: 12, left: 12, right: 12),
+                  padding: EdgeInsets.only(top: 12.h, left: 12.w, right: 12.w),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(26),
                   ),
                   child: Column(
                     children: [
-                      const SizedBox(height: 10),
+                      SizedBox(height: 10.sp),
 
                       // PageView
                       Expanded(
@@ -64,13 +66,15 @@ class OnboardingView extends GetView<OnboardingController> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SizedBox(
-                                  height: h * 0.32,
+                                  height: h * 0.27,
                                   child: Image.asset(
                                     item.image,
                                     fit: BoxFit.contain,
                                   ),
                                 ),
                                 const SizedBox(height: 20),
+
+                                // Title
                                 Text(
                                   item.title,
                                   textAlign: TextAlign.center,
@@ -81,14 +85,38 @@ class OnboardingView extends GetView<OnboardingController> {
                                   ),
                                 ),
                                 const SizedBox(height: 8),
-                                Text(
-                                  item.subtitle,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 13,
-                                    height: 1.4,
-                                    color: Colors.black.withOpacity(0.65),
-                                    fontWeight: FontWeight.w500,
+
+                                // Subtitle
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 18,
+                                  ),
+                                  child: Text(
+                                    item.subtitle,
+                                    textAlign: TextAlign.center,
+                                    maxLines: 3,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      fontSize: 13,
+                                      height: 1.4,
+                                      color: Colors.black.withOpacity(0.65),
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+
+                                const SizedBox(height: 18),
+
+                                // ✅ Indicator NOW with text (same place as screenshot)
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 140,
+                                  ),
+                                  child: Center(
+                                    child: OnboardingIndicator(
+                                      controller: controller,
+                                      // width: 120,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -97,41 +125,18 @@ class OnboardingView extends GetView<OnboardingController> {
                         ),
                       ),
 
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 22),
 
-                      // ✅ Indicator (controller passed)
-                      OnboardingIndicator(controller: controller, width: w),
-
-                      const SizedBox(height: 18),
-
-                      // Bottom button
+                      // Bottom button only
                       Obx(() {
                         final isLast =
                             controller.currentIndex.value ==
                             controller.total - 1;
 
-                        return SizedBox(
-                          width: double.infinity,
-                          height: 54,
-                          child: ElevatedButton(
-                            onPressed: controller.nextOrFinish,
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                                  OnboardingController.primaryButton,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(28),
-                              ),
-                              elevation: 0,
-                            ),
-                            child: Text(
-                              isLast ? 'Get Started' : 'Next',
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
+                        return CustomButton(
+                          borderRadius: 38,
+                          onTap: controller.nextOrFinish,
+                          text: isLast ? 'Get Started' : 'Next',
                         );
                       }),
 
@@ -150,24 +155,24 @@ class OnboardingView extends GetView<OnboardingController> {
   }
 }
 
-/// ✅ No GetView here (avoids controller lookup issues)
+/// ✅ No GetView here
 class OnboardingIndicator extends StatelessWidget {
   final OnboardingController controller;
-  final double width;
+  // final double width;
 
   const OnboardingIndicator({
     super.key,
     required this.controller,
-    required this.width,
+    // required this.width,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 16,
-      width: 120,
+      height: 10,
+      // width: width,
       child: Obx(() {
-        final selected = controller.currentIndex.value; // ✅ Rx used
+        final selected = controller.currentIndex.value;
 
         return ListView.builder(
           scrollDirection: Axis.horizontal,
@@ -181,7 +186,7 @@ class OnboardingIndicator extends StatelessWidget {
                 duration: const Duration(milliseconds: 220),
                 margin: const EdgeInsets.symmetric(horizontal: 4),
                 height: 8,
-                width: isActive ? 28 : 8,
+                width: isActive ? 35 : 8,
                 decoration: BoxDecoration(
                   color: isActive
                       ? OnboardingController.primaryButton

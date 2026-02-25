@@ -15,17 +15,18 @@ class OnboardingController extends GetxController {
     OnboardingModel(
       image: AppImages.onboarding,
       title: 'Easy appointment booking',
-      subtitle: 'Book with confidence - Easy to use\n-Quick operation',
+      subtitle: 'Book with confidence - Easy to Cuse\n-Quick operation',
     ),
     OnboardingModel(
       image: AppImages.onboardingScnd,
       title: 'Profile security',
-      subtitle: 'Keep a careful record of your examination.',
+      subtitle: 'Keep a careful record of your\n examination.',
     ),
     OnboardingModel(
       image: AppImages.onboardingQuick,
-      title: 'Track your health',
-      subtitle: 'Keep records and reminders\nin one place',
+      title: 'Quick action',
+      subtitle:
+          'Make an opointment at any time\nand from any location. Operation is\nsimple.',
     ),
   ];
 
@@ -36,14 +37,14 @@ class OnboardingController extends GetxController {
   }
 
   void skip() {
-    Get.offAllNamed(AppRoutes.personalInfo);
+    Get.offAllNamed(AppRoutes.phone);
   }
 
   void nextOrFinish() {
     final isLast = currentIndex.value == total - 1;
 
     if (isLast) {
-      Get.offAllNamed(AppRoutes.personalInfo);
+      Get.offAllNamed(AppRoutes.phone);
       return;
     }
 

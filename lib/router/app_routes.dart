@@ -5,4 +5,6 @@ class AppRoutes {
   static const date = "/date";  
 
 
+  static const phone = '/phone';
+  static const otp = '/otp';
 }
