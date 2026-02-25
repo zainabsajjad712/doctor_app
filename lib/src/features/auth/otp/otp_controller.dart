@@ -54,8 +54,10 @@ class OtpController extends GetxController {
 
   String get otpCode => controllers.map((c) => c.text.trim()).join();
 
-  bool get isOtpComplete =>
-      otpCode.length == otpLength && !otpCode.contains('');
+  bool get isOtpComplete {
+    // ✅ Every box must have exactly 1 digit
+    return controllers.every((c) => c.text.trim().length == 1);
+  }
 
   void onDigitChanged(int index, String value) {
     // keep only last digit
@@ -118,7 +120,7 @@ class OtpController extends GetxController {
     // isLoading.value = false;
 
     // For now (demo success)
-    Get.offAllNamed(AppRoutes.home);
+    Get.offAllNamed(AppRoutes.personalInfo);
   }
 
   void changeNumber() {
