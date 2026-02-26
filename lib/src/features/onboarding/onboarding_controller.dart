@@ -6,8 +6,6 @@ import 'package:get/get.dart';
 import 'onboarding_model.dart';
 
 class OnboardingController extends GetxController {
-  static const Color primaryButton = Color(0xFF2673FF);
-
   final PageController pageController = PageController();
   final RxInt currentIndex = 0.obs;
 
@@ -45,7 +43,7 @@ class OnboardingController extends GetxController {
     final isLast = currentIndex.value == total - 1;
 
     if (isLast) {
-      Get.offAllNamed(AppRoutes.customNavigation);
+      Get.offAllNamed(AppRoutes.phone);
       return;
     }
 

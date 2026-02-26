@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../features/auth/otp/otp_view.dart';
-import '../../features/auth/phone_verification/phone_view.dart';
 import '../../features/controllers/navigation_controller.dart';
 import '../constant/app_colors.dart';
 
@@ -24,7 +23,7 @@ class _CustomNavigationState extends State<CustomNavigation> {
   int? _pressedIndex;
 
   static final List<Widget> _widgetOptions = <Widget>[
-    const PhoneView(),
+    const OtpView(),
     OtpView(),
     OtpView(),
     OtpView(),
