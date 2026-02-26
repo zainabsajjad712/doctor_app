@@ -2,10 +2,8 @@ import 'package:doctor_app/router/app_pages.dart';
 import 'package:doctor_app/router/app_routes.dart';
 import 'package:doctor_app/src/common/constant/global_variables.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
-// final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
-//     GlobalKey<ScaffoldMessengerState>();
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,22 +15,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-
-      // ✅ Your already-added key (global snackbars, etc.)
-      scaffoldMessengerKey: scaffoldMessengerKey,
-
-      // ✅ GetX Router setup
-      initialRoute: AppRoutes.onboarding,
-      getPages: AppPages.pages,
-
-      // optional fallback:
-      // unknownRoute: GetPage(
-      //   name: '/notfound',
-      //   page: () => const Scaffold(body: Center(child: Text('Not Found'))),
-      // ),
+    return ScreenUtilInit(
+      designSize: const Size(393, 849),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return GetMaterialApp(
+          title: 'Flutter Demo',
+          debugShowCheckedModeBanner: false,
+          scaffoldMessengerKey: scaffoldMessengerKey,
+          initialRoute: AppRoutes.personalInfo,
+          getPages: AppPages.pages,
+        );
+      },
     );
   }
 }

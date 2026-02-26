@@ -7,4 +7,8 @@ class AppRoutes {
 
   static const phone = '/phone';
   static const otp = '/otp';
+  static const filter = '/filter';
+  static const homescreen = '/homescreen';
+  static const search = '/search';
+
 }
