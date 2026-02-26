@@ -6,6 +6,7 @@ import 'package:doctor_app/src/features/onboarding/onboarding_binding.dart';
 import 'package:doctor_app/src/features/onboarding/onboarding_view.dart';
 import 'package:get/get.dart';
 
+import '../src/common/widgets/custom_navigation_bar.dart';
 import 'app_routes.dart';
 
 class AppPages {
@@ -24,6 +25,10 @@ class AppPages {
       name: AppRoutes.otp,
       page: () => const OtpView(),
       binding: OtpBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.customNavigation,
+      page: () => const CustomNavigation(),
     ),
   ];
 }

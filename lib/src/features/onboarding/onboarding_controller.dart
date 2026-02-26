@@ -2,6 +2,7 @@ import 'package:doctor_app/router/app_routes.dart';
 import 'package:doctor_app/src/common/constant/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'onboarding_model.dart';
 
 class OnboardingController extends GetxController {
@@ -44,7 +45,7 @@ class OnboardingController extends GetxController {
     final isLast = currentIndex.value == total - 1;
 
     if (isLast) {
-      Get.offAllNamed(AppRoutes.phone);
+      Get.offAllNamed(AppRoutes.customNavigation);
       return;
     }
 
