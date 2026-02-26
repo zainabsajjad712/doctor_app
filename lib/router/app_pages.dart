@@ -16,6 +16,7 @@ import 'package:doctor_app/src/features/search/search_binding.dart';
 import 'package:doctor_app/src/features/search/search_view.dart';
 import 'package:get/get.dart';
 
+import '../src/common/widgets/custom_navigation_bar.dart';
 import 'app_routes.dart';
 
 class AppPages {
@@ -60,5 +61,9 @@ class AppPages {
   page: () => const HomeView(),
   binding: HomeBinding(),
 ),
+    GetPage(
+      name: AppRoutes.customNavigation,
+      page: () => const CustomNavigation(),
+    ),
   ];
 }

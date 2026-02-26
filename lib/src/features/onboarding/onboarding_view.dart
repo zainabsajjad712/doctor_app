@@ -2,6 +2,7 @@ import 'package:doctor_app/src/common/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../common/constant/app_colors.dart';
 import 'onboarding_controller.dart';
 
 class OnboardingView extends GetView<OnboardingController> {
@@ -9,8 +10,6 @@ class OnboardingView extends GetView<OnboardingController> {
 
   @override
   Widget build(BuildContext context) {
-    final h = MediaQuery.sizeOf(context).height;
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -19,7 +18,7 @@ class OnboardingView extends GetView<OnboardingController> {
           children: [
             // Top bar (Skip)
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 10.h),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -40,7 +39,7 @@ class OnboardingView extends GetView<OnboardingController> {
 
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18),
+                padding: EdgeInsets.symmetric(horizontal: 18.w),
                 child: Container(
                   width: double.infinity,
                   padding: EdgeInsets.only(top: 12, left: 12, right: 12),
@@ -65,20 +64,20 @@ class OnboardingView extends GetView<OnboardingController> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SizedBox(
-                                  height: h * 0.27,
+                                  height: 150.h,
                                   child: Image.asset(
                                     item.image,
                                     fit: BoxFit.contain,
                                   ),
                                 ),
-                                const SizedBox(height: 20),
+                                SizedBox(height: 20.h),
 
                                 // Title
                                 Text(
                                   item.title,
                                   textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontSize: 18,
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
                                     fontWeight: FontWeight.w700,
                                     color: Colors.black87,
                                   ),
@@ -87,8 +86,8 @@ class OnboardingView extends GetView<OnboardingController> {
 
                                 // Subtitle
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 18,
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 18.w,
                                   ),
                                   child: Text(
                                     item.subtitle,
@@ -96,7 +95,7 @@ class OnboardingView extends GetView<OnboardingController> {
                                     maxLines: 3,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
-                                      fontSize: 13,
+                                      fontSize: 13.sp,
                                       height: 1.4,
                                       color: Colors.black.withOpacity(0.65),
                                       fontWeight: FontWeight.w500,
@@ -104,12 +103,12 @@ class OnboardingView extends GetView<OnboardingController> {
                                   ),
                                 ),
 
-                                const SizedBox(height: 18),
+                                SizedBox(height: 18.h),
 
                                 // ✅ Indicator NOW with text (same place as screenshot)
                                 Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal: 140,
+                                    horizontal: 140.w,
                                   ),
                                   child: Center(
                                     child: OnboardingIndicator(
@@ -124,7 +123,7 @@ class OnboardingView extends GetView<OnboardingController> {
                         ),
                       ),
 
-                      const SizedBox(height: 22),
+                      SizedBox(height: 22.h),
 
                       // Bottom button only
                       Obx(() {
@@ -133,20 +132,20 @@ class OnboardingView extends GetView<OnboardingController> {
                             controller.total - 1;
 
                         return CustomButton(
-                          borderRadius: 38,
+                          borderRadius: 38.r,
                           onTap: controller.nextOrFinish,
                           text: isLast ? 'Get Started' : 'Next',
                         );
                       }),
 
-                      const SizedBox(height: 18),
+                      SizedBox(height: 18.h),
                     ],
                   ),
                 ),
               ),
             ),
 
-            const SizedBox(height: 10),
+            SizedBox(height: 10.h),
           ],
         ),
       ),
@@ -168,27 +167,25 @@ class OnboardingIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 10,
-      // width: width,
+      height: 10.h,
       child: Obx(() {
         final selected = controller.currentIndex.value;
-
         return ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: controller.total,
+          clipBehavior: Clip.none,
           itemBuilder: (context, index) {
             final isActive = selected == index;
-
             return GestureDetector(
               onTap: () => controller.goToPage(index),
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 220),
-                margin: const EdgeInsets.symmetric(horizontal: 4),
-                height: 8,
-                width: isActive ? 35 : 8,
+                margin: EdgeInsets.symmetric(horizontal: 4.w),
+                height: 6.h,
+                width: isActive ? 30.w : 8.w,
                 decoration: BoxDecoration(
                   color: isActive
-                      ? OnboardingController.primaryButton
+                      ? AppColor.primaryButton
                       : Colors.black.withOpacity(0.18),
                   borderRadius: BorderRadius.circular(30),
                 ),

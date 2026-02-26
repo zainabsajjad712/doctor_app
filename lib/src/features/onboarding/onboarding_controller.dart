@@ -2,11 +2,10 @@ import 'package:doctor_app/router/app_routes.dart';
 import 'package:doctor_app/src/common/constant/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'onboarding_model.dart';
 
 class OnboardingController extends GetxController {
-  static const Color primaryButton = Color(0xFF2673FF);
-
   final PageController pageController = PageController();
   final RxInt currentIndex = 0.obs;
 
