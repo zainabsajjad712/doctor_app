@@ -7,5 +7,6 @@ class AppImages {
 }
 
 class AppIcons {
-  static String iconDcoument = 'assets/icons/icon_document.png';
+  static String filter = 'assets/icons/filter.svg';
+  static String search = 'assets/icons/search.svg';
 }

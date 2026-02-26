@@ -8,6 +8,8 @@ import 'package:doctor_app/src/features/auth/phone_verification/phone_binding.da
 import 'package:doctor_app/src/features/auth/phone_verification/phone_view.dart';
 import 'package:doctor_app/src/features/onboarding/onboarding_binding.dart';
 import 'package:doctor_app/src/features/onboarding/onboarding_view.dart';
+import 'package:doctor_app/src/features/online_consultation/online_consultation_binding.dart';
+import 'package:doctor_app/src/features/online_consultation/online_consultation_view.dart';
 import 'package:get/get.dart';
 
 import 'app_routes.dart';
@@ -19,16 +21,16 @@ class AppPages {
       page: () => const OnboardingView(),
       binding: OnboardingBinding(),
     ),
-     GetPage(
+    GetPage(
       name: AppRoutes.personalInfo,
       page: () => PersonalInfoScreen(),
       binding: PersonalInfoBinding(),
     ),
     GetPage(
-   name: AppRoutes.date,
-   page: () => DateScreen(),
-   binding: DateBinding(),   
-),
+      name: AppRoutes.date,
+      page: () => DateScreen(),
+      binding: DateBinding(),
+    ),
     GetPage(
       name: AppRoutes.phone,
       page: () => const PhoneView(),
@@ -38,6 +40,11 @@ class AppPages {
       name: AppRoutes.otp,
       page: () => const OtpView(),
       binding: OtpBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.onlineConsultation,
+      page: () => const OnlineConsultationView(),
+      binding: OnlineConsultationBinding(),
     ),
   ];
 }
