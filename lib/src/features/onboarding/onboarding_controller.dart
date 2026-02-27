@@ -14,7 +14,7 @@ class OnboardingController extends GetxController {
     OnboardingModel(
       image: AppImages.onboarding,
       title: 'Easy appointment booking',
-      subtitle: 'Book with confidence - Easy to use\n-Quick operation',
+      subtitle: 'Book with confidence - Easy to Cuse\n-Quick operation',
     ),
     OnboardingModel(
       image: AppImages.onboardingScnd,

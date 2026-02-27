@@ -1,4 +1,3 @@
-import 'package:doctor_app/router/app_routes.dart' show AppRoutes;
 import 'package:doctor_app/src/features/auth/otp/otp_binding.dart';
 import 'package:doctor_app/src/features/auth/otp/otp_view.dart';
 import 'package:flutter/material.dart';

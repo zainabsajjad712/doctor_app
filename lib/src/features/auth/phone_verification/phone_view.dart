@@ -14,7 +14,6 @@ class PhoneView extends GetView<PhoneController> {
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.sizeOf(context).width;
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -29,6 +28,9 @@ class PhoneView extends GetView<PhoneController> {
                     SizedBox(height: 10.h),
                     Image.asset(AppImages.phone, height: 200),
                     SizedBox(height: 25.h),
+                    const SizedBox(height: 10),
+                    Image.asset(AppImages.phone, height: 200),
+                    const SizedBox(height: 26),
                     // TextField
                     CustomPhoneField(
                       controller: controller.phoneController,
@@ -57,11 +59,9 @@ class PhoneView extends GetView<PhoneController> {
                   ],
                 ),
               ),
-
               // ✅ Bottom button (ALWAYS bottom)
               Obx(() {
                 final loading = controller.isLoading.value;
-
                 return SizedBox(
                   width: w,
                   height: 54.h,

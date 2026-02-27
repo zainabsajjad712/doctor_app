@@ -29,7 +29,7 @@ class ImagePickerHelper {
   // Function to pick multiple images
   static Future<List<XFile>> pickMultipleImages() async {
     try {
-      final List<XFile>? images = await _picker.pickMultiImage();
+      final List<XFile> images = await _picker.pickMultiImage();
       return images ?? [];
     } catch (e) {
       rethrow;
