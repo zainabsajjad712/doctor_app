@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           scaffoldMessengerKey: scaffoldMessengerKey,
           initialRoute: AppRoutes.onboarding,
-          initialRoute: AppRoutes.chatScreen,
           getPages: AppPages.pages,
         );
       },
