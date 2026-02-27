@@ -1,7 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:doctor_app/router/app_routes.dart';
 import 'package:doctor_app/src/common/constant/app_images.dart';
-import 'package:doctor_app/src/common/widgets/custom_text_field.dart';
 import 'package:doctor_app/src/features/online_consultation/online_consultation_controller.dart';
+import 'package:doctor_app/src/features/online_consultation/widget/custom_doctor_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -20,11 +20,7 @@ class OnlineConsultationView extends GetView<OnlineConsultationController> {
         titleSpacing: 16.w,
         title: Text(
           "online consultation",
-          style: TextStyle(
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w600,
-            color: const Color(0xFF111827),
-          ),
+          style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
         ),
         actions: [
           Padding(
@@ -139,132 +135,27 @@ class OnlineConsultationView extends GetView<OnlineConsultationController> {
                 return ListView.builder(
                   itemCount: controller.filteredDoctors.length,
                   padding: EdgeInsets.only(bottom: 12.h),
+
                   itemBuilder: (context, index) {
                     final d = controller.filteredDoctors[index];
 
-                    return Container(
-                      margin: EdgeInsets.only(bottom: 12.h),
-                      padding: EdgeInsets.all(14.w),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(18.r),
-                        border: Border.all(color: const Color(0xFFE5E7EB)),
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 14,
-                            spreadRadius: 0,
-                            offset: const Offset(0, 6),
-                            color: Colors.black.withOpacity(0.05),
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          // ✅ Big avatar (like screenshot)
-                          Stack(
-                            children: [
-                              Container(
-                                width: 92.w,
-                                height: 92.w,
-                                padding: EdgeInsets.all(8.w),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFF3F4F6),
-
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(18.r),
-                                    topRight: Radius.circular(18.r),
-                                  ),
-                                ),
-                                child: CachedNetworkImage(
-                                  imageUrl: d.imageUrl,
-                                  fit: BoxFit.cover,
-                                  placeholder: (_, __) => Center(
-                                    child: SizedBox(
-                                      width: 18.w,
-                                      height: 18.w,
-                                      child: const CircularProgressIndicator(
-                                        strokeWidth: 2,
-                                      ),
-                                    ),
-                                  ),
-                                  errorWidget: (_, __, ___) => Icon(
-                                    Icons.person,
-                                    size: 32.sp,
-                                    color: const Color(0xFF9CA3AF),
-                                  ),
-                                ),
-                              ),
-
-                              // ✅ online dot (inside top-left like close image)
-                              Positioned(
-                                left: 10.w,
-                                top: 10.h,
-                                child: Container(
-                                  width: 18.w,
-                                  height: 18.w,
-                                  decoration: BoxDecoration(
-                                    color: d.isOnline
-                                        ? const Color(0xFF22C55E)
-                                        : const Color(0xFF9CA3AF),
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                      color: const Color(0xFFF3F4F6),
-                                      width: 4.w,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          SizedBox(width: 14.w),
-
-                          // ✅ Text area (center aligned vertically)
-                          Expanded(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  d.hospital,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    fontSize: 13.sp,
-                                    fontWeight: FontWeight.w700,
-                                    color: const Color(0xFF2563EB),
-                                  ),
-                                ),
-                                SizedBox(height: 6.h),
-                                Text(
-                                  d.name,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    fontSize: 18.sp, // bigger like screenshot
-                                    fontWeight: FontWeight.w800,
-                                    color: const Color(0xFF111827),
-                                  ),
-                                ),
-                                SizedBox(height: 6.h),
-                                Text(
-                                  d.specialty,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                    fontSize: 13.sp,
-                                    fontWeight: FontWeight.w600,
-                                    color: const Color(0xFF6B7280),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                    return DoctorCard(
+                      d: d,
+                      showStats: false,
+                      onTap: () {
+                        Get.toNamed(
+                          AppRoutes.onlineConsultationDetails,
+                          arguments: d,
+                        ); // ✅ data pass
+                      },
                     );
                   },
+                  // itemBuilder:
+                  //  (context, index) {
+                  //   final d = controller.filteredDoctors[index];
+                  //   return DoctorCard(d: d);
+                  //   // CustomDoctorListTile(d: d);
+                  // },
                 );
               }),
             ),
