@@ -1,3 +1,5 @@
+import 'package:doctor_app/src/features/appointment/appointment_binding.dart';
+import 'package:doctor_app/src/features/appointment/appointment_view.dart';
 import 'package:doctor_app/src/features/auth/login/login.dart';
 import 'package:doctor_app/src/features/auth/login/login_binding.dart';
 import 'package:doctor_app/src/features/date/date_binding.dart';
@@ -8,12 +10,14 @@ import 'package:doctor_app/src/features/auth/phone_verification/phone_binding.da
 import 'package:doctor_app/src/features/auth/phone_verification/phone_view.dart';
 import 'package:doctor_app/src/features/filter/filter_binding.dart';
 import 'package:doctor_app/src/features/filter/filter_view.dart';
-import 'package:doctor_app/src/features/home/home_binding.dart';
-import 'package:doctor_app/src/features/home/home_view.dart';
 import 'package:doctor_app/src/features/onboarding/onboarding_binding.dart';
 import 'package:doctor_app/src/features/onboarding/onboarding_view.dart';
-import 'package:doctor_app/src/features/search/search_binding.dart';
-import 'package:doctor_app/src/features/search/search_view.dart';
+import 'package:doctor_app/src/features/profile/profile_binding.dart';
+import 'package:doctor_app/src/features/profile/profile_view.dart';
+import 'package:doctor_app/src/features/reviews/review_binding.dart';
+import 'package:doctor_app/src/features/reviews/review_view.dart';
+import 'package:doctor_app/src/features/search/doctor_binding.dart';
+import 'package:doctor_app/src/features/search/doctor_view.dart';
 import 'package:get/get.dart';
 
 import '../src/common/widgets/custom_navigation_bar.dart';
@@ -26,14 +30,14 @@ class AppPages {
       page: () => const OnboardingView(),
       binding: OnboardingBinding(),
     ),
-     GetPage(
+    GetPage(
       name: AppRoutes.personalInfo,
       page: () => PersonalInfoScreen(),
       binding: PersonalInfoBinding(),
     ),
-     GetPage(
+    GetPage(
       name: AppRoutes.date,
-      page: () =>  DateScreen(),
+      page: () => DateScreen(),
       binding: DateBinding(), // 🔥 VERY IMPORTANT
     ),
     GetPage(
@@ -46,24 +50,41 @@ class AppPages {
       page: () => const OtpView(),
       binding: OtpBinding(),
     ),
-     GetPage(
+    GetPage(
       name: AppRoutes.filter,
       page: () => FilterView(),
       binding: FilterBinding(),
     ),
-      GetPage(
-      name: AppRoutes.search,
-      page: () => const SearchView(),
-      binding: SearchBinding(),
-    ),
-     GetPage(
-  name: AppRoutes.homescreen,
-  page: () => const HomeView(),
-  binding: HomeBinding(),
+    GetPage(
+  name: AppRoutes.doctor,
+  page: () => DoctorView(),
+  binding: DoctorBinding(),
 ),
     GetPage(
-      name: AppRoutes.customNavigation,
-      page: () => const CustomNavigation(),
+      name: AppRoutes.homescreen,
+      page: () => const CustomNavigation(),   
     ),
+    GetPage(
+    name: '/profile',
+    page: () => const ProfileView(),
+    binding: ProfileBinding(),
+),
+  /// ✅ Reviews Screen
+    GetPage(
+      name: AppRoutes.reviews,
+      page: () => const ReviewsView(),
+      binding: ReviewsBinding(),
+    ),
+
+    /// ✅ Appointment Screen
+    GetPage(
+      name: AppRoutes.appointment,
+      page: () => const AppointmentView(),
+      binding: AppointmentBinding(),
+    ),
+    // GetPage(
+    //   name: AppRoutes.customNavigation,
+    //   page: () => const CustomNavigation(),
+    // ),
   ];
 }
