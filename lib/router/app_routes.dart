@@ -13,6 +13,8 @@ class AppRoutes {
   static const profile = '/profile';
   static const reviews = '/reviews';
   static const appointment = '/appointment';
+  static const time = '/time';
+  static const attachments = '/attachments';
 
 
 

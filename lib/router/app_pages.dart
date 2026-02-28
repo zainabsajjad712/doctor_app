@@ -1,5 +1,7 @@
 import 'package:doctor_app/src/features/appointment/appointment_binding.dart';
 import 'package:doctor_app/src/features/appointment/appointment_view.dart';
+import 'package:doctor_app/src/features/attachments/attachments_binding.dart';
+import 'package:doctor_app/src/features/attachments/attachments_view.dart';
 import 'package:doctor_app/src/features/auth/login/login.dart';
 import 'package:doctor_app/src/features/auth/login/login_binding.dart';
 import 'package:doctor_app/src/features/date/date_binding.dart';
@@ -18,6 +20,8 @@ import 'package:doctor_app/src/features/reviews/review_binding.dart';
 import 'package:doctor_app/src/features/reviews/review_view.dart';
 import 'package:doctor_app/src/features/search/doctor_binding.dart';
 import 'package:doctor_app/src/features/search/doctor_view.dart';
+import 'package:doctor_app/src/features/select%20time/time_binding.dart';
+import 'package:doctor_app/src/features/select%20time/time_view.dart';
 import 'package:get/get.dart';
 
 import '../src/common/widgets/custom_navigation_bar.dart';
@@ -81,6 +85,19 @@ class AppPages {
       name: AppRoutes.appointment,
       page: () => const AppointmentView(),
       binding: AppointmentBinding(),
+    ),
+ /// Time Selection Screen
+    GetPage(
+      name: AppRoutes.time,
+      page: () => const TimeView(),
+      binding: TimeBinding(),
+    ),
+
+    /// Attachments Screen
+    GetPage(
+      name: AppRoutes.attachments,
+      page: () => const AttachmentsView(),
+      binding: AttachmentsBinding(),
     ),
     // GetPage(
     //   name: AppRoutes.customNavigation,
