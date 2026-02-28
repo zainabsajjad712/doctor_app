@@ -13,4 +13,10 @@ class AppRoutes {
   static const feedback = '/feedback';
   static const doctorProfileScreen = '/doctorProfileScreen';
   static const chatScreen = '/chatScreen';
+  static const filter = '/filter';
+  static const homescreen = '/homescreen';
+  static const doctor = '/doctor';
+  static const profile = '/profile';
+  static const reviews = '/reviews';
+  static const appointment = '/appointment';
 }
