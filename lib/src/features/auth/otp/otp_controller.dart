@@ -120,7 +120,10 @@ class OtpController extends GetxController {
     // isLoading.value = false;
 
     // For now (demo success)
-    Get.offAllNamed(AppRoutes.personalInfo);
+// <<<<<<< HEAD
+//     Get.offAllNamed(AppRoutes.personalInfo);
+// =======
+    Get.offAllNamed(AppRoutes.customNavigation);
   }
 
   void changeNumber() {

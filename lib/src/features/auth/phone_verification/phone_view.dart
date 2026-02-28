@@ -25,12 +25,8 @@ class PhoneView extends GetView<PhoneController> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(height: 10.h),
-                    Image.asset(AppImages.phone, height: 200),
-                    SizedBox(height: 25.h),
-                    const SizedBox(height: 10),
-                    Image.asset(AppImages.phone, height: 200),
-                    const SizedBox(height: 26),
+                    Image.asset(AppImages.phone, height: 200.h),
+                    SizedBox(height: 26.h),
                     // TextField
                     CustomPhoneField(
                       controller: controller.phoneController,

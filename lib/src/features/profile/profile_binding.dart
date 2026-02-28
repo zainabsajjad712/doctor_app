@@ -1,9 +1,10 @@
-import 'package:doctor_app/src/features/auth/phone_verification/phone_controller.dart';
-import 'package:get/get.dart';
 
-class PhoneBinding extends Bindings {
+import 'package:get/get.dart';
+import 'profile_controller.dart';
+
+class ProfileBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<PhoneController>(() => PhoneController());
+    Get.lazyPut<ProfileController>(() => ProfileController());
   }
 }

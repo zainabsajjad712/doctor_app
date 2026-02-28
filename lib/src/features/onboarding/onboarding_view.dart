@@ -28,7 +28,7 @@ class OnboardingView extends GetView<OnboardingController> {
                     child: Text(
                       'skip',
                       style: TextStyle(
-                        fontSize: 14.sp,
+                        fontSize: 14,
                         color: Colors.black87,
                         fontWeight: FontWeight.w500,
                       ),
@@ -43,14 +43,14 @@ class OnboardingView extends GetView<OnboardingController> {
                 padding: EdgeInsets.symmetric(horizontal: 18.w),
                 child: Container(
                   width: double.infinity,
-                  padding: EdgeInsets.only(top: 12.h, left: 12.w, right: 12.w),
+                  padding: EdgeInsets.only(top: 12, left: 12, right: 12),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(26),
                   ),
                   child: Column(
                     children: [
-                      SizedBox(height: 10.sp),
+                      SizedBox(height: 10),
 
                       // PageView
                       Expanded(
