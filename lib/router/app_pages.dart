@@ -9,7 +9,6 @@ import 'package:doctor_app/src/features/auth/otp/otp_binding.dart';
 import 'package:doctor_app/src/features/auth/otp/otp_view.dart';
 import 'package:doctor_app/src/features/auth/phone_verification/phone_binding.dart';
 import 'package:doctor_app/src/features/auth/phone_verification/phone_view.dart';
-import 'package:doctor_app/src/features/date/date_binding.dart';
 import 'package:doctor_app/src/features/filter/filter_binding.dart';
 import 'package:doctor_app/src/features/filter/filter_view.dart';
 import 'package:doctor_app/src/features/onboarding/onboarding_binding.dart';
@@ -25,6 +24,7 @@ import 'package:doctor_app/src/features/select%20time/time_binding.dart';
 import 'package:doctor_app/src/features/select%20time/time_view.dart';
 import 'package:get/get.dart';
 
+import '../src/features/chat/chat_view.dart';
 import 'app_routes.dart';
 
 class AppPages {
@@ -39,13 +39,13 @@ class AppPages {
       page: () => PersonalInfoScreen(),
       binding: PersonalInfoBinding(),
     ),
-
-    GetPage(
-      name: AppRoutes.date,
-      page: () => DateScreen(),
-
-      binding: DateBinding(),
-    ),
+    //
+    // GetPage(
+    //   name: AppRoutes.date,
+    //   page: () => DateScreen(),
+    //
+    //   binding: DateBinding(),
+    // ),
 
     // GetPage(
     //   name: AppRoutes.date,

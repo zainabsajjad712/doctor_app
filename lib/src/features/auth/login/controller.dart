@@ -5,7 +5,7 @@ class PersonalInfoController extends GetxController {
   final nameController = TextEditingController();
   final dobController = TextEditingController();
   final emailController = TextEditingController();
-
+  final formKey = GlobalKey<FormState>();
   RxString gender = ''.obs;
 
   void selectGender(String value) {

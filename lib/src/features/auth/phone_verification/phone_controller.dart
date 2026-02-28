@@ -1,6 +1,6 @@
+import 'package:doctor_app/router/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:doctor_app/router/app_routes.dart';
 
 class PhoneController extends GetxController {
   final phoneController = TextEditingController();
@@ -25,7 +25,7 @@ class PhoneController extends GetxController {
     isLoading.value = false;
 
     // 🔥 OTP ki jagah Filter screen
-    Get.toNamed(AppRoutes.filter);
+    Get.toNamed(AppRoutes.otp);
   }
 
   @override

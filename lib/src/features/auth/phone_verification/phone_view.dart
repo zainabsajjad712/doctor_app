@@ -132,11 +132,14 @@ class CustomPhoneField extends StatelessWidget {
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
-          borderSide: const BorderSide(color: Color(0xFFE5E7EB)),
+          borderSide: const BorderSide(color: AppColor.borderColor),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
-          borderSide: const BorderSide(color: Color(0xFF2563EB), width: 1.4),
+          borderSide: const BorderSide(
+            color: AppColor.primaryButton,
+            width: 1.4,
+          ),
         ),
       ),
 
