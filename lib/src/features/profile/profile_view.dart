@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doctor_app/router/app_routes.dart';
+import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,7 +14,7 @@ class ProfileView extends GetView<ProfileController> {
     final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -34,7 +35,7 @@ class ProfileView extends GetView<ProfileController> {
                     Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: const Color(0xFFD9D9D9),
+                        color: AppColor.inputFill,
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: const Icon(Icons.save, size: 20),
@@ -81,7 +82,7 @@ class ProfileView extends GetView<ProfileController> {
                   width: double.infinity,
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: AppColor.white,
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(color: const Color(0xffE8E8E8)),
                   ),
@@ -206,7 +207,7 @@ class ProfileView extends GetView<ProfileController> {
                   height: 50,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xff2F80ED),
+                      backgroundColor: AppColor.primaryButton,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
@@ -218,7 +219,7 @@ class ProfileView extends GetView<ProfileController> {
                       style: GoogleFonts.plusJakartaSans(
                         fontWeight: FontWeight.w600,
                         fontSize: 15,
-                        color: Colors.white,
+                        color: AppColor.white,
                       ),
                     ),
                   ),
@@ -236,7 +237,7 @@ Widget _buildDoctorCard() {
   return Container(
     padding: const EdgeInsets.all(16),
     decoration: BoxDecoration(
-      color: Colors.white,
+      color: AppColor.white,
       borderRadius: BorderRadius.circular(20),
     ),
     child: Column(
@@ -264,7 +265,7 @@ Widget _buildDoctorCard() {
                 Text(
                   "Radiant Hospital",
                   style: GoogleFonts.plusJakartaSans(
-                    color: const Color(0xff2673FF),
+                    color: AppColor.primaryBlue,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -342,12 +343,12 @@ Widget _buildDoctorCard() {
               decoration: BoxDecoration(
                 color: Color(0xffE6F0FF),
                 borderRadius: BorderRadius.circular(30),
-                border: Border.all(color: const Color(0xff2673FF)),
+                border: Border.all(color: AppColor.primaryBlue),
               ),
               child: Text(
                 "Book Now",
                 style: GoogleFonts.plusJakartaSans(
-                  color: const Color(0xff2673FF),
+                  color: AppColor.primaryBlue,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -364,7 +365,7 @@ Widget _infoItem(IconData icon, String title, String subtitle) {
     children: [
       Row(
         children: [
-          Icon(icon, color: const Color(0xff2673FF), size: 20),
+          Icon(icon, color: AppColor.primaryBlue, size: 20),
 
           const SizedBox(width: 5),
           Text(

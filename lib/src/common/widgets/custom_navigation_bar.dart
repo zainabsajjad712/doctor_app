@@ -60,7 +60,7 @@
 // //     return GetBuilder<NavigationController>(
 // //       builder: (value) {
 // //         return Scaffold(
-// //           backgroundColor: Colors.white,
+// //           backgroundColor: AppColor.white,
 // //           body: _widgetOptions[value.selectedIndex],
 // //           bottomNavigationBar: Padding(
 // //             padding: EdgeInsets.only(
@@ -134,7 +134,7 @@
 // //                         Container(
 // //                           decoration: BoxDecoration(
 // //                             borderRadius: BorderRadius.circular(5),
-// //                             color: Colors.white,
+// //                             color: AppColor.white,
 // //                           ),
 // //                           child: Padding(
 // //                             padding: EdgeInsets.all(3.9.sp),
@@ -324,7 +324,7 @@
 //     return GetBuilder<NavigationController>(
 //       builder: (value) {
 //         return Scaffold(
-//           backgroundColor: Colors.white,
+//           backgroundColor: AppColor.white,
 //           body: _pages[value.selectedIndex], // ✅ working body
 //           bottomNavigationBar: Stack(
 //             alignment: Alignment.center,
@@ -333,7 +333,7 @@
 //               Container(
 //                 height: height * 0.09,
 //                 decoration: BoxDecoration(
-//                   color: Colors.white,
+//                   color: AppColor.white,
 //                   boxShadow: [
 //                     BoxShadow(
 //                       color: Colors.grey.withOpacity(0.15),
@@ -378,7 +378,7 @@
 //                     ),
 //                     child: const Icon(
 //                       Icons.add,
-//                       color: Colors.white,
+//                       color: AppColor.white,
 //                     ),
 //                   ),
 //                 ),
@@ -476,7 +476,7 @@
 //     return GetBuilder<NavigationController>(
 //       builder: (value) {
 //         return Scaffold(
-//           backgroundColor: Colors.white,
+//           backgroundColor: AppColor.white,
 //           body: _pages[value.selectedIndex],
 //           bottomNavigationBar: Stack(
 //             alignment: Alignment.center,
@@ -485,7 +485,7 @@
 //               Container(
 //                 height: height * 0.09,
 //                 decoration: BoxDecoration(
-//                   color: Colors.white,
+//                   color: AppColor.white,
 //                   boxShadow: [
 //                     BoxShadow(
 //                       color: Colors.grey.withOpacity(0.15),
@@ -526,7 +526,7 @@
 //                         ),
 //                       ],
 //                     ),
-//                     child: const Icon(Icons.add, color: Colors.white),
+//                     child: const Icon(Icons.add, color: AppColor.white),
 //                   ),
 //                 ),
 //               ),
@@ -591,20 +591,21 @@ class CustomNavigation extends StatefulWidget {
 }
 
 class _CustomNavigationState extends State<CustomNavigation> {
-
-  final NavigationController navigationCont =
-      Get.put(NavigationController(), permanent: true);
+  final NavigationController navigationCont = Get.put(
+    NavigationController(),
+    permanent: true,
+  );
 
   final List<double> _turns = List<double>.filled(4, 0.0);
   int? _pressedIndex;
 
   /// ✅ PAGES
   final List<Widget> _pages = [
-    HomeView(),          // 0
-    DoctorView(),        // 1
-    PersonalInfoScreen(),// 2
-    ProfileView(),       // 3 ✅ PROFILE
-    const OtpView(),     // 4 FAB
+    HomeView(), // 0
+    DoctorView(), // 1
+    PersonalInfoScreen(), // 2
+    ProfileView(), // 3 ✅ PROFILE
+    const OtpView(), // 4 FAB
   ];
 
   @override
@@ -625,7 +626,7 @@ class _CustomNavigationState extends State<CustomNavigation> {
     return GetBuilder<NavigationController>(
       builder: (value) {
         return Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: AppColor.white,
           body: _pages[value.selectedIndex],
           bottomNavigationBar: Stack(
             alignment: Alignment.center,
@@ -634,7 +635,7 @@ class _CustomNavigationState extends State<CustomNavigation> {
               Container(
                 height: height * 0.09,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: AppColor.white,
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.15),
@@ -676,7 +677,7 @@ class _CustomNavigationState extends State<CustomNavigation> {
                         ),
                       ],
                     ),
-                    child: const Icon(Icons.add, color: Colors.white),
+                    child: const Icon(Icons.add, color: AppColor.white),
                   ),
                 ),
               ),
@@ -711,9 +712,7 @@ class _CustomNavigationState extends State<CustomNavigation> {
           child: Icon(
             icon,
             size: 25.sp,
-            color: isSelected
-                ? AppColor.primaryButton
-                : Colors.grey,
+            color: isSelected ? AppColor.primaryButton : Colors.grey,
           ),
         ),
       ),

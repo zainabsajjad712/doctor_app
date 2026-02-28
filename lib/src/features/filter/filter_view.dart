@@ -1,4 +1,5 @@
 import 'package:doctor_app/router/app_routes.dart';
+import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -57,9 +58,11 @@ class FilterView extends StatelessWidget {
                       () => Container(
                         margin: const EdgeInsets.only(bottom: 15),
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 15, vertical: 12),
+                          horizontal: 15,
+                          vertical: 12,
+                        ),
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: AppColor.white,
                           borderRadius: BorderRadius.circular(25),
                         ),
                         child: Row(
@@ -74,7 +77,7 @@ class FilterView extends StatelessWidget {
                               ),
                               child: Icon(
                                 item["icon"],
-                                color: Colors.white,
+                                color: AppColor.white,
                                 size: 26,
                               ),
                             ),
@@ -94,19 +97,15 @@ class FilterView extends StatelessWidget {
 
                             /// Checkbox
                             Checkbox(
-                              value: controller
-                                  .isSelected(item["title"]),
+                              value: controller.isSelected(item["title"]),
                               onChanged: (_) {
-                                controller
-                                    .toggleSelection(item["title"]);
+                                controller.toggleSelection(item["title"]);
                               },
-                              activeColor:
-                                  const Color(0xff2E7DFF),
+                              activeColor: const Color(0xff2E7DFF),
                               shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.circular(5),
+                                borderRadius: BorderRadius.circular(5),
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -121,22 +120,20 @@ class FilterView extends StatelessWidget {
                 height: 55,
                 child: ElevatedButton(
                   onPressed: () {
-                     // ✅ Replace this
-      Get.toNamed(AppRoutes.personalInfo);  // <-- COPY-PASTE YAHAN
-    },
+                    // ✅ Replace this
+                    Get.toNamed(AppRoutes.personalInfo); // <-- COPY-PASTE YAHAN
+                  },
                   //   Get.snackbar(
                   //     "Selected",
                   //     controller.selectedItems.join(", "),
                   //     backgroundColor: Colors.blue,
-                  //     colorText: Colors.white,
+                  //     colorText: AppColor.white,
                   //   );
                   // },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        const Color(0xff2E7DFF),
+                    backgroundColor: const Color(0xff2E7DFF),
                     shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(30),
                     ),
                   ),
                   child: Text(
@@ -144,7 +141,7 @@ class FilterView extends StatelessWidget {
                     style: GoogleFonts.openSans(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
-                      color: Colors.white,
+                      color: AppColor.white,
                     ),
                   ),
                 ),

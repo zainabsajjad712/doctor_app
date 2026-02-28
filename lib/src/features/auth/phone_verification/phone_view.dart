@@ -16,7 +16,7 @@ class PhoneView extends GetView<PhoneController> {
     final w = MediaQuery.sizeOf(context).width;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.white,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 22.w),
@@ -80,7 +80,7 @@ class PhoneView extends GetView<PhoneController> {
                             height: 22.h,
                             child: CircularProgressIndicator(
                               strokeWidth: 2.5,
-                              color: Colors.white,
+                              color: AppColor.white,
                             ),
                           )
                         : Text(
@@ -88,7 +88,7 @@ class PhoneView extends GetView<PhoneController> {
                             style: TextStyle(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w700,
-                              color: Colors.white,
+                              color: AppColor.white,
                             ),
                           ),
                   ),
@@ -131,7 +131,7 @@ class CustomPhoneField extends StatelessWidget {
 
       decoration: InputDecoration(
         hintText: 'Your phone number',
-        hintStyle: const TextStyle(color: Colors.black38),
+        hintStyle: const TextStyle(color: Colors.black),
         contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
         enabledBorder: OutlineInputBorder(

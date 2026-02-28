@@ -1,4 +1,5 @@
 import 'package:doctor_app/router/app_routes.dart';
+import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:doctor_app/src/features/reviews/reviews_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,7 +12,7 @@ class ReviewsView extends GetView<ReviewsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.white,
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -67,9 +68,9 @@ class ReviewsView extends GetView<ReviewsController> {
               child: Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: AppColor.white,
                   borderRadius: BorderRadius.circular(24),
-                  border: Border.all(color: const Color(0xffE5E7EB), width: 1),
+                  border: Border.all(color: AppColor.border, width: 1),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,7 +85,7 @@ class ReviewsView extends GetView<ReviewsController> {
                           style: GoogleFonts.plusJakartaSans(
                             fontSize: 40,
                             fontWeight: FontWeight.w800,
-                            color: const Color(0xff292D32),
+                            color: AppColor.textPrimary,
                           ),
                         ),
                         const Spacer(),
@@ -107,7 +108,7 @@ class ReviewsView extends GetView<ReviewsController> {
                               style: GoogleFonts.plusJakartaSans(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
-                                color: const Color(0xff555B6C),
+                                color: AppColor.textSecondary,
                               ),
                             ),
                           ],
@@ -160,7 +161,7 @@ class ReviewsView extends GetView<ReviewsController> {
                                             style: GoogleFonts.plusJakartaSans(
                                               fontWeight: FontWeight.w700,
                                               fontSize: 18,
-                                              color: const Color(0xff292D32),
+                                              color: AppColor.textPrimary,
                                             ),
                                           ),
                                           const SizedBox(height: 4),
@@ -168,7 +169,7 @@ class ReviewsView extends GetView<ReviewsController> {
                                             item.time,
                                             style: GoogleFonts.plusJakartaSans(
                                               fontSize: 16,
-                                              color: const Color(0xff555B6C),
+                                              color: AppColor.textSecondary,
                                               fontWeight: FontWeight.w600,
                                             ),
                                           ),
@@ -231,7 +232,7 @@ class ReviewsView extends GetView<ReviewsController> {
               ),
             ),
 
-            const SizedBox(height: 20),   
+            const SizedBox(height: 20),
           ],
         ),
       ),

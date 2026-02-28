@@ -1,3 +1,4 @@
+import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,7 +11,7 @@ class AttachmentsView extends GetView<AttachmentsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffF5F6FA),
+      backgroundColor: AppColor.scaffoldBg,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20),

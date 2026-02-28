@@ -1,3 +1,4 @@
+import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -93,13 +94,13 @@ class CustomButton extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         if (icon != null) ...[
-          Icon(icon, size: iconSize ?? 20, color: iconColor ?? Colors.white),
+          Icon(icon, size: iconSize ?? 20, color: iconColor ?? AppColor.white),
           const SizedBox(width: 8),
         ],
         Text(
           text,
           style: GoogleFonts.openSans(
-            color: textColor ?? Colors.white,
+            color: textColor ?? AppColor.white,
             fontWeight: fontWeight ?? FontWeight.w600,
             fontSize: textSize ?? 17,
             letterSpacing: letterSpacing ?? 1.25,
@@ -116,14 +117,14 @@ class CustomButton extends StatelessWidget {
         Text(
           text,
           style: GoogleFonts.openSans(
-            color: textColor ?? Colors.white,
+            color: textColor ?? AppColor.white,
             fontWeight: fontWeight ?? FontWeight.w600,
             fontSize: textSize ?? 14,
           ),
         ),
         if (icon != null) ...[
           const SizedBox(width: 8),
-          Icon(icon, size: iconSize ?? 20, color: iconColor ?? Colors.white),
+          Icon(icon, size: iconSize ?? 20, color: iconColor ?? AppColor.white),
         ],
       ],
     );

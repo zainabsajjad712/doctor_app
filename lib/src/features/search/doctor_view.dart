@@ -17,7 +17,7 @@
 //     final size = MediaQuery.of(context).size;
 
 //     return Scaffold(
-//       backgroundColor: const Color(0xffF5F6FA),
+//       backgroundColor: AppColor.scaffoldBg,
 //       body: SafeArea(
 //         child: Padding(
 //           padding: EdgeInsets.all(size.width * 0.05),
@@ -91,7 +91,7 @@
 //                         margin: const EdgeInsets.only(bottom: 15),
 //                         padding: const EdgeInsets.all(12),
 //                         decoration: BoxDecoration(
-//                           color: Colors.white,
+//                           color: AppColor.white,
 //                           borderRadius: BorderRadius.circular(18),
 //                         ),
 //                         child: Row(
@@ -123,7 +123,7 @@
 //                                 Text(
 //                                   doctor["name"] ?? "",
 //                                   style: GoogleFonts.plusJakartaSans(
-//                                     color: Color(0xFF292D32),
+//                                     color: AppColor.textPrimary,,
 //                                     fontWeight: FontWeight.w700,
 //                                     fontSize: 18,
 //                                   ),
@@ -152,6 +152,7 @@
 //     );
 //   }
 // }
+import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -171,7 +172,7 @@ class DoctorView extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: const Color(0xffF5F6FA),
+      backgroundColor: AppColor.scaffoldBg,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(size.width * 0.05),
@@ -196,7 +197,7 @@ class DoctorView extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFD9D9D9),
+                      color: AppColor.inputFill,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: const Icon(Icons.tune, size: 20),
@@ -214,7 +215,7 @@ class DoctorView extends StatelessWidget {
                   hintStyle: GoogleFonts.openSans(color: Colors.black),
                   prefixIcon: const Icon(Icons.search),
                   filled: true,
-                  fillColor: const Color(0xFFD9D9D9),
+                  fillColor: AppColor.inputFill,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(14),
                     borderSide: BorderSide.none,
@@ -291,7 +292,7 @@ class DoctorView extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 15),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColor.white,
         borderRadius: BorderRadius.circular(18),
       ),
       child: Row(
@@ -318,7 +319,7 @@ class DoctorView extends StatelessWidget {
               Text(
                 doctor["hospital"] ?? "",
                 style: GoogleFonts.plusJakartaSans(
-                  color: const Color(0xFF2673FF),
+                  color: AppColor.primaryBlue,
                   fontWeight: FontWeight.w700,
                   fontSize: 16,
                 ),
@@ -327,7 +328,7 @@ class DoctorView extends StatelessWidget {
               Text(
                 doctor["name"] ?? "",
                 style: GoogleFonts.plusJakartaSans(
-                  color: const Color(0xFF292D32),
+                  color: AppColor.textPrimary,
                   fontWeight: FontWeight.w700,
                   fontSize: 18,
                 ),
@@ -335,7 +336,7 @@ class DoctorView extends StatelessWidget {
               Text(
                 doctor["specialist"] ?? "",
                 style: GoogleFonts.plusJakartaSans(
-                  color: const Color(0xFF555B6C),
+                  color: AppColor.textSecondary,
                   fontWeight: FontWeight.w600,
                   fontSize: 16,
                 ),

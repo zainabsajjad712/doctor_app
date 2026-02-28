@@ -12,7 +12,7 @@ class OtpView extends GetView<OtpController> {
     final controller = Get.put(OtpController()); // ✅
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 22),
@@ -24,8 +24,7 @@ class OtpView extends GetView<OtpController> {
               const Icon(
                 Icons.phone_android_outlined,
                 size: 90,
-                color: Colors.black,
-              ),
+                color: AppColor.black              ),
               const SizedBox(height: 22),
 
               // Title + subtitle
@@ -36,8 +35,7 @@ class OtpView extends GetView<OtpController> {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
-                    color: Colors.black87,
-                  ),
+                    color: AppColor.black                  ),
                 ),
               ),
               const SizedBox(height: 6),
@@ -50,8 +48,7 @@ class OtpView extends GetView<OtpController> {
                     style: TextStyle(
                       fontSize: 12,
                       height: 1.3,
-                      color: Colors.black.withOpacity(0.6),
-                      fontWeight: FontWeight.w500,
+                      color: AppColor.black ,                     fontWeight: FontWeight.w500,
                     ),
                   );
                 }),
@@ -85,8 +82,7 @@ class OtpView extends GetView<OtpController> {
                           : "Did not receive the OTP code? Resend (01:${s.toString().padLeft(2, '0')})",
                       style: TextStyle(
                         fontSize: 12,
-                        color: Colors.black.withOpacity(0.65),
-                        fontWeight: FontWeight.w500,
+                        color: AppColor.black ,                       fontWeight: FontWeight.w500,
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -102,8 +98,7 @@ class OtpView extends GetView<OtpController> {
                           fontWeight: FontWeight.w700,
                           color: canResend
                               ? AppColor.primaryButton
-                              : Colors.black.withOpacity(0.35),
-                        ),
+                              : AppColor.black                        ),
                       ),
                     ),
 
@@ -117,8 +112,7 @@ class OtpView extends GetView<OtpController> {
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
-                          color: Colors.black.withOpacity(0.65),
-                        ),
+                          color: AppColor.black                        ),
                       ),
                     ),
                   ],
@@ -149,7 +143,7 @@ class OtpView extends GetView<OtpController> {
                             height: 22,
                             child: CircularProgressIndicator(
                               strokeWidth: 2.5,
-                              color: Colors.white,
+                              color: AppColor.white,
                             ),
                           )
                         : const Text(
@@ -157,7 +151,7 @@ class OtpView extends GetView<OtpController> {
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
-                              color: Colors.white,
+                              color: AppColor.white,
                             ),
                           ),
                   ),
@@ -190,14 +184,12 @@ class _OtpBox extends GetView<OtpController> {
         style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w700,
-          color: Colors.black87,
-        ),
+          color: AppColor.black        ),
         decoration: InputDecoration(
           counterText: '',
           enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(
-              color: Colors.black.withOpacity(0.25),
-              width: 2,
+              color: AppColor.black ,             width: 2,
             ),
           ),
           focusedBorder: const UnderlineInputBorder(

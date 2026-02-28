@@ -150,7 +150,7 @@ class PersonalInfoScreen extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-              color: c.gender.value == text ? Colors.white : Colors.black,
+              color: c.gender.value == text ? AppColor.white : AppColor.black,
             ),
           ),
         ),

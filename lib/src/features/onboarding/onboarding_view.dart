@@ -12,7 +12,7 @@ class OnboardingView extends GetView<OnboardingController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.white,
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -45,7 +45,7 @@ class OnboardingView extends GetView<OnboardingController> {
                   width: double.infinity,
                   padding: EdgeInsets.only(top: 12, left: 12, right: 12),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: AppColor.white,
                     borderRadius: BorderRadius.circular(26),
                   ),
                   child: Column(

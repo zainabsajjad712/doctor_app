@@ -1,3 +1,4 @@
+import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:doctor_app/src/common/widgets/custom_button.dart';
 import 'package:doctor_app/src/features/appointment/appointment_controller.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class AppointmentView extends GetView<AppointmentController> {
     final data = controller.appointment;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -50,9 +51,9 @@ class AppointmentView extends GetView<AppointmentController> {
               Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: AppColor.white,
                   borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: const Color(0xffE5E7EB)),
+                  border: Border.all(color: AppColor.border),
                 ),
                 child: Column(
                   children: [
@@ -116,7 +117,7 @@ class AppointmentView extends GetView<AppointmentController> {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: const Color(0xffEEF4FF),
+                  color: AppColor.lightBlueBg,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Row(
@@ -140,7 +141,7 @@ class AppointmentView extends GetView<AppointmentController> {
                             style: GoogleFonts.plusJakartaSans(
                               fontWeight: FontWeight.w700,
                               fontSize: 18,
-                              color: const Color(0xFF292D32),
+                              color: AppColor.textPrimary,
                             ),
                           ),
                           const SizedBox(height: 4),
@@ -148,7 +149,7 @@ class AppointmentView extends GetView<AppointmentController> {
                             data.doctorSpecialist,
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 16,
-                              color: const Color(0xff555B6C),
+                              color: AppColor.textSecondary,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -175,8 +176,8 @@ class AppointmentView extends GetView<AppointmentController> {
                 borderRadius: 30,
                 textSize: 15,
                 fontWeight: FontWeight.w600,
-                color: const Color(0xff2F80ED),
-                textColor: Colors.white,
+                color: AppColor.primaryButton,
+                textColor: AppColor.white,
                 width: double.infinity,
               ),
               SizedBox(),
@@ -199,7 +200,7 @@ class AppointmentView extends GetView<AppointmentController> {
   //               style: GoogleFonts.plusJakartaSans(
   //                 fontSize: 18,
   //                 fontWeight: FontWeight.w700,
-  //                 color: Color(0xFF292D32),
+  //                 color: AppColor.textPrimary,,
   //               ),
   //             ),
   //             const SizedBox(height: 4),
@@ -207,7 +208,7 @@ class AppointmentView extends GetView<AppointmentController> {
   //               subtitle,
   //               style: GoogleFonts.plusJakartaSans(
   //                 fontSize: 16,
-  //                 color: const Color(0xFF555B6C),
+  //                 color: AppColor.textSecondary,
   //                 fontWeight: FontWeight.w600,
   //               ),
   //             ),
@@ -220,7 +221,7 @@ class AppointmentView extends GetView<AppointmentController> {
   //         //     shape: BoxShape.circle,
   //         //   ),
   //         //   child:
-  //         Icon(icon, size: 24, color: const Color(0xFF555B6C)),
+  //         Icon(icon, size: 24, color: AppColor.textSecondary),
   //       ],
   //     );
   //   }
@@ -244,7 +245,7 @@ class AppointmentView extends GetView<AppointmentController> {
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
-                  color: const Color(0xFF292D32),
+                  color: AppColor.textPrimary,
                 ),
               ),
               const SizedBox(height: 4),
@@ -252,13 +253,13 @@ class AppointmentView extends GetView<AppointmentController> {
                 subtitle,
                 style: GoogleFonts.plusJakartaSans(
                   fontSize: 16,
-                  color: const Color(0xFF555B6C),
+                  color: AppColor.textSecondary,
                   fontWeight: FontWeight.w600,
                 ),
               ),
             ],
           ),
-          Icon(icon, size: 24, color: const Color(0xFF555B6C)),
+          Icon(icon, size: 24, color: AppColor.textSecondary),
         ],
       ),
     );

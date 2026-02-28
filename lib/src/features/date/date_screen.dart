@@ -1,3 +1,4 @@
+import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:doctor_app/src/common/widgets/custom_button.dart';
 import 'package:doctor_app/src/features/date/date_controller.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class DateScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.white,
       body: SafeArea(
         child: Column(
           children: [
@@ -63,11 +64,11 @@ class DateScreen extends StatelessWidget {
                     titleCentered: true,
                     leftChevronIcon: Icon(
                       Icons.chevron_left,
-                      color: Colors.black,
+                      color: AppColor.black,
                     ),
                     rightChevronIcon: Icon(
                       Icons.chevron_right,
-                      color: Colors.black,
+                      color: AppColor.black,
                     ),
                   ),
 
@@ -85,7 +86,7 @@ class DateScreen extends StatelessWidget {
                       color: Color(0xFF2673FF),
                       shape: BoxShape.circle,
                     ),
-                    selectedTextStyle: TextStyle(color: Colors.white),
+                    selectedTextStyle: TextStyle(color: AppColor.white),
                   ),
                 ),
               ),

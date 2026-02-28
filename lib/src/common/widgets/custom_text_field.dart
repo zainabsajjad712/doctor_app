@@ -1,3 +1,4 @@
+import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -102,15 +103,13 @@ class CustomTextFormField extends StatelessWidget {
       focusNode: focusNode,
       maxLength: maxLength,
       obscureText: obscureText ?? false,
-      cursorColor: cursorColor ?? Colors.black,
-      maxLines: (obscureText ?? false) ? 1 : (maxline ?? 1),
+      cursorColor: cursorColor ?? AppColor.black ,     maxLines: (obscureText ?? false) ? 1 : (maxline ?? 1),
       textInputAction: inputAction,
       initialValue: initialValue,
       style:
           textStyle ??
           GoogleFonts.openSans(
-            color: inputColor ?? Colors.black,
-            fontSize: 14,
+            color: inputColor ?? AppColor.black,            fontSize: 14,
             fontWeight: FontWeight.w500,
           ),
       autofocus: false,

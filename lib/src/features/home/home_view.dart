@@ -13,7 +13,7 @@
 //     final size = MediaQuery.of(context).size;
 
 //     return Scaffold(
-//       backgroundColor: const Color(0xffF5F6FA),
+//       backgroundColor: AppColor.scaffoldBg,
 //       body: SafeArea(
 //         child: Padding(
 //           padding: const EdgeInsets.all(20),
@@ -62,13 +62,13 @@
 //                         Text(
 //                           "Trusted doctor on your schedule 😊",
 //                           style: GoogleFonts.plusJakartaSans(
-//                               color: Colors.white70, fontSize: 12),
+//                               color: AppColor.white70, fontSize: 12),
 //                         ),
 //                         const SizedBox(height: 10),
 //                         Text(
 //                           "Consult A Doctor\n— Book Today!",
 //                           style: GoogleFonts.plusJakartaSans(
-//                             color: Colors.white,
+//                             color: AppColor.white,
 //                             fontSize: 18,
 //                             fontWeight: FontWeight.w700,
 //                           ),
@@ -81,7 +81,7 @@
 //                             Text(
 //                               "30.000+\nHappy Patients",
 //                               style: GoogleFonts.plusJakartaSans(
-//                                   color: Colors.white, fontSize: 11),
+//                                   color: AppColor.white, fontSize: 11),
 //                             )
 //                           ],
 //                         )
@@ -111,7 +111,7 @@
 //                           fontWeight: FontWeight.w700, fontSize: 16)),
 //                   Text("See All",
 //                       style: GoogleFonts.plusJakartaSans(
-//                           color: const Color(0xff2673FF)))
+//                           color: AppColor.primaryBlue ))
 //                 ],
 //               ),
 //             ],
@@ -131,7 +131,7 @@
 //           ],
 //         ),
 //         child: FloatingActionButton(
-//           backgroundColor: const Color(0xff2673FF),
+//           backgroundColor: AppColor.primaryBlue ,
 //           onPressed: () {},
 //           child: const Icon(Icons.add),
 //         ),
@@ -165,7 +165,7 @@
 //     return Container(
 //       height: 75,
 //       decoration: const BoxDecoration(
-//         color: Colors.white,
+//         color: AppColor.white,
 //         borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
 //         boxShadow: [
 //           BoxShadow(
@@ -198,7 +198,7 @@
 //           child: Icon(
 //             icon,
 //             color: controller.selectedIndex.value == index
-//                 ? const Color(0xff2673FF)
+//                 ? AppColor.primaryBlue
 //                 : Colors.grey,
 //           ),
 //         ));
@@ -218,7 +218,7 @@
 //     final size = MediaQuery.of(context).size;
 
 //     return Scaffold(
-//       backgroundColor: const Color(0xffF5F6FA),
+//       backgroundColor: AppColor.scaffoldBg,
 //       body: SafeArea(
 //         child: Padding(
 //           padding: const EdgeInsets.all(20),
@@ -264,7 +264,7 @@
 //                         Text(
 //                           "Trusted doctor on your schedule 😊",
 //                           style: GoogleFonts.plusJakartaSans(
-//                             color: Colors.white70,
+//                             color: AppColor.white70,
 //                             fontSize: 12,
 //                           ),
 //                         ),
@@ -272,7 +272,7 @@
 //                         Text(
 //                           "Consult A Doctor\n— Book Today!",
 //                           style: GoogleFonts.plusJakartaSans(
-//                             color: Colors.white,
+//                             color: AppColor.white,
 //                             fontSize: 18,
 //                             fontWeight: FontWeight.w700,
 //                           ),
@@ -285,7 +285,7 @@
 //                             Text(
 //                               "30.000+\nHappy Patients",
 //                               style: GoogleFonts.plusJakartaSans(
-//                                 color: Colors.white,
+//                                 color: AppColor.white,
 //                                 fontSize: 11,
 //                               ),
 //                             ),
@@ -329,7 +329,7 @@
 //                   Text(
 //                     "See All",
 //                     style: GoogleFonts.plusJakartaSans(
-//                       color: const Color(0xff2673FF),
+//                       color: AppColor.primaryBlue ,
 //                     ),
 //                   ),
 //                 ],
@@ -381,6 +381,7 @@
 //   }
 // }
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -394,7 +395,7 @@ class HomeView extends GetView<HomeController> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -446,7 +447,7 @@ class HomeView extends GetView<HomeController> {
                           Text(
                             "Trusted doctor on your schedule 😊",
                             style: GoogleFonts.plusJakartaSans(
-                              color: Colors.white70,
+                              color: AppColor.white,
                               fontSize: 12,
                             ),
                           ),
@@ -454,7 +455,7 @@ class HomeView extends GetView<HomeController> {
                           Text(
                             "Consult A Doctor\n— Book Today!",
                             style: GoogleFonts.plusJakartaSans(
-                              color: Colors.white,
+                              color: AppColor.white,
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
                             ),
@@ -467,7 +468,7 @@ class HomeView extends GetView<HomeController> {
                               Text(
                                 "30.000+\nHappy Patients",
                                 style: GoogleFonts.plusJakartaSans(
-                                  color: Colors.white,
+                                  color: AppColor.white,
                                   fontSize: 11,
                                 ),
                               ),
@@ -506,7 +507,7 @@ class HomeView extends GetView<HomeController> {
                     Text(
                       "See All",
                       style: GoogleFonts.openSans(
-                        color: const Color(0xff2673FF),
+                        color: AppColor.primaryBlue,
                         fontSize: 20,
                         fontWeight: FontWeight.w400,
                       ),
@@ -568,7 +569,7 @@ class HomeView extends GetView<HomeController> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColor.white,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -596,7 +597,7 @@ class HomeView extends GetView<HomeController> {
                   Text(
                     "Radiant Hospital",
                     style: GoogleFonts.plusJakartaSans(
-                      color: const Color(0xff2673FF),
+                      color: AppColor.primaryBlue,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -677,12 +678,12 @@ class HomeView extends GetView<HomeController> {
                 decoration: BoxDecoration(
                   color: Color(0xffE6F0FF),
                   borderRadius: BorderRadius.circular(30),
-                  border: Border.all(color: const Color(0xff2673FF)),
+                  border: Border.all(color: AppColor.primaryBlue),
                 ),
                 child: Text(
                   "Book Now",
                   style: GoogleFonts.plusJakartaSans(
-                    color: const Color(0xff2673FF),
+                    color: AppColor.primaryBlue,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -699,7 +700,7 @@ class HomeView extends GetView<HomeController> {
       children: [
         Row(
           children: [
-            Icon(icon, color: const Color(0xff2673FF), size: 20),
+            Icon(icon, color: AppColor.primaryBlue, size: 20),
 
             const SizedBox(width: 5),
             Text(
