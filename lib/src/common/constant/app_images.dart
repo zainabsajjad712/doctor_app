@@ -16,4 +16,5 @@ class AppIcons {
   static String mail = 'assets/icons/mail.svg';
   static String message = 'assets/icons/message.svg';
   static String call = 'assets/icons/call.svg';
+  static String otp = 'assets/icons/otp.svg';
 }
