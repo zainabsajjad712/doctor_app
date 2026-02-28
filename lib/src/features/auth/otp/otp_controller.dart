@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:doctor_app/router/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -121,7 +120,6 @@ class OtpController extends GetxController {
     // isLoading.value = false;
 
     // For now (demo success)
-
     Get.offAllNamed(AppRoutes.personalInfo);
   }
 

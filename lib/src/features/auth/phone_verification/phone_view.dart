@@ -1,5 +1,5 @@
-import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:doctor_app/src/common/constant/app_images.dart';
+import 'package:doctor_app/src/common/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -58,37 +58,43 @@ class PhoneView extends GetView<PhoneController> {
               // ✅ Bottom button (ALWAYS bottom)
               Obx(() {
                 final loading = controller.isLoading.value;
-                return SizedBox(
-                  width: w,
-                  height: 54.h,
-                  child: ElevatedButton(
-                    onPressed: loading ? null : controller.onNext,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColor.primaryButton,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(28),
-                      ),
-                      elevation: 0,
-                    ),
-                    child: loading
-                        ? SizedBox(
-                            width: 22.w,
-                            height: 22.h,
-                            child: CircularProgressIndicator(
-                              strokeWidth: 2.5,
-                              color: Colors.white,
-                            ),
-                          )
-                        : Text(
-                            'Next',
-                            style: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
-                            ),
-                          ),
-                  ),
+                return CustomButton(
+                  onTap: controller.onNext,
+                  text: 'Next',
+                  isLoading: loading,
                 );
+
+                // SizedBox(
+                //   width: w,
+                //   height: 54.h,
+                //   child: ElevatedButton(
+                //     onPressed: loading ? null : controller.onNext,
+                //     style: ElevatedButton.styleFrom(
+                //       backgroundColor: AppColor.primaryButton,
+                //       shape: RoundedRectangleBorder(
+                //         borderRadius: BorderRadius.circular(28),
+                //       ),
+                //       elevation: 0,
+                //     ),
+                //     child: loading
+                //         ? SizedBox(
+                //             width: 22.w,
+                //             height: 22.h,
+                //             child: CircularProgressIndicator(
+                //               strokeWidth: 2.5,
+                //               color: Colors.white,
+                //             ),
+                //           )
+                //         : Text(
+                //             'Next',
+                //             style: TextStyle(
+                //               fontSize: 16.sp,
+                //               fontWeight: FontWeight.w700,
+                //               color: Colors.white,
+                //             ),
+                //           ),
+                //   ),
+                // );
               }),
 
               SizedBox(height: 20.h),
