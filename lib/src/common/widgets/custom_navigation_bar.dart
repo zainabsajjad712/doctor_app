@@ -33,7 +33,7 @@ class _CustomNavigationState extends State<CustomNavigation> {
   /// ✅ PAGES
   final List<Widget> _pages = [
     HomeView(), // 0
-    DoctorView(), // 1
+    FindDoctorView(), // 1
     ChatScreen(), // 2
     OnlineConsultationView(), // 3 ✅ PROFILE
     const OtpView(), // 4 FAB
@@ -43,7 +43,7 @@ class _CustomNavigationState extends State<CustomNavigation> {
   void initState() {
     super.initState();
 
-    Get.put(DoctorController(), permanent: true);
+    Get.put(OnlineConsultationController(), permanent: true);
     Get.put(ProfileController(), permanent: true);
 
     // ✅ ADD THIS

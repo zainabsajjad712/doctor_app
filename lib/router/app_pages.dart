@@ -115,8 +115,8 @@ class AppPages {
     ),*/
     GetPage(
       name: AppRoutes.doctor,
-      page: () => DoctorView(),
-      binding: DoctorBinding(),
+      page: () => FindDoctorView(),
+      binding: FindDoctorBinding(),
     ),
     GetPage(name: AppRoutes.homescreen, page: () => const CustomNavigation()),
     GetPage(
