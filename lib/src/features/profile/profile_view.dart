@@ -4,6 +4,7 @@ import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'profile_controller.dart';
 
 class ProfileView extends GetView<ProfileController> {

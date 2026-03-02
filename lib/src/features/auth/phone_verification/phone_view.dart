@@ -1,11 +1,12 @@
-import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:doctor_app/src/common/constant/app_images.dart';
+import 'package:doctor_app/src/common/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
 
+import '../../../common/constant/app_colors.dart';
 import 'phone_controller.dart';
 
 class PhoneView extends GetView<PhoneController> {
@@ -14,7 +15,6 @@ class PhoneView extends GetView<PhoneController> {
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.sizeOf(context).width;
-
     return Scaffold(
       backgroundColor: AppColor.white,
       body: SafeArea(
@@ -26,9 +26,8 @@ class PhoneView extends GetView<PhoneController> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(height: 10.h),
-                    Image.asset(AppImages.phone, height: 200),
-                    SizedBox(height: 25.h),
+                    Image.asset(AppImages.phone, height: 200.h),
+                    SizedBox(height: 26.h),
                     // TextField
                     CustomPhoneField(
                       controller: controller.phoneController,
@@ -57,42 +56,47 @@ class PhoneView extends GetView<PhoneController> {
                   ],
                 ),
               ),
-
               // ✅ Bottom button (ALWAYS bottom)
               Obx(() {
                 final loading = controller.isLoading.value;
-
-                return SizedBox(
-                  width: w,
-                  height: 54.h,
-                  child: ElevatedButton(
-                    onPressed: loading ? null : controller.onNext,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColor.primaryButton,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(28),
-                      ),
-                      elevation: 0,
-                    ),
-                    child: loading
-                        ? SizedBox(
-                            width: 22.w,
-                            height: 22.h,
-                            child: CircularProgressIndicator(
-                              strokeWidth: 2.5,
-                              color: AppColor.white,
-                            ),
-                          )
-                        : Text(
-                            'Next',
-                            style: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w700,
-                              color: AppColor.white,
-                            ),
-                          ),
-                  ),
+                return CustomButton(
+                  onTap: controller.onNext,
+                  text: 'Next',
+                  isLoading: loading,
+                  borderRadius: 25.r,
                 );
+
+                // SizedBox(
+                //   width: w,
+                //   height: 54.h,
+                //   child: ElevatedButton(
+                //     onPressed: loading ? null : controller.onNext,
+                //     style: ElevatedButton.styleFrom(
+                //       backgroundColor: AppColor.primaryButton,
+                //       shape: RoundedRectangleBorder(
+                //         borderRadius: BorderRadius.circular(28),
+                //       ),
+                //       elevation: 0,
+                //     ),
+                //     child: loading
+                //         ? SizedBox(
+                //             width: 22.w,
+                //             height: 22.h,
+                //             child: CircularProgressIndicator(
+                //               strokeWidth: 2.5,
+                //               color: Colors.white,
+                //             ),
+                //           )
+                //         : Text(
+                //             'Next',
+                //             style: TextStyle(
+                //               fontSize: 16.sp,
+                //               fontWeight: FontWeight.w700,
+                //               color: Colors.white,
+                //             ),
+                //           ),
+                //   ),
+                // );
               }),
 
               SizedBox(height: 20.h),
@@ -136,11 +140,11 @@ class CustomPhoneField extends StatelessWidget {
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
-          borderSide: const BorderSide(color: Color(0xFFE5E7EB)),
+          borderSide: const BorderSide(color: AppColor.borderColor),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
-          borderSide: const BorderSide(color: Color(0xFF2563EB), width: 1.4),
+          borderSide: BorderSide(color: AppColor.primaryButton, width: 1.4),
         ),
       ),
 

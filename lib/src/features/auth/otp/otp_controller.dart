@@ -1,20 +1,20 @@
 import 'dart:async';
+
 import 'package:doctor_app/router/app_routes.dart';
 import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class OtpController extends GetxController {
-  // Phone comes from previous screen:
-  // Get.toNamed(AppRoutes.otp, arguments: {"phone": "+92336..."});
   final RxString phone = ''.obs;
 
-  // 6-digit OTP
   static const int otpLength = 6;
+
   final List<TextEditingController> controllers = List.generate(
     otpLength,
     (_) => TextEditingController(),
   );
+
   final List<FocusNode> focusNodes = List.generate(
     otpLength,
     (_) => FocusNode(),
@@ -22,7 +22,6 @@ class OtpController extends GetxController {
 
   final RxBool isLoading = false.obs;
 
-  // Timer (resend)
   final RxInt secondsLeft = 20.obs;
   Timer? _timer;
 
@@ -30,7 +29,6 @@ class OtpController extends GetxController {
   void onInit() {
     super.onInit();
 
-    // receive phone from args
     final args = Get.arguments;
     if (args is Map && args["phone"] != null) {
       phone.value = args["phone"].toString();
@@ -55,11 +53,9 @@ class OtpController extends GetxController {
 
   String get otpCode => controllers.map((c) => c.text.trim()).join();
 
-  bool get isOtpComplete =>
-      otpCode.length == otpLength && !otpCode.contains('');
+  bool get isOtpComplete => controllers.every((c) => c.text.trim().length == 1);
 
   void onDigitChanged(int index, String value) {
-    // keep only last digit
     if (value.length > 1) {
       controllers[index].text = value.substring(value.length - 1);
       controllers[index].selection = TextSelection.fromPosition(
@@ -68,27 +64,23 @@ class OtpController extends GetxController {
     }
 
     if (value.isNotEmpty) {
-      // move next
       if (index < otpLength - 1) {
         focusNodes[index + 1].requestFocus();
       } else {
         FocusManager.instance.primaryFocus?.unfocus();
-        // optional auto verify if complete
-        // if (isOtpComplete) verifyOtp();
+
+        /// ✅ AUTO VERIFY HERE
+        if (isOtpComplete && !isLoading.value) {
+          verifyOtp();
+        }
       }
     } else {
-      // back
       if (index > 0) focusNodes[index - 1].requestFocus();
     }
   }
 
   Future<void> resendOtp() async {
     if (secondsLeft.value != 0) return;
-
-    // ✅ Future API call place (not adding now)
-    // isLoading.value = true;
-    // await repo.resendOtp(phone.value);
-    // isLoading.value = false;
 
     Get.snackbar(
       "OTP",
@@ -102,24 +94,17 @@ class OtpController extends GetxController {
   }
 
   Future<void> verifyOtp() async {
-    if (!isOtpComplete) {
-      Get.snackbar(
-        "Error",
-        "Please enter complete OTP",
-        snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: Colors.black87,
-        colorText: AppColor.white,
-      );
-      return;
-    }
+    if (isLoading.value) return;
 
-    // ✅ Future API call place (not adding now)
-    // isLoading.value = true;
-    // final ok = await repo.verifyOtp(phone.value, otpCode);
-    // isLoading.value = false;
+    if (!isOtpComplete) return;
 
-    // For now (demo success)
-    Get.offAllNamed(AppRoutes.customNavigation);
+    isLoading.value = true;
+
+    await Future.delayed(const Duration(seconds: 1)); // demo delay
+
+    isLoading.value = false;
+
+    Get.offAllNamed(AppRoutes.generatingPassword);
   }
 
   void changeNumber() {

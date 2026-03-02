@@ -1,3 +1,4 @@
+import 'package:doctor_app/src/common/widgets/custom_navigation_bar.dart';
 import 'package:doctor_app/src/features/appointment/appointment_binding.dart';
 import 'package:doctor_app/src/features/appointment/appointment_view.dart';
 import 'package:doctor_app/src/features/attachments/attachments_binding.dart';
@@ -8,6 +9,8 @@ import 'package:doctor_app/src/features/createpassword/generate_login_binding.da
 import 'package:doctor_app/src/features/createpassword/generate_login_view.dart';
 import 'package:doctor_app/src/features/date/date_binding.dart';
 import 'package:doctor_app/src/features/date/date_screen.dart';
+import 'package:doctor_app/src/features/auth/login_generate/generate_binding.dart' hide GenerateLoginBinding;
+import 'package:doctor_app/src/features/auth/login_generate/generate_view.dart' hide GenerateLoginView;
 import 'package:doctor_app/src/features/auth/otp/otp_binding.dart';
 import 'package:doctor_app/src/features/auth/otp/otp_view.dart';
 import 'package:doctor_app/src/features/auth/phone_verification/phone_binding.dart';
@@ -16,7 +19,8 @@ import 'package:doctor_app/src/features/filter/filter_binding.dart';
 import 'package:doctor_app/src/features/filter/filter_view.dart';
 import 'package:doctor_app/src/features/onboarding/onboarding_binding.dart';
 import 'package:doctor_app/src/features/onboarding/onboarding_view.dart';
-import 'package:doctor_app/src/features/profile/profile_binding.dart';
+import 'package:doctor_app/src/features/profile/profile_binding.dart'
+    hide PhoneBinding;
 import 'package:doctor_app/src/features/profile/profile_view.dart';
 import 'package:doctor_app/src/features/reviews/review_binding.dart';
 import 'package:doctor_app/src/features/reviews/review_view.dart';
@@ -26,7 +30,7 @@ import 'package:doctor_app/src/features/select%20time/time_binding.dart';
 import 'package:doctor_app/src/features/select%20time/time_view.dart';
 import 'package:get/get.dart';
 
-import '../src/common/widgets/custom_navigation_bar.dart';
+import '../src/features/chat/chat_view.dart';
 import 'app_routes.dart';
 
 class AppPages {
@@ -41,11 +45,19 @@ class AppPages {
       page: () => PersonalInfoScreen(),
       binding: PersonalInfoBinding(),
     ),
-    GetPage(
-      name: AppRoutes.date,
-      page: () => DateScreen(),
-      binding: DateBinding(), // 🔥 VERY IMPORTANT
-    ),
+    //
+    // GetPage(
+    //   name: AppRoutes.date,
+    //   page: () => DateScreen(),
+    //
+    //   binding: DateBinding(),
+    // ),
+
+    // GetPage(
+    //   name: AppRoutes.date,
+    //   page: () => DateScreen(),
+    //   binding: DateBinding(),
+    // ),
     GetPage(
       name: AppRoutes.phone,
       page: () => const PhoneView(),
@@ -61,6 +73,24 @@ class AppPages {
       page: () => FilterView(),
       binding: FilterBinding(),
     ),
+
+    /*GetPage(
+      name: AppRoutes.doctorProfileScreen,
+      page: () => DoctorProfileScreen(),
+    ),*/
+    GetPage(name: AppRoutes.chatScreen, page: () => ChatScreen()),
+    GetPage(
+      name: AppRoutes.doctor,
+      page: () => DoctorView(),
+      binding: DoctorBinding(),
+    ),
+    GetPage(name: AppRoutes.homescreen, page: () => const CustomNavigation()),
+    GetPage(
+      name: '/profile',
+      page: () => const ProfileView(),
+      binding: ProfileBinding(),
+    ),
+
     GetPage(
       name: AppRoutes.doctor,
       page: () => DoctorView(),
@@ -105,9 +135,13 @@ class AppPages {
       page: () => const GenerateLoginView(),
       binding: GenerateLoginBinding(),
     ),
-    // GetPage(
+    GetPage(
     //   name: AppRoutes.customNavigation,
     //   page: () => const CustomNavigation(),
     // ),
+      name: AppRoutes.generatingPassword,
+      page: () => const GenerateLoginView(),
+      binding: GenerateLoginBinding(),
+    ),
   ];
 }

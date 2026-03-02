@@ -15,6 +15,76 @@ class Validation {
     return null;
   }
 
+  static String? nameValidation(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'enter_your_name';
+    }
+
+    // remove extra spaces
+    final name = value.trim();
+
+    // minimum length
+    if (name.length < 3) {
+      return 'name_too_short';
+    }
+
+    String? dobValidation(String? value) {
+      if (value == null || value.trim().isEmpty) {
+        return 'select_your_date_of_birth';
+      }
+
+      try {
+        final parts = value.split('/');
+
+        if (parts.length != 3) {
+          return 'invalid_date_format';
+        }
+
+        int day = int.parse(parts[0]);
+        int month = int.parse(parts[1]);
+        int year = int.parse(parts[2]);
+
+        DateTime dob = DateTime(year, month, day);
+
+        // check invalid dates like 31/02/2024
+        if (dob.day != day || dob.month != month || dob.year != year) {
+          return 'invalid_date';
+        }
+
+        // future date check
+        if (dob.isAfter(DateTime.now())) {
+          return 'future_date_not_allowed';
+        }
+
+        // age calculation
+        int age = DateTime.now().year - dob.year;
+        if (DateTime.now().month < dob.month ||
+            (DateTime.now().month == dob.month &&
+                DateTime.now().day < dob.day)) {
+          age--;
+        }
+
+        if (age < 18) {
+          return 'age_must_be_18_plus';
+        }
+
+        return null;
+      } catch (e) {
+        return 'invalid_date';
+      }
+    }
+
+    // only alphabets and space allowed
+    String pattern = r"^[a-zA-Z ]+$";
+    RegExp regex = RegExp(pattern);
+
+    if (!regex.hasMatch(name)) {
+      return 'name_should_not_contain_numbers';
+    }
+
+    return null;
+  }
+
   static String? passwordValidation(String? value) {
     if (value!.isEmpty) {
       return 'please_enter_password';
@@ -86,6 +156,16 @@ class Validation {
     RegExp regex = RegExp(r'^\d{3}$');
     if (!regex.hasMatch(value)) {
       return 'enter_valid_cvv_no';
+    }
+    return null;
+  }
+
+  static String? confirmPasswordValidation(String? value, String original) {
+    if (value == null || value.trim().isEmpty) {
+      return 'enter_confirm_password';
+    }
+    if (value.trim() != original.trim()) {
+      return 'password_not_match';
     }
     return null;
   }

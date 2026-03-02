@@ -8,5 +8,14 @@ class AppImages {
 }
 
 class AppIcons {
-  static String iconDcoument = 'assets/icons/icon_document.png';
+  static String filter = 'assets/icons/filter.svg';
+  static String search = 'assets/icons/search.svg';
+  static String save = 'assets/icons/save.svg';
+  static String star = 'assets/icons/star.svg';
+  static String briefcase = 'assets/icons/briefcase.svg';
+  static String verify = 'assets/icons/verify.svg';
+  static String mail = 'assets/icons/mail.svg';
+  static String message = 'assets/icons/message.svg';
+  static String call = 'assets/icons/call.svg';
+  static String otp = 'assets/icons/otp.svg';
 }

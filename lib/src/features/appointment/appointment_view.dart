@@ -1,10 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:doctor_app/src/common/widgets/custom_button.dart';
 import 'package:doctor_app/src/features/appointment/appointment_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class AppointmentView extends GetView<AppointmentController> {
   const AppointmentView({super.key});

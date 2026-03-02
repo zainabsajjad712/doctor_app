@@ -1041,6 +1041,8 @@ import 'package:get/get.dart';
 
 import '../../features/auth/otp/otp_view.dart';
 import '../../features/controllers/navigation_controller.dart';
+import '../../features/home/home_view.dart';
+import '../../features/online_consultation/online_consultation_controller.dart';
 import '../constant/app_colors.dart';
 
 class CustomNavigation extends StatefulWidget {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColor {
   // 🔵 Primary
-  static const Color primaryButton = Color(0xFF2F80ED);
+  static const Color primaryButtons = Color(0xFF2F80ED);
   static const Color primaryBlue = Color(0xFF2673FF);
 
   // 🔹 Backgrounds
@@ -30,4 +30,10 @@ class AppColor {
 
   // 🧾 Input
   static const Color inputFill = Color(0xFFD9D9D9);
+  static const Color primaryButton = Color(0xFF2673FF);
+  static const Color borderColor = Color(0xFFE5E7EB);
+  static const Color lightGreyTextColor = Color(0xFF555B6C);
+  static const Color containerBg = Color(0xFFF3F4F6);
+  static const Color greenColor = Color(0xFF277B53);
+  static const Color redColor = Color(0xFFE53935);
 }

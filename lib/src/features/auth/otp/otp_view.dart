@@ -1,6 +1,11 @@
 import 'package:doctor_app/src/common/constant/app_colors.dart';
+import 'package:doctor_app/src/common/constant/app_images.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+
 import 'otp_controller.dart';
 
 class OtpView extends GetView<OtpController> {
@@ -9,7 +14,7 @@ class OtpView extends GetView<OtpController> {
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.sizeOf(context).width;
-    final controller = Get.put(OtpController()); // ✅
+    final c = Get.find<OtpController>();
 
     return Scaffold(
       backgroundColor: AppColor.white,
@@ -18,95 +23,132 @@ class OtpView extends GetView<OtpController> {
           padding: const EdgeInsets.symmetric(horizontal: 22),
           child: Column(
             children: [
-              const SizedBox(height: 40),
-
-              // Top icon
-              const Icon(
-                Icons.phone_android_outlined,
-                size: 90,
-                color: AppColor.black              ),
-              const SizedBox(height: 22),
-
-              // Title + subtitle
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "OTP authentication",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                    color: AppColor.black                  ),
-                ),
-              ),
-              const SizedBox(height: 6),
-
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Obx(() {
-                  return Text(
-                    'Enter the verification code sent to ${controller.phone.value}',
-                    style: TextStyle(
-                      fontSize: 12,
-                      height: 1.3,
-                      color: AppColor.black ,                     fontWeight: FontWeight.w500,
-                    ),
-                  );
-                }),
-              ),
-
-              const SizedBox(height: 26),
-
-              // OTP inputs
-              SizedBox(
-                width: w,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(OtpController.otpLength, (i) {
-                    return _OtpBox(index: i);
-                  }),
-                ),
-              ),
-
-              const Spacer(),
-
-              // Resend row
-              Obx(() {
-                final s = controller.secondsLeft.value;
-                final canResend = s == 0;
-
-                return Column(
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      canResend
-                          ? "Did not receive the OTP code?"
-                          : "Did not receive the OTP code? Resend (01:${s.toString().padLeft(2, '0')})",
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: AppColor.black ,                       fontWeight: FontWeight.w500,
+                    Align(
+                      alignment: Alignment.center,
+                      child: SvgPicture.asset(
+                        AppIcons.otp,
+                        width: 150.w,
+                        height: 150.w,
+                        fit: BoxFit.contain,
                       ),
-                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 22),
+
+                    const Text(
+                      "OTP authentication",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.black87,
+                      ),
                     ),
                     const SizedBox(height: 6),
 
-                    // Resend link
-                    GestureDetector(
-                      onTap: canResend ? controller.resendOtp : null,
-                      child: Text(
-                        "Resend",
+                    Obx(() {
+                      return Text(
+                        'Enter the verification code sent to ${c.phone.value}',
                         style: TextStyle(
                           fontSize: 12,
-                          fontWeight: FontWeight.w700,
-                          color: canResend
-                              ? AppColor.primaryButton
-                              : AppColor.black                        ),
+                          height: 1.3,
+                          color: Colors.black.withOpacity(0.6),
+                          fontWeight: FontWeight.w500,
+                        ),
+                      );
+                    }),
+
+                    const SizedBox(height: 26),
+
+                    SizedBox(
+                      width: w,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: List.generate(
+                          OtpController.otpLength,
+                          (i) => _OtpBox(index: i),
+                        ),
                       ),
                     ),
 
+                    const SizedBox(height: 18),
+
+                    /// ✅ Loading indicator (since no button now)
+                    Obx(() {
+                      if (!c.isLoading.value) {
+                        return const SizedBox.shrink();
+                      }
+                      return const Center(
+                        child: SizedBox(
+                          width: 24,
+                          height: 24,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2.5,
+                            color: AppColor.primaryButton,
+                          ),
+                        ),
+                      );
+                    }),
+                  ],
+                ),
+              ),
+
+              /// Bottom resend + change number
+              Padding(
+                padding: const EdgeInsets.only(bottom: 6),
+                child: Column(
+                  children: [
+                    Obx(() {
+                      final s = c.secondsLeft.value;
+                      final canResend = s == 0;
+
+                      final mm = (s ~/ 60).toString().padLeft(2, '0');
+                      final ss = (s % 60).toString().padLeft(2, '0');
+
+                      return RichText(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
+                          style: TextStyle(
+                            fontSize: 12,
+                            height: 1.4,
+                            color: Colors.black.withOpacity(0.65),
+                            fontWeight: FontWeight.w500,
+                          ),
+                          children: [
+                            const TextSpan(
+                              text: "Did not receive the OTP code? ",
+                            ),
+                            TextSpan(
+                              text: "Resend",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                color: canResend
+                                    ? AppColor.primaryButton
+                                    : Colors.black.withOpacity(0.35),
+                              ),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = canResend ? c.resendOtp : null,
+                            ),
+                            if (!canResend)
+                              TextSpan(
+                                text: " ($mm:$ss)",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black.withOpacity(0.45),
+                                ),
+                              ),
+                          ],
+                        ),
+                      );
+                    }),
+
                     const SizedBox(height: 14),
 
-                    // Change number
                     GestureDetector(
-                      onTap: controller.changeNumber,
+                      onTap: c.changeNumber,
                       child: Text(
                         "Sign in with another phone number",
                         style: TextStyle(
@@ -116,47 +158,8 @@ class OtpView extends GetView<OtpController> {
                       ),
                     ),
                   ],
-                );
-              }),
-
-              const SizedBox(height: 18),
-
-              // Verify button (optional)
-              Obx(() {
-                return SizedBox(
-                  width: w,
-                  height: 54,
-                  child: ElevatedButton(
-                    onPressed: controller.isLoading.value
-                        ? null
-                        : controller.verifyOtp,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColor.primaryButton,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(28),
-                      ),
-                      elevation: 0,
-                    ),
-                    child: controller.isLoading.value
-                        ? const SizedBox(
-                            width: 22,
-                            height: 22,
-                            child: CircularProgressIndicator(
-                              strokeWidth: 2.5,
-                              color: AppColor.white,
-                            ),
-                          )
-                        : const Text(
-                            "Continue",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color: AppColor.white,
-                            ),
-                          ),
-                  ),
-                );
-              }),
+                ),
+              ),
 
               const SizedBox(height: 22),
             ],
