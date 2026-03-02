@@ -47,7 +47,14 @@ class PersonalInfoScreen extends StatelessWidget {
                   SizedBox(height: 30.h),
 
                   /// NAME
-                  Text("Name"),
+                  Text(
+                    "Name",
+                    style: GoogleFonts.openSans(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w600,
+                      color: AppColor.black,
+                    ),
+                  ),
                   SizedBox(height: 8.h),
                   CustomTextFormField(
                     controller: controller.nameController,
@@ -59,7 +66,14 @@ class PersonalInfoScreen extends StatelessWidget {
                   SizedBox(height: 16.h),
 
                   /// GENDER
-                  const Text("Gender"),
+                  Text(
+                    "Gender",
+                    style: GoogleFonts.openSans(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w600,
+                      color: AppColor.black,
+                    ),
+                  ),
                   SizedBox(height: 8.h),
                   Row(
                     children: [
@@ -72,43 +86,49 @@ class PersonalInfoScreen extends StatelessWidget {
                   SizedBox(height: 16.h),
 
                   /// DOB
-                  const Text("Date of birth"),
+                  Text(
+                    "Date of birth",
+                    style: GoogleFonts.openSans(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w600,
+                      color: AppColor.black,
+                    ),
+                  ),
                   SizedBox(height: 8.h),
-                  GestureDetector(
-                    onTap: () async {
-                      final date = await Get.toNamed(AppRoutes.date);
+                  CustomTextFormField(
+                    controller: controller.dobController,
+                    hint: "Choose your date",
 
-                      if (date != null) {
-                        controller.dobController.text =
-                            "${date.day}/${date.month}/${date.year}";
-                      }
-                    },
-                    child: AbsorbPointer(
-                      child: CustomTextFormField(
-                        controller: controller.dobController,
-                        hint: "Choose your date",
-                        validator: Validation.numberValidation,
-                      ),
+                    readOnly: true,
+                    suffixIcon: IconButton(
+                      icon: const Icon(Icons.arrow_drop_down),
+                      onPressed: () async {
+                        final picked = await showDatePicker(
+                          context: Get.context!,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(1900),
+                          lastDate: DateTime.now(),
+                        );
+
+                        if (picked != null) {
+                          controller.dobController.text =
+                              "${picked.day}/${picked.month}/${picked.year}";
+                        }
+                      },
                     ),
                   ),
 
-                  // CustomTextFormField(
-                  //   controller: controller.dobController,
-                  //   hint: "Choose your date",
-                  //   // readOnly: true,
-                  //   onTap: () async {
-                  //     final date = await Get.toNamed(AppRoutes.date);
-
-                  //     if (date != null) {
-                  //       controller.dobController.text =
-                  //           "${date.day}/${date.month}/${date.year}";
-                  //     }
-                  //   },
-                  // ),
                   SizedBox(height: 16.h),
 
                   /// EMAIL
-                  const Text("Email"),
+                  Text(
+                    "Email",
+                    style: GoogleFonts.openSans(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w600,
+                      color: AppColor.black,
+                    ),
+                  ),
                   SizedBox(height: 8.h),
                   CustomTextFormField(
                     controller: controller.emailController,
@@ -153,7 +173,11 @@ class PersonalInfoScreen extends StatelessWidget {
     final c = Get.find<PersonalInfoController>();
     return Obx(
       () => GestureDetector(
-        onTap: () => c.selectGender(text),
+        onTap: () {
+          c.selectGender(text);
+          Get.toNamed(AppRoutes.date);
+        },
+
         child: Container(
           height: 45,
           alignment: Alignment.center,

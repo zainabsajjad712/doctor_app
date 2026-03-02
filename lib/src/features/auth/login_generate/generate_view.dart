@@ -20,84 +20,87 @@ class GenerateLoginView extends GetView<GenerateLoginController> {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(20.w),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 40.h),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 40.h),
 
-                Text(
-                  "Generate login code",
-                  style: GoogleFonts.openSans(
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.w600,
-                    color: AppColor.black,
+                  Text(
+                    "Generate login code",
+                    style: GoogleFonts.openSans(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w600,
+                      color: AppColor.black,
+                    ),
                   ),
-                ),
-                SizedBox(height: 10.h),
-                Text(
-                  "Enter a 6 digit password to use to protect your\nhealth records and log in next time.",
-                  style: GoogleFonts.openSans(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w400,
-                    color: AppColor.lightGreyTextColor,
+                  SizedBox(height: 10.h),
+
+                  Text(
+                    textAlign: TextAlign.center,
+                    "Enter a 6 digit password to use to protect your\nhealth records and log in next time.",
+                    style: GoogleFonts.openSans(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                      color: AppColor.lightGreyTextColor,
+                    ),
                   ),
-                ),
 
-                SizedBox(height: 80.h),
+                  SizedBox(height: 80.h),
 
-                Text(
-                  "Password",
-                  style: GoogleFonts.openSans(
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.w600,
-                    color: AppColor.black,
+                  Text(
+                    "Password",
+                    style: GoogleFonts.openSans(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w600,
+                      color: AppColor.black,
+                    ),
                   ),
-                ),
-                SizedBox(height: 20.h),
-                CustomTextFormField(
-                  controller: controller.passwordController,
-                  hint: "Enter password",
-                  obscureText: true,
-                  validator: Validation.passwordValidation,
-                ),
+                  SizedBox(height: 20.h),
 
-                SizedBox(height: 30.h),
-
-                Text(
-                  "Confirm Password",
-                  style: GoogleFonts.openSans(
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.w600,
-                    color: AppColor.black,
+                  CustomTextFormField(
+                    controller: controller.passwordController,
+                    hint: "Enter password",
+                    obscureText: true,
+                    validator: Validation.passwordValidation,
                   ),
-                ),
-                SizedBox(height: 20.h),
-                CustomTextFormField(
-                  controller: controller.confirmPasswordController, // ✅ FIXED
-                  hint: "Enter confirm password",
-                  obscureText: true,
-                  validator: (v) => Validation.confirmPasswordValidation(
-                    v,
-                    controller.passwordController.text,
+
+                  SizedBox(height: 30.h),
+
+                  Text(
+                    "Confirm Password",
+                    style: GoogleFonts.openSans(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w600,
+                      color: AppColor.black,
+                    ),
                   ),
-                ),
+                  SizedBox(height: 20.h),
 
-                SizedBox(height: 60.h),
+                  CustomTextFormField(
+                    controller: controller.confirmPasswordController,
+                    hint: "Enter confirm password",
+                    obscureText: true,
+                    validator: (v) => Validation.confirmPasswordValidation(
+                      v,
+                      controller.passwordController.text,
+                    ),
+                  ),
+                ],
+              ),
 
-                CustomButton(
-                  text: "Next",
-                  borderRadius: 30,
-                  color: AppColor.primaryButton,
-                  onTap: () {
-                    Get.toNamed(AppRoutes.homescreen);
-                  },
-                  //controller.onNext,
-                ),
-
-                SizedBox(height: 40.h),
-              ],
-            ),
+              CustomButton(
+                text: "Next",
+                borderRadius: 30,
+                color: AppColor.primaryButton,
+                onTap: () {
+                  Get.toNamed(AppRoutes.personalInfo);
+                },
+              ),
+            ],
           ),
         ),
       ),

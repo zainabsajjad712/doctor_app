@@ -53,7 +53,6 @@ class OnlineConsultationView extends GetView<OnlineConsultationController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 8.h),
-
             // Search Bar
             // CustomTextFormField(
             //   contentPadding: EdgeInsets.symmetric(
