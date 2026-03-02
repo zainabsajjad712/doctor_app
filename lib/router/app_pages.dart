@@ -5,6 +5,8 @@ import 'package:doctor_app/src/features/attachments/attachments_binding.dart';
 import 'package:doctor_app/src/features/attachments/attachments_view.dart';
 import 'package:doctor_app/src/features/auth/login/login.dart';
 import 'package:doctor_app/src/features/auth/login/login_binding.dart';
+import 'package:doctor_app/src/features/auth/login_generate/generate_binding.dart';
+import 'package:doctor_app/src/features/auth/login_generate/generate_view.dart';
 import 'package:doctor_app/src/features/auth/otp/otp_binding.dart';
 import 'package:doctor_app/src/features/auth/otp/otp_view.dart';
 import 'package:doctor_app/src/features/auth/phone_verification/phone_binding.dart';
@@ -124,9 +126,10 @@ class AppPages {
       page: () => const AttachmentsView(),
       binding: AttachmentsBinding(),
     ),
-    // GetPage(
-    //   name: AppRoutes.customNavigation,
-    //   page: () => const CustomNavigation(),
-    // ),
+    GetPage(
+      name: AppRoutes.generatingPassword,
+      page: () => const GenerateLoginView(),
+      binding: GenerateLoginBinding(),
+    ),
   ];
 }

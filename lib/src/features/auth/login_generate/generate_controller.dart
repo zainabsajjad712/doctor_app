@@ -1,3 +1,4 @@
+import 'package:doctor_app/router/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,24 +7,27 @@ class GenerateLoginController extends GetxController {
   final confirmPasswordController = TextEditingController();
 
   void onNext() {
-    if (passwordController.text.isEmpty ||
-        confirmPasswordController.text.isEmpty) {
+    final password = passwordController.text.trim();
+    final confirm = confirmPasswordController.text.trim();
+
+    if (password.isEmpty || confirm.isEmpty) {
       Get.snackbar("Error", "Please fill all fields");
       return;
     }
 
-    if (passwordController.text != confirmPasswordController.text) {
+    if (password != confirm) {
       Get.snackbar("Error", "Passwords do not match");
       return;
     }
 
-    if (passwordController.text.length != 6) {
-      Get.snackbar("Error", "Password must be 6 digits");
+    // 🔥 Only 6 digits allowed
+    if (!RegExp(r'^\d{6}$').hasMatch(password)) {
+      Get.snackbar("Error", "Password must be exactly 6 digits");
       return;
     }
 
     // ✅ Navigate next screen
-    Get.toNamed('/home');
+    Get.toNamed(AppRoutes.home);
   }
 
   @override

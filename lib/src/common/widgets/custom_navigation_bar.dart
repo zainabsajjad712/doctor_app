@@ -1,15 +1,16 @@
-import 'package:doctor_app/src/features/auth/login/login.dart';
-import 'package:doctor_app/src/features/profile/profile_view.dart';
+import 'package:doctor_app/src/features/chat/chat_view.dart';
+import 'package:doctor_app/src/features/online_consultation/online_consultation_view.dart';
 import 'package:doctor_app/src/features/profile/profile_controller.dart';
-import 'package:doctor_app/src/features/search/doctor_view.dart';
 import 'package:doctor_app/src/features/search/doctor_controller.dart';
+import 'package:doctor_app/src/features/search/doctor_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../features/home/home_view.dart';
 import '../../features/auth/otp/otp_view.dart';
 import '../../features/controllers/navigation_controller.dart';
+import '../../features/home/home_view.dart';
+import '../../features/online_consultation/online_consultation_controller.dart';
 import '../constant/app_colors.dart';
 
 class CustomNavigation extends StatefulWidget {
@@ -33,8 +34,8 @@ class _CustomNavigationState extends State<CustomNavigation> {
   final List<Widget> _pages = [
     HomeView(), // 0
     DoctorView(), // 1
-    PersonalInfoScreen(), // 2
-    ProfileView(), // 3 ✅ PROFILE
+    ChatScreen(), // 2
+    OnlineConsultationView(), // 3 ✅ PROFILE
     const OtpView(), // 4 FAB
   ];
 
@@ -42,9 +43,11 @@ class _CustomNavigationState extends State<CustomNavigation> {
   void initState() {
     super.initState();
 
-    /// ✅ CONTROLLERS YAHAN INJECT KARO
     Get.put(DoctorController(), permanent: true);
-    Get.put(ProfileController(), permanent: true); // ⭐ IMPORTANT
+    Get.put(ProfileController(), permanent: true);
+
+    // ✅ ADD THIS
+    Get.put(OnlineConsultationController(), permanent: true);
 
     navigationCont.setSelectedIndex(widget.initialIndex);
   }

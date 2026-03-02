@@ -4,8 +4,8 @@ import 'package:doctor_app/src/features/online_consultation/online_consultation_
 import 'package:doctor_app/src/features/online_consultation/widget/custom_doctor_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class OnlineConsultationView extends GetView<OnlineConsultationController> {
   const OnlineConsultationView({super.key});
@@ -146,16 +146,10 @@ class OnlineConsultationView extends GetView<OnlineConsultationController> {
                         Get.toNamed(
                           AppRoutes.onlineConsultationDetails,
                           arguments: d,
-                        ); // ✅ data pass
+                        );
                       },
                     );
                   },
-                  // itemBuilder:
-                  //  (context, index) {
-                  //   final d = controller.filteredDoctors[index];
-                  //   return DoctorCard(d: d);
-                  //   // CustomDoctorListTile(d: d);
-                  // },
                 );
               }),
             ),

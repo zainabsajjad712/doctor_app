@@ -24,4 +24,5 @@ class AppRoutes {
 
   static const time = '/time';
   static const attachments = '/attachments';
+  static const generatingPassword = '/generatingPassword';
 }

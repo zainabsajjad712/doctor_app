@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
 
+import '../../../common/constant/app_colors.dart';
 import 'phone_controller.dart';
 
 class PhoneView extends GetView<PhoneController> {
@@ -62,6 +63,7 @@ class PhoneView extends GetView<PhoneController> {
                   onTap: controller.onNext,
                   text: 'Next',
                   isLoading: loading,
+                  borderRadius: 25.r,
                 );
 
                 // SizedBox(
@@ -142,10 +144,7 @@ class CustomPhoneField extends StatelessWidget {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
-          borderSide: const BorderSide(
-            color: AppColor.primaryButton,
-            width: 1.4,
-          ),
+          borderSide: BorderSide(color: AppColor.primaryButton, width: 1.4),
         ),
       ),
 

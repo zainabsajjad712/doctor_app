@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../router/app_routes.dart';
 import 'generate_controller.dart';
 
 class GenerateLoginView extends GetView<GenerateLoginController> {
@@ -19,93 +20,84 @@ class GenerateLoginView extends GetView<GenerateLoginController> {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(20.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 40),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Generate login code",
-                    style: GoogleFonts.openSans(
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.w600,
-                      color: AppColor.black,
-                    ),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 40.h),
+
+                Text(
+                  "Generate login code",
+                  style: GoogleFonts.openSans(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.w600,
+                    color: AppColor.black,
                   ),
-                  SizedBox(height: 10.h),
-                  Text(
-                    "Enter a 6 digit password to use to protect your\nhealth records and log in next time.",
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.openSans(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w400,
-                      color: AppColor.lightGreyTextColor,
-                    ),
+                ),
+                SizedBox(height: 10.h),
+                Text(
+                  "Enter a 6 digit password to use to protect your\nhealth records and log in next time.",
+                  style: GoogleFonts.openSans(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w400,
+                    color: AppColor.lightGreyTextColor,
                   ),
-                ],
-              ),
-
-              SizedBox(height: 100.h),
-
-              Text(
-                "Password",
-                style: GoogleFonts.openSans(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.w600,
-                  color: AppColor.black,
                 ),
-              ),
-              SizedBox(height: 20.h),
-              CustomTextFormField(
-                controller: controller.passwordController,
-                hint: "Enter password",
-                obscureText: true,
-                keyboardType: TextInputType.number,
-                validator: Validation.passwordValidation,
-                hintColor: AppColor.white,
-                textStyle: GoogleFonts.openSans(
-                  color: AppColor.white,
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
 
-              SizedBox(height: 30.h),
-              Text(
-                "Confirm Password",
-                style: GoogleFonts.openSans(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.w600,
-                  color: AppColor.black,
-                ),
-              ),
-              SizedBox(height: 20.h),
-              CustomTextFormField(
-                controller: controller.passwordController,
-                hint: "Enter confirm password",
-                obscureText: true,
-                keyboardType: TextInputType.number,
-                validator: Validation.passwordValidation,
-                hintColor: AppColor.white,
-                textStyle: GoogleFonts.openSans(
-                  color: AppColor.white,
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
+                SizedBox(height: 80.h),
 
-              const Spacer(),
+                Text(
+                  "Password",
+                  style: GoogleFonts.openSans(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.w600,
+                    color: AppColor.black,
+                  ),
+                ),
+                SizedBox(height: 20.h),
+                CustomTextFormField(
+                  controller: controller.passwordController,
+                  hint: "Enter password",
+                  obscureText: true,
+                  validator: Validation.passwordValidation,
+                ),
 
-              CustomButton(
-                text: "Next",
-                borderRadius: 30,
-                color: AppColor.primaryButton,
-                onTap: controller.onNext,
-              ),
-              SizedBox(height: 40.h),
-            ],
+                SizedBox(height: 30.h),
+
+                Text(
+                  "Confirm Password",
+                  style: GoogleFonts.openSans(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.w600,
+                    color: AppColor.black,
+                  ),
+                ),
+                SizedBox(height: 20.h),
+                CustomTextFormField(
+                  controller: controller.confirmPasswordController, // ✅ FIXED
+                  hint: "Enter confirm password",
+                  obscureText: true,
+                  validator: (v) => Validation.confirmPasswordValidation(
+                    v,
+                    controller.passwordController.text,
+                  ),
+                ),
+
+                SizedBox(height: 60.h),
+
+                CustomButton(
+                  text: "Next",
+                  borderRadius: 30,
+                  color: AppColor.primaryButton,
+                  onTap: () {
+                    Get.toNamed(AppRoutes.homescreen);
+                  },
+                  //controller.onNext,
+                ),
+
+                SizedBox(height: 40.h),
+              ],
+            ),
           ),
         ),
       ),

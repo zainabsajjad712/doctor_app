@@ -160,6 +160,16 @@ class Validation {
     return null;
   }
 
+  static String? confirmPasswordValidation(String? value, String original) {
+    if (value == null || value.trim().isEmpty) {
+      return 'enter_confirm_password';
+    }
+    if (value.trim() != original.trim()) {
+      return 'password_not_match';
+    }
+    return null;
+  }
+
   static String? numberValidation(String? value, {String field = "number"}) {
     if (value == null || value.isEmpty) {
       return '${'please_enter_a'} $field';
