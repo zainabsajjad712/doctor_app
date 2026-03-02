@@ -98,7 +98,7 @@ class OnlineConsultationDetailView
                       );
                       return;
                     }
-                    // Get.toNamed(AppRoutes.chat, arguments: d);
+                    Get.toNamed(AppRoutes.chatScreen, arguments: d);
                   },
                 ),
                 SizedBox(width: 16.w),
