@@ -19,6 +19,8 @@ class AppColor {
   // 📝 Text Colors
   static const Color textPrimary = Color(0xFF292D32);
   static const Color textSecondary = Color(0xFF555B6C);
+  static const Color textLightGrey = Color(0xFFC3DDE1);
+
 
   // 🏥 Icons
   static const Color iconPrimary = Color(0xFF555B6C);
@@ -27,6 +29,7 @@ class AppColor {
   // 🎨 Time Selection
   static const Color timeSelected = Color(0xFF2F80ED);
   static const Color timeUnselected = Color(0xFFE5E7EB);
+
 
   // 🧾 Input
   static const Color inputFill = Color(0xFFD9D9D9);

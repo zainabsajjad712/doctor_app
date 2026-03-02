@@ -1,3 +1,4 @@
+import 'package:doctor_app/router/app_routes.dart';
 import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:doctor_app/src/common/utils/validation.dart';
 import 'package:doctor_app/src/common/widgets/custom_button.dart';
@@ -58,7 +59,7 @@ class GenerateLoginView extends GetView<GenerateLoginController> {
               ),
               SizedBox(height: 20.h),
               CustomTextFormField(
-                controller: controller.passwordController,
+                //  controller: controller.passwordController,
                 hint: "Enter password",
                 obscureText: true,
                 keyboardType: TextInputType.number,
@@ -82,7 +83,7 @@ class GenerateLoginView extends GetView<GenerateLoginController> {
               ),
               SizedBox(height: 20.h),
               CustomTextFormField(
-                controller: controller.passwordController,
+                // controller: controller.passwordController,
                 hint: "Enter confirm password",
                 obscureText: true,
                 keyboardType: TextInputType.number,
@@ -101,7 +102,10 @@ class GenerateLoginView extends GetView<GenerateLoginController> {
                 text: "Next",
                 borderRadius: 30,
                 color: AppColor.primaryButton,
-                onTap: controller.onNext,
+                onTap: () {
+                  Get.toNamed(AppRoutes.personalInfo);
+                },
+                // onTap: controller.onNext,
               ),
               SizedBox(height: 40.h),
             ],

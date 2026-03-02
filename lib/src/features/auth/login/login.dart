@@ -57,7 +57,7 @@ class PersonalInfoScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 8.h),
                   CustomTextFormField(
-                    controller: controller.nameController,
+                   // controller: controller.nameController,
                     hint: "Enter name",
                     validator: Validation.nameValidation,
                     borderRadius: 10.r,
@@ -96,7 +96,7 @@ class PersonalInfoScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 8.h),
                   CustomTextFormField(
-                    controller: controller.dobController,
+                  //  controller: controller.dobController,
                     hint: "Choose your date",
 
                     readOnly: true,
@@ -131,7 +131,7 @@ class PersonalInfoScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 8.h),
                   CustomTextFormField(
-                    controller: controller.emailController,
+                   // controller: controller.emailController,
                     hint: "Enter your email",
                     validator: Validation.emailValidation,
                     borderRadius: 10.r,
