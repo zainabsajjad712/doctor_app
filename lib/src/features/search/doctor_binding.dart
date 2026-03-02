@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 import 'doctor_controller.dart';
 
-class DoctorBinding extends Bindings {
+class FindDoctorBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<DoctorController>(() => DoctorController());
+    Get.lazyPut<FindDoctorController>(() => FindDoctorController());
   }
 }

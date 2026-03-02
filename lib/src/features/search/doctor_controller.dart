@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class DoctorController extends GetxController {
+class FindDoctorController extends GetxController {
   /// 🔹 Original Doctors List
   final RxList<Map<String, String>> doctors = <Map<String, String>>[
     {
