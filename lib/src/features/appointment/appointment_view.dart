@@ -170,7 +170,7 @@ class AppointmentView extends GetView<AppointmentController> {
               /// 🔹 Button
               CustomButton(
                 onTap: () {
-                  // 🔹 Your button action
+    Get.toNamed('/generate-login');
                 },
                 text: "Book an appointment",
                 borderRadius: 30,

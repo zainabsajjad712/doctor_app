@@ -4,6 +4,7 @@ class AppImages {
   static String onboardingQuick = 'assets/images/onboarding_quick.png';
   static String phone = 'assets/images/phone.png';
   static String otp = 'assets/images/otp.png';
+  static String doctor = 'assets/images/doctor.png';
 }
 
 class AppIcons {

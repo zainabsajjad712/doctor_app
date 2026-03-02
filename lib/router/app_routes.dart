@@ -15,6 +15,9 @@ class AppRoutes {
   static const appointment = '/appointment';
   static const time = '/time';
   static const attachments = '/attachments';
+  static const generateLogin = '/generate-login';
+
+  
 
 
 

@@ -4,6 +4,8 @@ import 'package:doctor_app/src/features/attachments/attachments_binding.dart';
 import 'package:doctor_app/src/features/attachments/attachments_view.dart';
 import 'package:doctor_app/src/features/auth/login/login.dart';
 import 'package:doctor_app/src/features/auth/login/login_binding.dart';
+import 'package:doctor_app/src/features/createpassword/generate_login_binding.dart';
+import 'package:doctor_app/src/features/createpassword/generate_login_view.dart';
 import 'package:doctor_app/src/features/date/date_binding.dart';
 import 'package:doctor_app/src/features/date/date_screen.dart';
 import 'package:doctor_app/src/features/auth/otp/otp_binding.dart';
@@ -60,20 +62,18 @@ class AppPages {
       binding: FilterBinding(),
     ),
     GetPage(
-  name: AppRoutes.doctor,
-  page: () => DoctorView(),
-  binding: DoctorBinding(),
-),
-    GetPage(
-      name: AppRoutes.homescreen,
-      page: () => const CustomNavigation(),   
+      name: AppRoutes.doctor,
+      page: () => DoctorView(),
+      binding: DoctorBinding(),
     ),
+    GetPage(name: AppRoutes.homescreen, page: () => const CustomNavigation()),
     GetPage(
-    name: '/profile',
-    page: () => const ProfileView(),
-    binding: ProfileBinding(),
-),
-  /// ✅ Reviews Screen
+      name: '/profile',
+      page: () => const ProfileView(),
+      binding: ProfileBinding(),
+    ),
+
+    /// ✅ Reviews Screen
     GetPage(
       name: AppRoutes.reviews,
       page: () => const ReviewsView(),
@@ -86,7 +86,8 @@ class AppPages {
       page: () => const AppointmentView(),
       binding: AppointmentBinding(),
     ),
- /// Time Selection Screen
+
+    /// Time Selection Screen
     GetPage(
       name: AppRoutes.time,
       page: () => const TimeView(),
@@ -98,6 +99,11 @@ class AppPages {
       name: AppRoutes.attachments,
       page: () => const AttachmentsView(),
       binding: AttachmentsBinding(),
+    ),
+    GetPage(
+      name: '/generate-login',
+      page: () => const GenerateLoginView(),
+      binding: GenerateLoginBinding(),
     ),
     // GetPage(
     //   name: AppRoutes.customNavigation,

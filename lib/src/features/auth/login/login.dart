@@ -46,7 +46,7 @@ class PersonalInfoScreen extends StatelessWidget {
                 const SizedBox(height: 8),
                 CustomTextFormField(
                   controller: controller.nameController,
-                  hint: "Enter name",
+                  hint: "Enter Name",
                   borderRadius: 10,
                 ),
 
@@ -80,7 +80,7 @@ class PersonalInfoScreen extends StatelessWidget {
                   child: AbsorbPointer(
                     child: CustomTextFormField(
                       controller: controller.dobController,
-                      hint: "Choose your date",
+                      hint: "Choose Your Date",
                     ),
                   ),
                 ),
@@ -143,7 +143,7 @@ class PersonalInfoScreen extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: c.gender.value == text
-                ? AppColor.primaryButton
+                ? AppColor.primaryButton   
                 : AppColor.inputFill,
             borderRadius: BorderRadius.circular(10),
           ),
