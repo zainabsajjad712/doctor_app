@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -30,7 +31,7 @@ class ImagePickerHelper {
   static Future<List<XFile>> pickMultipleImages() async {
     try {
       final List<XFile> images = await _picker.pickMultiImage();
-      return images ?? [];
+      return images;
     } catch (e) {
       rethrow;
     }
@@ -51,8 +52,7 @@ class ImagePickerHelper {
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
-              color: Colors.black,
-            ),
+              color: AppColor.black            ),
           ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
@@ -110,8 +110,7 @@ class ImagePickerHelper {
       },
       pageBuilder: (context, animation, secondaryAnimation) {
         return Scaffold(
-          backgroundColor: Colors.black,
-          body: Stack(
+          backgroundColor: AppColor.black  ,        body: Stack(
             children: [
               Center(
                 child: Hero(
@@ -131,7 +130,7 @@ class ImagePickerHelper {
                       style: IconButton.styleFrom(backgroundColor: Colors.blue),
                       icon: const Icon(
                         Icons.close,
-                        color: Colors.white,
+                        color: AppColor.white,
                         size: 25,
                       ),
                     ),
@@ -143,7 +142,7 @@ class ImagePickerHelper {
                       style: IconButton.styleFrom(backgroundColor: Colors.blue),
                       icon: const Icon(
                         Icons.delete,
-                        color: Colors.white,
+                        color: AppColor.white,
                         size: 30,
                       ),
                     ),

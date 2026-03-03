@@ -13,7 +13,7 @@
 //     final size = MediaQuery.of(context).size;
 
 //     return Scaffold(
-//       backgroundColor: const Color(0xffF5F6FA),
+//       backgroundColor: AppColor.scaffoldBg,
 //       body: SafeArea(
 //         child: Padding(
 //           padding: const EdgeInsets.all(20),
@@ -62,13 +62,13 @@
 //                         Text(
 //                           "Trusted doctor on your schedule 😊",
 //                           style: GoogleFonts.plusJakartaSans(
-//                               color: Colors.white70, fontSize: 12),
+//                               color: AppColor.white70, fontSize: 12),
 //                         ),
 //                         const SizedBox(height: 10),
 //                         Text(
 //                           "Consult A Doctor\n— Book Today!",
 //                           style: GoogleFonts.plusJakartaSans(
-//                             color: Colors.white,
+//                             color: AppColor.white,
 //                             fontSize: 18,
 //                             fontWeight: FontWeight.w700,
 //                           ),
@@ -81,7 +81,7 @@
 //                             Text(
 //                               "30.000+\nHappy Patients",
 //                               style: GoogleFonts.plusJakartaSans(
-//                                   color: Colors.white, fontSize: 11),
+//                                   color: AppColor.white, fontSize: 11),
 //                             )
 //                           ],
 //                         )
@@ -111,7 +111,7 @@
 //                           fontWeight: FontWeight.w700, fontSize: 16)),
 //                   Text("See All",
 //                       style: GoogleFonts.plusJakartaSans(
-//                           color: const Color(0xff2673FF)))
+//                           color: AppColor.primaryBlue ))
 //                 ],
 //               ),
 //             ],
@@ -131,7 +131,7 @@
 //           ],
 //         ),
 //         child: FloatingActionButton(
-//           backgroundColor: const Color(0xff2673FF),
+//           backgroundColor: AppColor.primaryBlue ,
 //           onPressed: () {},
 //           child: const Icon(Icons.add),
 //         ),
@@ -165,7 +165,7 @@
 //     return Container(
 //       height: 75,
 //       decoration: const BoxDecoration(
-//         color: Colors.white,
+//         color: AppColor.white,
 //         borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
 //         boxShadow: [
 //           BoxShadow(
@@ -198,7 +198,7 @@
 //           child: Icon(
 //             icon,
 //             color: controller.selectedIndex.value == index
-//                 ? const Color(0xff2673FF)
+//                 ? AppColor.primaryBlue
 //                 : Colors.grey,
 //           ),
 //         ));
@@ -218,7 +218,7 @@
 //     final size = MediaQuery.of(context).size;
 
 //     return Scaffold(
-//       backgroundColor: const Color(0xffF5F6FA),
+//       backgroundColor: AppColor.scaffoldBg,
 //       body: SafeArea(
 //         child: Padding(
 //           padding: const EdgeInsets.all(20),
@@ -264,7 +264,7 @@
 //                         Text(
 //                           "Trusted doctor on your schedule 😊",
 //                           style: GoogleFonts.plusJakartaSans(
-//                             color: Colors.white70,
+//                             color: AppColor.white70,
 //                             fontSize: 12,
 //                           ),
 //                         ),
@@ -272,7 +272,7 @@
 //                         Text(
 //                           "Consult A Doctor\n— Book Today!",
 //                           style: GoogleFonts.plusJakartaSans(
-//                             color: Colors.white,
+//                             color: AppColor.white,
 //                             fontSize: 18,
 //                             fontWeight: FontWeight.w700,
 //                           ),
@@ -285,7 +285,7 @@
 //                             Text(
 //                               "30.000+\nHappy Patients",
 //                               style: GoogleFonts.plusJakartaSans(
-//                                 color: Colors.white,
+//                                 color: AppColor.white,
 //                                 fontSize: 11,
 //                               ),
 //                             ),
@@ -329,7 +329,7 @@
 //                   Text(
 //                     "See All",
 //                     style: GoogleFonts.plusJakartaSans(
-//                       color: const Color(0xff2673FF),
+//                       color: AppColor.primaryBlue ,
 //                     ),
 //                   ),
 //                 ],
@@ -381,7 +381,11 @@
 //   }
 // }
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:doctor_app/router/app_routes.dart';
+import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -395,7 +399,7 @@ class HomeView extends GetView<HomeController> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -410,7 +414,7 @@ class HomeView extends GetView<HomeController> {
                     Text(
                       "Welcome home, Rakim\nMayers",
                       style: GoogleFonts.plusJakartaSans(
-                        fontSize: 20,
+                        fontSize: 22,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
@@ -429,62 +433,165 @@ class HomeView extends GetView<HomeController> {
                 const SizedBox(height: 25),
 
                 /// BLUE CARD
+                // Container(
+                //   height: 170,
+                //   width: size.width,
+                //   padding: const EdgeInsets.all(20),
+                //   decoration: BoxDecoration(
+                //     borderRadius: BorderRadius.circular(24),
+                //     gradient: const LinearGradient(
+                //       colors: [Color(0xff3A7BFF), Color(0xff2673FF)],
+                //     ),
+                //   ),
+                //   child: Stack(
+                //     children: [
+                //       Column(
+                //         crossAxisAlignment: CrossAxisAlignment.start,
+                //         children: [
+                //           Text(
+                //             "Trusted doctor on your schedule 😊",
+                //             style: GoogleFonts.plusJakartaSans(
+                //               color: AppColor.white,
+                //               fontSize: 12,
+                //             ),
+                //           ),
+                //           const SizedBox(height: 10),
+                //           Text(
+                //             "Consult A Doctor\n— Book Today!",
+                //             style: GoogleFonts.plusJakartaSans(
+                //               color: AppColor.white,
+                //               fontSize: 18,
+                //               fontWeight: FontWeight.w700,
+                //             ),
+                //           ),
+                //           const Spacer(),
+                //           Row(
+                //             children: [
+                //               _buildStackAvatar(),
+                //               const SizedBox(width: 10),
+                //               Text(
+                //                 "30.000+\nHappy Patients",
+                //                 style: GoogleFonts.plusJakartaSans(
+                //                   color: AppColor.white,
+                //                   fontSize: 11,
+                //                 ),
+                //               ),
+                //             ],
+                //           ),
+                //         ],
+                //       ),
+                //       Positioned(
+                //         left: 160.w,
+                //         top: 14.h,
+                //         child: Image.asset(
+                //           "assets/images/doctor.png",
+                //           height: 199.h,
+                //           width: 174.w,
+                //           fit: BoxFit.contain,
+                //         ),
+                //       ),
+                //       // Positioned(
+                //       //   right: 0,
+                //       //   bottom: 0,
+                //       //   child: Image.asset(
+                //       //     "assets/images/doctor.png",
+                //       //     height: 199,
+                //       //     width: 174,
+                //       //   ),
+                //       // ),
+                //     ],
+                //   ),
+                // ),
                 Container(
-                  height: 170,
-                  width: size.width,
-                  padding: const EdgeInsets.all(20),
+                  height: 180.h,
+                  width: double.infinity,
+                  // padding: EdgeInsets.symmetric(
+                  //   horizontal: 20.w,
+                  //   vertical: 20.h,
+                  // ),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(24),
-                    gradient: const LinearGradient(
-                      colors: [Color(0xff3A7BFF), Color(0xff2673FF)],
-                    ),
+                    color: AppColor.primaryButton,
+                    borderRadius: BorderRadius.circular(24.r),
                   ),
                   child: Stack(
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "Trusted doctor on your schedule 😊",
-                            style: GoogleFonts.plusJakartaSans(
-                              color: Colors.white70,
-                              fontSize: 12,
+                          SizedBox(height: 20.h),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 20.0,
+                              right: 20.0,
+                            ),
+                            child: Text(
+                              "Trusted doctor on your schedule 😊",
+                              style: GoogleFonts.plusJakartaSans(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w600,
+                                color: AppColor.textLightGrey,
+                              ),
                             ),
                           ),
-                          const SizedBox(height: 10),
-                          Text(
-                            "Consult A Doctor\n— Book Today!",
-                            style: GoogleFonts.plusJakartaSans(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                          const Spacer(),
-                          Row(
-                            children: [
-                              _buildStackAvatar(),
-                              const SizedBox(width: 10),
-                              Text(
-                                "30.000+\nHappy Patients",
-                                style: GoogleFonts.plusJakartaSans(
-                                  color: Colors.white,
-                                  fontSize: 11,
+
+                          SizedBox(height: 10.h),
+
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20),
+                            child: SizedBox(
+                              width: 160.w,
+                              child: Text(
+                                "Consult A Doctor — Book Today!",
+                                style: GoogleFonts.openSans(
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColor.white,
                                 ),
                               ),
-                            ],
+                            ),
+                          ),
+                          SizedBox(height: 15.h),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 18),
+                            child: Row(
+                              children: [
+                                _buildStackAvatar(),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "30.000+",
+                                      style: GoogleFonts.plusJakartaSans(
+                                        color: AppColor.white,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w800,
+                                      ),
+                                    ),
+                                    Text(
+                                      "Happy Patients",
+                                      style: GoogleFonts.plusJakartaSans(
+                                        color: AppColor.textLightGrey,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
+
+                      /// 🔹 Doctor Image (Inside Container)
                       Positioned(
-                        right: 0,
+                        top: 0,
                         bottom: 0,
-                        child: CachedNetworkImage(
-                          imageUrl:
-                              "https://images.unsplash.com/photo-1537368910025-700350fe46c7",
-                          height: 80,
-                          width: 80,
-                          fit: BoxFit.cover,
+                        right: 0,
+                        left: 195,
+                        child: Image.asset(
+                          "assets/images/doctor.png",
+                          fit: BoxFit.contain,
                         ),
                       ),
                     ],
@@ -500,14 +607,14 @@ class HomeView extends GetView<HomeController> {
                     Text(
                       "Interested Doctors",
                       style: GoogleFonts.openSans(
-                        fontWeight: FontWeight.w400,
+                        fontWeight: FontWeight.w600,
                         fontSize: 20,
                       ),
                     ),
                     Text(
                       "See All",
                       style: GoogleFonts.openSans(
-                        color: const Color(0xff2673FF),
+                        color: AppColor.primaryBlue,
                         fontSize: 20,
                         fontWeight: FontWeight.w400,
                       ),
@@ -515,7 +622,7 @@ class HomeView extends GetView<HomeController> {
                   ],
                 ),
 
-                const SizedBox(height: 30),
+                const SizedBox(height: 10),
 
                 /// DOCTOR CARD
                 _buildDoctorCard(),
@@ -536,7 +643,7 @@ class HomeView extends GetView<HomeController> {
           Positioned(
             left: 0,
             child: CircleAvatar(
-              radius: 18,
+              radius: 15,
               backgroundImage: NetworkImage(
                 "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
               ),
@@ -545,7 +652,7 @@ class HomeView extends GetView<HomeController> {
           Positioned(
             left: 25,
             child: CircleAvatar(
-              radius: 18,
+              radius: 15,
               backgroundImage: NetworkImage(
                 "https://images.unsplash.com/photo-1552058544-f2b08422138a",
               ),
@@ -554,7 +661,7 @@ class HomeView extends GetView<HomeController> {
           Positioned(
             left: 50,
             child: CircleAvatar(
-              radius: 18,
+              radius: 15,
               backgroundImage: NetworkImage(
                 "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c",
               ),
@@ -566,159 +673,183 @@ class HomeView extends GetView<HomeController> {
   }
 
   Widget _buildDoctorCard() {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: CachedNetworkImage(
-                  imageUrl:
-                      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400",
-                  height: 80,
-                  width: 80,
-                  fit: BoxFit.cover,
-                  placeholder: (context, url) =>
-                      const Center(child: CircularProgressIndicator()),
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
-                ),
-              ),
-              const SizedBox(width: 15),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Radiant Hospital",
-                    style: GoogleFonts.plusJakartaSans(
-                      color: const Color(0xff2673FF),
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    "Dr. Raze Invoker",
-                    style: GoogleFonts.plusJakartaSans(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    "Internist Specialist",
-                    style: GoogleFonts.plusJakartaSans(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xFF555B6C),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-
-          const SizedBox(height: 15),
-
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 14),
-            decoration: BoxDecoration(
-              // color: const Color(0xffF6F6F6),
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: Colors.grey.withOpacity(0.3)),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return InkWell(
+      borderRadius: BorderRadius.circular(20),
+      onTap: () {
+        Get.toNamed(AppRoutes.profile);
+      },
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: AppColor.white,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
               children: [
-                _infoItem(Icons.verified, "Verify", "Certified"),
-                _divider(),
-                _infoItem(Icons.work, "5 Years", "Experience"),
-                _divider(),
-                _infoItem(Icons.star, "4.5", "Rating"),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: CachedNetworkImage(
+                    imageUrl:
+                        "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400",
+                    height: 80,
+                    width: 80,
+                    fit: BoxFit.cover,
+                    placeholder: (context, url) =>
+                        const Center(child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
+                  ),
+                ),
+                const SizedBox(width: 15),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Radiant Hospital",
+                      style: GoogleFonts.plusJakartaSans(
+                        color: AppColor.primaryBlue,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      "Dr. Raze Invoker",
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      "Internist Specialist",
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: AppColor.lightGreyTextColor,
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
-          ),
 
-          const SizedBox(height: 15),
+            const SizedBox(height: 15),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 14),
+              decoration: BoxDecoration(
+                // color: const Color(0xffF6F6F6),
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: Colors.grey.withOpacity(0.3)),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text(
-                    "Rp 240.000",
-                    style: GoogleFonts.plusJakartaSans(
-                      color: Colors.red,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 16,
-                    ),
+                  _infoItem("assets/icons/verify.svg", "Verify", "Certified"),
+                  _divider(),
+                  _infoItem(
+                    "assets/icons/briefcase.svg",
+                    "5 Years",
+                    "Experience",
                   ),
-                  Text(
-                    "/hour",
-                    style: GoogleFonts.plusJakartaSans(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xFF555B6C),
-                    ),
-                  ),
+                  _divider(),
+                  _infoItem("assets/icons/star.svg", "4.5", "Rating"),
                 ],
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 25,
-                  vertical: 12,
+            ),
+
+            const SizedBox(height: 15),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Rp 240.000",
+                      style: GoogleFonts.plusJakartaSans(
+                        color: Colors.red,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Text(
+                      "/hour",
+                      style: GoogleFonts.plusJakartaSans(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: AppColor.lightGreyTextColor,
+                      ),
+                    ),
+                  ],
                 ),
-                decoration: BoxDecoration(
-                  color: Color(0xffE6F0FF),
-                  borderRadius: BorderRadius.circular(30),
-                  border: Border.all(color: const Color(0xff2673FF)),
-                ),
-                child: Text(
-                  "Book Now",
-                  style: GoogleFonts.plusJakartaSans(
-                    color: const Color(0xff2673FF),
-                    fontWeight: FontWeight.w600,
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 25,
+                    vertical: 12,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Color(0xffE6F0FF),
+                    borderRadius: BorderRadius.circular(30),
+                    border: Border.all(color: AppColor.primaryBlue),
+                  ),
+                  child: Text(
+                    "Book Now",
+                    style: GoogleFonts.plusJakartaSans(
+                      color: AppColor.primaryBlue,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  Widget _infoItem(IconData icon, String title, String subtitle) {
+  Widget _infoItem(String svgPath, String title, String subtitle) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, color: const Color(0xff2673FF), size: 20),
+            SvgPicture.asset(
+              svgPath,
+              height: 20,
+              width: 20,
+              colorFilter: const ColorFilter.mode(
+                AppColor.primaryBlue,
+                BlendMode.srcIn,
+              ),
+            ),
 
-            const SizedBox(width: 5),
+            const SizedBox(width: 4),
+
             Text(
               title,
               style: GoogleFonts.plusJakartaSans(
                 fontWeight: FontWeight.w700,
                 fontSize: 16,
+                color: AppColor.black,
               ),
             ),
           ],
         ),
-        const SizedBox(height: 6),
+
+        const SizedBox(height: 4),
 
         Text(
           subtitle,
           style: GoogleFonts.plusJakartaSans(
-            color: Color(0xFF555B6C),
             fontSize: 14,
+            color: AppColor.lightGreyTextColor,
           ),
         ),
       ],
@@ -729,41 +860,3 @@ class HomeView extends GetView<HomeController> {
     return Container(height: 40, width: 1, color: Colors.grey.withOpacity(0.5));
   }
 }
-
-//   Widget _buildStackAvatar() {
-//     return SizedBox(
-//       width: 70,
-//       child: Stack(
-//         children: [
-//           Positioned(
-//             left: 0,
-//             child: CircleAvatar(
-//               radius: 18,
-//               backgroundImage: NetworkImage(
-//                 "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
-//               ),
-//             ),
-//           ),
-//           Positioned(
-//             left: 25,
-//             child: CircleAvatar(
-//               radius: 18,
-//               backgroundImage: NetworkImage(
-//                 "https://images.unsplash.com/photo-1552058544-f2b08422138a",
-//               ),
-//             ),
-//           ),
-//           Positioned(
-//             left: 50,
-//             child: CircleAvatar(
-//               radius: 18,
-//               backgroundImage: NetworkImage(
-//                 "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c",
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }

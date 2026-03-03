@@ -1,3 +1,4 @@
+import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -43,7 +44,7 @@ class CustomTextFormField extends StatelessWidget {
   final void Function(String)? onChanged;
   final void Function(String)? onFieldSubmitted;
   final void Function(PointerDownEvent)? onTapOutside;
-  final TextEditingController? controller;
+  // final TextEditingController? controller;
   final String? Function(String?)? validator;
 
   // ✅ your input fill color
@@ -91,25 +92,26 @@ class CustomTextFormField extends StatelessWidget {
     this.onChanged,
     this.onFieldSubmitted,
     this.onTapOutside,
-    this.controller,
+   // required this.controller, // 🔥 REQUIRED hona chahiye
+    // this.controller,
     this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controller,
+     // controller: controller,
       focusNode: focusNode,
       maxLength: maxLength,
       obscureText: obscureText ?? false,
-      cursorColor: cursorColor ?? Colors.black,
+      cursorColor: cursorColor ?? AppColor.black,
       maxLines: (obscureText ?? false) ? 1 : (maxline ?? 1),
       textInputAction: inputAction,
-      initialValue: initialValue,
+      // initialValue: initialValue,
       style:
           textStyle ??
           GoogleFonts.openSans(
-            color: inputColor ?? Colors.black,
+            color: inputColor ?? AppColor.black,
             fontSize: 14,
             fontWeight: FontWeight.w500,
           ),

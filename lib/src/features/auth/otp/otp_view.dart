@@ -152,8 +152,7 @@ class OtpView extends GetView<OtpController> {
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
-                          color: Colors.black.withOpacity(0.65),
-                        ),
+                          color: AppColor.black                        ),
                       ),
                     ),
                   ],
@@ -186,14 +185,12 @@ class _OtpBox extends GetView<OtpController> {
         style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w700,
-          color: Colors.black87,
-        ),
+          color: AppColor.black        ),
         decoration: InputDecoration(
           counterText: '',
           enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(
-              color: Colors.black.withOpacity(0.25),
-              width: 2,
+              color: AppColor.black ,             width: 2,
             ),
           ),
           focusedBorder: const UnderlineInputBorder(
