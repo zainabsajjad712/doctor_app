@@ -1,7 +1,6 @@
 import 'package:doctor_app/src/features/chat/chat_view.dart';
 import 'package:doctor_app/src/features/online_consultation/online_consultation_view.dart';
 import 'package:doctor_app/src/features/profile/profile_controller.dart';
-import 'package:doctor_app/src/features/search/doctor_controller.dart';
 import 'package:doctor_app/src/features/search/doctor_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
