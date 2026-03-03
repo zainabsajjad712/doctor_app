@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:doctor_app/router/app_routes.dart';
+import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -86,7 +87,7 @@ class OtpController extends GetxController {
       "Code resent to ${phone.value}",
       snackPosition: SnackPosition.BOTTOM,
       backgroundColor: Colors.black87,
-      colorText: Colors.white,
+      colorText: AppColor.white,
     );
 
     startTimer();

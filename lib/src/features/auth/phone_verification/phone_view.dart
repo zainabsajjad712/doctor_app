@@ -16,7 +16,7 @@ class PhoneView extends GetView<PhoneController> {
   Widget build(BuildContext context) {
     final w = MediaQuery.sizeOf(context).width;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColor.white,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 22.w),
@@ -135,7 +135,7 @@ class CustomPhoneField extends StatelessWidget {
 
       decoration: InputDecoration(
         hintText: 'Your phone number',
-        hintStyle: const TextStyle(color: Colors.black38),
+        hintStyle: const TextStyle(color: Colors.black),
         contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
         enabledBorder: OutlineInputBorder(

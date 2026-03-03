@@ -36,7 +36,7 @@
 //                         margin: const EdgeInsets.all(5),
 //                         decoration: BoxDecoration(
 //                           color: isSelected
-//                               ? const Color(0xff2F80ED)
+//                               ? AppColor.primaryButton
 //                               : Colors.grey.shade200,
 //                           borderRadius: BorderRadius.circular(10),
 //                         ),
@@ -45,8 +45,7 @@
 //                           "$day",
 //                           style: TextStyle(
 //                             color:
-//                                 isSelected ? Colors.white : Colors.black,
-//                           ),
+//                                 isSelected ? AppColor.white : AppColor.black//                           ),
 //                         ),
 //                       ),
 //                     );

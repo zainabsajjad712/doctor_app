@@ -1,3 +1,4 @@
+import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,7 +10,7 @@ class TimeView extends GetView<TimeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffE5E7EB),
+      backgroundColor: AppColor.border,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -45,7 +46,7 @@ class TimeView extends GetView<TimeController> {
                 height: 55,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xff2F80ED),
+                    backgroundColor: AppColor.primaryButton,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -91,14 +92,15 @@ class TimeView extends GetView<TimeController> {
                   height: 45,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                    color: isSelected ? const Color(0xff2F80ED) : Colors.white,
+                    color: isSelected ? AppColor.primaryButton : AppColor.white,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
                     time,
-                    style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w500,
-                    ).copyWith(color: isSelected ? Colors.white : Colors.black),
+                    style: GoogleFonts.poppins(fontWeight: FontWeight.w500)
+                        .copyWith(
+                          color: isSelected ? AppColor.white : AppColor.black,
+                        ),
                   ),
                 ),
               );
