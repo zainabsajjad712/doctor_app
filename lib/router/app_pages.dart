@@ -5,18 +5,12 @@ import 'package:doctor_app/src/features/attachments/attachments_binding.dart';
 import 'package:doctor_app/src/features/attachments/attachments_view.dart';
 import 'package:doctor_app/src/features/auth/login/login.dart';
 import 'package:doctor_app/src/features/auth/login/login_binding.dart';
-import 'package:doctor_app/src/features/createpassword/generate_login_binding.dart';
-import 'package:doctor_app/src/features/createpassword/generate_login_view.dart';
-import 'package:doctor_app/src/features/date/date_binding.dart';
-import 'package:doctor_app/src/features/date/date_screen.dart';
-import 'package:doctor_app/src/features/auth/login_generate/generate_binding.dart'
-    hide GenerateLoginBinding;
-import 'package:doctor_app/src/features/auth/login_generate/generate_view.dart'
-    hide GenerateLoginView;
 import 'package:doctor_app/src/features/auth/otp/otp_binding.dart';
 import 'package:doctor_app/src/features/auth/otp/otp_view.dart';
 import 'package:doctor_app/src/features/auth/phone_verification/phone_binding.dart';
 import 'package:doctor_app/src/features/auth/phone_verification/phone_view.dart';
+import 'package:doctor_app/src/features/createpassword/generate_login_binding.dart';
+import 'package:doctor_app/src/features/createpassword/generate_login_view.dart';
 import 'package:doctor_app/src/features/doctor_call/doctor_call_binding.dart';
 import 'package:doctor_app/src/features/doctor_call/doctor_call_view.dart';
 import 'package:doctor_app/src/features/doctor_video_call/doctor_video_call_binding.dart';
@@ -131,11 +125,6 @@ class AppPages {
       binding: ProfileBinding(),
     ),
 
-    // GetPage(
-    //   name: AppRoutes.doctor,
-    //   page: () => DoctorView(),
-    //   binding: DoctorBinding(),
-    // ),
     GetPage(name: AppRoutes.homescreen, page: () => const CustomNavigation()),
     GetPage(
       name: '/profile',

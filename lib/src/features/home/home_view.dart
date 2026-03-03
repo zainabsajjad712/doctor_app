@@ -515,7 +515,6 @@ class HomeView extends GetView<HomeController> {
                   ),
                   child: Stack(
                     children: [
-                      /// 🔹 Left Text Content
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -586,17 +585,13 @@ class HomeView extends GetView<HomeController> {
 
                       /// 🔹 Doctor Image (Inside Container)
                       Positioned(
-                        top: 2,
+                        top: 0,
                         bottom: 0,
                         right: 0,
                         left: 195,
-                        child: SizedBox(
-                          height: 160, // 🔥 increase here
-                          width: 190,
-                          child: Image.asset(
-                            "assets/images/doctor.png",
-                            fit: BoxFit.contain,
-                          ),
+                        child: Image.asset(
+                          "assets/images/doctor.png",
+                          fit: BoxFit.contain,
                         ),
                       ),
                     ],
@@ -865,41 +860,3 @@ class HomeView extends GetView<HomeController> {
     return Container(height: 40, width: 1, color: Colors.grey.withOpacity(0.5));
   }
 }
-
-//   Widget _buildStackAvatar() {
-//     return SizedBox(
-//       width: 70,
-//       child: Stack(
-//         children: [
-//           Positioned(
-//             left: 0,
-//             child: CircleAvatar(
-//               radius: 18,
-//               backgroundImage: NetworkImage(
-//                 "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
-//               ),
-//             ),
-//           ),
-//           Positioned(
-//             left: 25,
-//             child: CircleAvatar(
-//               radius: 18,
-//               backgroundImage: NetworkImage(
-//                 "https://images.unsplash.com/photo-1552058544-f2b08422138a",
-//               ),
-//             ),
-//           ),
-//           Positioned(
-//             left: 50,
-//             child: CircleAvatar(
-//               radius: 18,
-//               backgroundImage: NetworkImage(
-//                 "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c",
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
