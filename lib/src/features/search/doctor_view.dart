@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doctor_app/router/app_routes.dart';
 import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:doctor_app/src/common/constant/app_images.dart';
@@ -7,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'doctor_controller.dart';
 
 class FindDoctorView extends GetView<OnlineConsultationController> {
@@ -38,13 +39,18 @@ class FindDoctorView extends GetView<OnlineConsultationController> {
                 borderRadius: BorderRadius.circular(10.r),
               ),
               child: Center(
-                child: SvgPicture.asset(
-                  AppIcons.filter, // yahan apni class ka naam likhein
-                  width: 18.w,
-                  height: 18.w,
-                  colorFilter: const ColorFilter.mode(
-                    Color(0xFF111827),
-                    BlendMode.srcIn,
+                child: GestureDetector(
+                  onTap: () {
+                    Get.toNamed(AppRoutes.filter);
+                  },
+                  child: SvgPicture.asset(
+                    AppIcons.filter,
+                    width: 18.w,
+                    height: 18.w,
+                    colorFilter: const ColorFilter.mode(
+                      Color(0xFF111827),
+                      BlendMode.srcIn,
+                    ),
                   ),
                 ),
               ),
@@ -71,7 +77,7 @@ class FindDoctorView extends GetView<OnlineConsultationController> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(12.r),
                     child: SvgPicture.asset(
-                      AppIcons.search, // yahan apni class ka naam likhein
+                      AppIcons.search,
                       width: 18.w,
                       height: 18.w,
                       colorFilter: const ColorFilter.mode(
@@ -103,7 +109,6 @@ class FindDoctorView extends GetView<OnlineConsultationController> {
               ),
             ),
             SizedBox(height: 16.h),
-
             Text(
               "Interested Doctors",
               style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
