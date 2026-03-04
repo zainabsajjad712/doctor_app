@@ -109,10 +109,10 @@ class AppPages {
       binding: FilterBinding(),
     ),
 
-    /*GetPage(
-      name: AppRoutes.doctorProfileScreen,
-      page: () => DoctorProfileScreen(),
-    ),*/
+    // GetPage(
+    //   name: AppRoutes.doctorProfileScreen,
+    //   page: () => DoctorProfileScreen(),
+    // ),
     GetPage(
       name: AppRoutes.doctor,
       page: () => FindDoctorView(),

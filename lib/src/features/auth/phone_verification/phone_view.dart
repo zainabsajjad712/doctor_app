@@ -2,6 +2,7 @@ import 'package:doctor_app/src/common/constant/app_images.dart';
 import 'package:doctor_app/src/common/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../common/constant/app_colors.dart';
@@ -23,7 +24,12 @@ class PhoneView extends GetView<MailController> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(AppImages.phone, height: 200.h),
+                    SvgPicture.asset(
+                      AppIcons.phone,
+                      width: 150.w,
+                      height: 150.w,
+                    ),
+                    //   Image.asset(AppImages.phone, height: 200.h),
                     SizedBox(height: 26.h),
                     // TextField
                     CustomEmailField(
