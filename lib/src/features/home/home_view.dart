@@ -435,10 +435,7 @@ class HomeView extends GetView<HomeController> {
                 /// BLUE CARD
                 Container(
                   width: double.infinity,
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 24.w,
-                    vertical: 26.h,
-                  ),
+
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(28.r),
                     gradient: const LinearGradient(
@@ -453,12 +450,15 @@ class HomeView extends GetView<HomeController> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "Trusted doctor on your schedule 😉",
-                            style: TextStyle(
-                              fontSize: 14.sp,
-                              color: Colors.white.withOpacity(0.9),
-                              fontWeight: FontWeight.w500,
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "Trusted doctor on your schedule 😉",
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                color: Colors.white.withOpacity(0.9),
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
 
@@ -467,20 +467,20 @@ class HomeView extends GetView<HomeController> {
                           Text(
                             "Consult A Doctor\n— Book Today!",
                             style: TextStyle(
-                              fontSize: 28.sp,
+                              fontSize: 22.sp,
                               height: 1.25,
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
 
-                          SizedBox(height: 22.h),
+                          SizedBox(height: 15.h),
 
                           Row(
                             children: [
                               SizedBox(
                                 width: 70.w,
-                                height: 34.h,
+                                height: 30.h,
                                 child: Stack(
                                   children: [
                                     Positioned(
@@ -492,8 +492,8 @@ class HomeView extends GetView<HomeController> {
                                           child: CachedNetworkImage(
                                             imageUrl:
                                                 "https://randomuser.me/api/portraits/women/44.jpg",
-                                            width: 32.w,
-                                            height: 32.w,
+                                            width: 30.w,
+                                            height: 30.w,
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -551,14 +551,10 @@ class HomeView extends GetView<HomeController> {
                         ],
                       ),
 
-                      SizedBox(width: 10.w),
-
-                      Expanded(
-                        flex: 4,
-                        child: Image.asset(
-                          "assets/images/doctor.png",
-                          fit: BoxFit.contain,
-                        ),
+                      Image.asset(
+                        "assets/images/doctor.png",
+                        fit: BoxFit.contain,
+                        height: 140.h,
                       ),
                     ],
                   ),
