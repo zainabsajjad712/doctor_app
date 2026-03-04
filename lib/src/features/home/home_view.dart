@@ -384,6 +384,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doctor_app/router/app_routes.dart';
 import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -432,6 +433,136 @@ class HomeView extends GetView<HomeController> {
                 const SizedBox(height: 25),
 
                 /// BLUE CARD
+                Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 24.w,
+                    vertical: 26.h,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(28.r),
+                    gradient: const LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Color(0xff3E7BFA), Color(0xff2E63D6)],
+                    ),
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Trusted doctor on your schedule 😉",
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              color: Colors.white.withOpacity(0.9),
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+
+                          SizedBox(height: 12.h),
+
+                          Text(
+                            "Consult A Doctor\n— Book Today!",
+                            style: TextStyle(
+                              fontSize: 28.sp,
+                              height: 1.25,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          SizedBox(height: 22.h),
+
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: 70.w,
+                                height: 34.h,
+                                child: Stack(
+                                  children: [
+                                    Positioned(
+                                      left: 0,
+                                      child: CircleAvatar(
+                                        radius: 16.r,
+                                        backgroundColor: Colors.white,
+                                        child: ClipOval(
+                                          child: CachedNetworkImage(
+                                            imageUrl:
+                                                "https://randomuser.me/api/portraits/women/44.jpg",
+                                            width: 32.w,
+                                            height: 32.w,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      left: 18.w,
+                                      child: CircleAvatar(
+                                        radius: 16.r,
+                                        backgroundColor: Colors.white,
+                                        child: ClipOval(
+                                          child: CachedNetworkImage(
+                                            imageUrl:
+                                                "https://randomuser.me/api/portraits/women/68.jpg",
+                                            width: 32.w,
+                                            height: 32.w,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      left: 36.w,
+                                      child: CircleAvatar(
+                                        radius: 16.r,
+                                        backgroundColor: Colors.white,
+                                        child: ClipOval(
+                                          child: CachedNetworkImage(
+                                            imageUrl:
+                                                "https://randomuser.me/api/portraits/women/65.jpg",
+                                            width: 32.w,
+                                            height: 32.w,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                              SizedBox(width: 12.w),
+
+                              Text(
+                                "30.000+ \nHappy Patients",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  height: 1.3,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+
+                      SizedBox(width: 10.w),
+
+                      Expanded(
+                        flex: 4,
+                        child: Image.asset(
+                          "assets/images/doctor.png",
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
 
                 /*Container(
                   height: 180.h,
