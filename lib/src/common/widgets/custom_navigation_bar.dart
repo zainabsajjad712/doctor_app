@@ -1047,7 +1047,6 @@ class CustomNavigation extends StatefulWidget {
 class _CustomNavigationState extends State<CustomNavigation> {
   final navigationCont = Get.put(NavigationController());
 
-  // NEW: per-tab rotation turns (0..3 for the four nav icons)
   final List<double> _turns = List<double>.filled(4, 0.0);
   // NEW: press state for tiny bounce
   int? _pressedIndex;
@@ -1059,15 +1058,6 @@ class _CustomNavigationState extends State<CustomNavigation> {
     ProfileView(),
     const OtpView(), // FAB Page
   ];
-
-  //   const PhoneView(),
-  //   OtpView(),
-  //   OtpView(),
-  //   OtpView(),
-  //   OtpView(),
-
-  //   // Placeholder for Floating Button
-  // ];
 
   @override
   void initState() {
@@ -1113,7 +1103,7 @@ class _CustomNavigationState extends State<CustomNavigation> {
                     smooth: 30, // smoothness
                   ),
                   child: Container(
-                    height: height * 0.098,
+                    height: height * 0.090,
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
@@ -1142,7 +1132,7 @@ class _CustomNavigationState extends State<CustomNavigation> {
                   ),
                 ),
                 Positioned(
-                  bottom: height * 0.06,
+                  bottom: height * 0.052,
                   child: IconButton(
                     enableFeedback: false,
                     onPressed: () {

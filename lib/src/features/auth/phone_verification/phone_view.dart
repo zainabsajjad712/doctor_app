@@ -3,18 +3,15 @@ import 'package:doctor_app/src/common/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:intl_phone_field/phone_number.dart';
 
 import '../../../common/constant/app_colors.dart';
 import 'phone_controller.dart';
 
-class PhoneView extends GetView<PhoneController> {
+class PhoneView extends GetView<MailController> {
   const PhoneView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final w = MediaQuery.sizeOf(context).width;
     return Scaffold(
       backgroundColor: AppColor.white,
       body: SafeArea(
@@ -29,13 +26,17 @@ class PhoneView extends GetView<PhoneController> {
                     Image.asset(AppImages.phone, height: 200.h),
                     SizedBox(height: 26.h),
                     // TextField
-                    CustomPhoneField(
-                      controller: controller.phoneController,
-                      onChanged: controller.onPhoneChanged,
-                      validator: (phone) {
-                        if (phone == null || phone.number.trim().isEmpty) {
-                          return 'Enter phone number';
+                    CustomEmailField(
+                      controller: controller.emailController,
+                      validator: (value) {
+                        if (value == null || value.trim().isEmpty) {
+                          return 'Enter email';
                         }
+
+                        if (!GetUtils.isEmail(value.trim())) {
+                          return 'Enter valid email';
+                        }
+
                         return null;
                       },
                     ),
@@ -65,38 +66,6 @@ class PhoneView extends GetView<PhoneController> {
                   isLoading: loading,
                   borderRadius: 25.r,
                 );
-
-                // SizedBox(
-                //   width: w,
-                //   height: 54.h,
-                //   child: ElevatedButton(
-                //     onPressed: loading ? null : controller.onNext,
-                //     style: ElevatedButton.styleFrom(
-                //       backgroundColor: AppColor.primaryButton,
-                //       shape: RoundedRectangleBorder(
-                //         borderRadius: BorderRadius.circular(28),
-                //       ),
-                //       elevation: 0,
-                //     ),
-                //     child: loading
-                //         ? SizedBox(
-                //             width: 22.w,
-                //             height: 22.h,
-                //             child: CircularProgressIndicator(
-                //               strokeWidth: 2.5,
-                //               color: Colors.white,
-                //             ),
-                //           )
-                //         : Text(
-                //             'Next',
-                //             style: TextStyle(
-                //               fontSize: 16.sp,
-                //               fontWeight: FontWeight.w700,
-                //               color: Colors.white,
-                //             ),
-                //           ),
-                //   ),
-                // );
               }),
 
               SizedBox(height: 20.h),
@@ -108,33 +77,21 @@ class PhoneView extends GetView<PhoneController> {
   }
 }
 
-class CustomPhoneField extends StatelessWidget {
+class CustomEmailField extends StatelessWidget {
   final TextEditingController controller;
+  final String? Function(String?)? validator;
 
-  // ✅ IntlPhoneField expects: String? Function(PhoneNumber?)?
-  final String? Function(PhoneNumber?)? validator;
-
-  final Function(String completeNumber)? onChanged;
-
-  const CustomPhoneField({
-    super.key,
-    required this.controller,
-    this.validator,
-    this.onChanged,
-  });
+  const CustomEmailField({super.key, required this.controller, this.validator});
 
   @override
   Widget build(BuildContext context) {
-    return IntlPhoneField(
+    return TextFormField(
       controller: controller,
-      initialCountryCode: 'PK',
-      keyboardType: TextInputType.phone,
-      disableLengthCheck: false,
-
+      keyboardType: TextInputType.emailAddress,
       style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w500),
 
       decoration: InputDecoration(
-        hintText: 'Your phone number',
+        hintText: 'Enter your email',
         hintStyle: const TextStyle(color: Colors.black),
         contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
@@ -148,11 +105,6 @@ class CustomPhoneField extends StatelessWidget {
         ),
       ),
 
-      onChanged: (phone) {
-        if (onChanged != null) onChanged!(phone.completeNumber);
-      },
-
-      // ✅ now correct type
       validator: validator,
     );
   }

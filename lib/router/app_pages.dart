@@ -50,7 +50,7 @@ class AppPages {
     GetPage(
       name: AppRoutes.phone,
       page: () => const PhoneView(),
-      binding: PhoneBinding(),
+      binding: MailBinding(),
     ),
     GetPage(
       name: AppRoutes.otp,

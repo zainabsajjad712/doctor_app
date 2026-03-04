@@ -107,8 +107,6 @@
 //     );
 //   }
 // }
-import 'package:doctor_app/src/common/constant/app_colors.dart';
-import 'package:doctor_app/src/common/utils/validation.dart';
 import 'package:doctor_app/src/common/widgets/custom_button.dart';
 import 'package:doctor_app/src/common/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -117,6 +115,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../router/app_routes.dart';
+import '../../../common/constant/app_colors.dart';
 import 'generate_controller.dart';
 
 class GenerateLoginView extends GetView<GenerateLoginController> {
@@ -171,10 +170,10 @@ class GenerateLoginView extends GetView<GenerateLoginController> {
                   SizedBox(height: 20.h),
 
                   CustomTextFormField(
-                   // controller: controller.passwordController,
+                    controller: controller.passwordController,
                     hint: "Enter password",
                     obscureText: true,
-                   // validator: Validation.passwordValidation,
+                    // validator: Validation.passwordValidation,
                   ),
 
                   SizedBox(height: 30.h),
@@ -191,7 +190,7 @@ class GenerateLoginView extends GetView<GenerateLoginController> {
                   SizedBox(height: 20.h),
 
                   CustomTextFormField(
-                   // controller: controller.confirmPasswordController,
+                    controller: controller.confirmPasswordController,
                     hint: "Enter confirm password",
                     obscureText: true,
                     // validator: (value) {

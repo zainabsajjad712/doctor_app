@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'generate_login_controller.dart';
 
 class GenerateLoginView extends GetView<GenerateLoginController> {
@@ -59,7 +60,7 @@ class GenerateLoginView extends GetView<GenerateLoginController> {
               ),
               SizedBox(height: 20.h),
               CustomTextFormField(
-                //  controller: controller.passwordController,
+                controller: controller.passwordController,
                 hint: "Enter password",
                 obscureText: true,
                 keyboardType: TextInputType.number,
@@ -83,7 +84,7 @@ class GenerateLoginView extends GetView<GenerateLoginController> {
               ),
               SizedBox(height: 20.h),
               CustomTextFormField(
-                // controller: controller.passwordController,
+                controller: controller.passwordController,
                 hint: "Enter confirm password",
                 obscureText: true,
                 keyboardType: TextInputType.number,

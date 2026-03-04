@@ -57,7 +57,7 @@ class PersonalInfoScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 8.h),
                   CustomTextFormField(
-                   // controller: controller.nameController,
+                    controller: controller.nameController,
                     hint: "Enter name",
                     validator: Validation.nameValidation,
                     borderRadius: 10.r,
@@ -96,15 +96,14 @@ class PersonalInfoScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 8.h),
                   CustomTextFormField(
-                  //  controller: controller.dobController,
+                    controller: controller.dobController,
                     hint: "Choose your date",
-
                     readOnly: true,
                     suffixIcon: IconButton(
                       icon: const Icon(Icons.arrow_drop_down),
                       onPressed: () async {
-                        final picked = await showDatePicker(
-                          context: Get.context!,
+                        DateTime? picked = await showDatePicker(
+                          context: context,
                           initialDate: DateTime.now(),
                           firstDate: DateTime(1900),
                           lastDate: DateTime.now(),
@@ -131,7 +130,7 @@ class PersonalInfoScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 8.h),
                   CustomTextFormField(
-                   // controller: controller.emailController,
+                    controller: controller.emailController,
                     hint: "Enter your email",
                     validator: Validation.emailValidation,
                     borderRadius: 10.r,
@@ -183,7 +182,7 @@ class PersonalInfoScreen extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: c.gender.value == text
-                ? AppColor.primaryButton   
+                ? AppColor.primaryButton
                 : AppColor.inputFill,
             borderRadius: BorderRadius.circular(10),
           ),

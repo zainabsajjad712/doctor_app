@@ -44,7 +44,7 @@ class CustomTextFormField extends StatelessWidget {
   final void Function(String)? onChanged;
   final void Function(String)? onFieldSubmitted;
   final void Function(PointerDownEvent)? onTapOutside;
-  // final TextEditingController? controller;
+  final TextEditingController? controller;
   final String? Function(String?)? validator;
 
   // ✅ your input fill color
@@ -92,7 +92,7 @@ class CustomTextFormField extends StatelessWidget {
     this.onChanged,
     this.onFieldSubmitted,
     this.onTapOutside,
-   // required this.controller, // 🔥 REQUIRED hona chahiye
+    required this.controller, // 🔥 REQUIRED hona chahiye
     // this.controller,
     this.validator,
   });
@@ -100,7 +100,7 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-     // controller: controller,
+      controller: controller,
       focusNode: focusNode,
       maxLength: maxLength,
       obscureText: obscureText ?? false,

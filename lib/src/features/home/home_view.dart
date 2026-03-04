@@ -384,7 +384,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doctor_app/router/app_routes.dart';
 import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -433,76 +432,8 @@ class HomeView extends GetView<HomeController> {
                 const SizedBox(height: 25),
 
                 /// BLUE CARD
-                // Container(
-                //   height: 170,
-                //   width: size.width,
-                //   padding: const EdgeInsets.all(20),
-                //   decoration: BoxDecoration(
-                //     borderRadius: BorderRadius.circular(24),
-                //     gradient: const LinearGradient(
-                //       colors: [Color(0xff3A7BFF), Color(0xff2673FF)],
-                //     ),
-                //   ),
-                //   child: Stack(
-                //     children: [
-                //       Column(
-                //         crossAxisAlignment: CrossAxisAlignment.start,
-                //         children: [
-                //           Text(
-                //             "Trusted doctor on your schedule 😊",
-                //             style: GoogleFonts.plusJakartaSans(
-                //               color: AppColor.white,
-                //               fontSize: 12,
-                //             ),
-                //           ),
-                //           const SizedBox(height: 10),
-                //           Text(
-                //             "Consult A Doctor\n— Book Today!",
-                //             style: GoogleFonts.plusJakartaSans(
-                //               color: AppColor.white,
-                //               fontSize: 18,
-                //               fontWeight: FontWeight.w700,
-                //             ),
-                //           ),
-                //           const Spacer(),
-                //           Row(
-                //             children: [
-                //               _buildStackAvatar(),
-                //               const SizedBox(width: 10),
-                //               Text(
-                //                 "30.000+\nHappy Patients",
-                //                 style: GoogleFonts.plusJakartaSans(
-                //                   color: AppColor.white,
-                //                   fontSize: 11,
-                //                 ),
-                //               ),
-                //             ],
-                //           ),
-                //         ],
-                //       ),
-                //       Positioned(
-                //         left: 160.w,
-                //         top: 14.h,
-                //         child: Image.asset(
-                //           "assets/images/doctor.png",
-                //           height: 199.h,
-                //           width: 174.w,
-                //           fit: BoxFit.contain,
-                //         ),
-                //       ),
-                //       // Positioned(
-                //       //   right: 0,
-                //       //   bottom: 0,
-                //       //   child: Image.asset(
-                //       //     "assets/images/doctor.png",
-                //       //     height: 199,
-                //       //     width: 174,
-                //       //   ),
-                //       // ),
-                //     ],
-                //   ),
-                // ),
-                Container(
+
+                /*Container(
                   height: 180.h,
                   width: double.infinity,
                   // padding: EdgeInsets.symmetric(
@@ -596,8 +527,7 @@ class HomeView extends GetView<HomeController> {
                       ),
                     ],
                   ),
-                ),
-
+                ),*/
                 const SizedBox(height: 30),
 
                 /// SECTION TITLE
