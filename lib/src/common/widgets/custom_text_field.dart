@@ -48,7 +48,7 @@ class CustomTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
 
   // ✅ your input fill color
-  static const Color inputFill = Color(0xFFD9D9D9);
+  static const Color inputFill = Color.fromARGB(106, 217, 217, 217);
 
   const
   CustomTextFormField({
@@ -130,7 +130,7 @@ class CustomTextFormField extends StatelessWidget {
             counterText: '',
             hintText: hint,
             hintStyle: GoogleFonts.openSans(
-              color: hintColor ?? Colors.grey,
+              color: hintColor ?? AppColor.lightGreyTextColor,
               fontSize: hintSize ?? 14,
             ),
             filled: filled ?? true,
@@ -158,23 +158,17 @@ class CustomTextFormField extends StatelessWidget {
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: focusBorderColor ?? Colors.black.withOpacity(0.5),
+                color: focusBorderColor ?? Colors.transparent,
                 width: 1,
               ),
               borderRadius: BorderRadius.circular(borderRadius ?? 6),
             ),
             errorBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.red.withOpacity(0.7),
-                width: 1,
-              ),
+              borderSide: BorderSide(color: AppColor.redColor, width: 1),
               borderRadius: BorderRadius.circular(borderRadius ?? 6),
             ),
             focusedErrorBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.red.withOpacity(0.7),
-                width: 1,
-              ),
+              borderSide: BorderSide(color: AppColor.redColor, width: 1),
               borderRadius: BorderRadius.circular(borderRadius ?? 6),
             ),
             disabledBorder: OutlineInputBorder(

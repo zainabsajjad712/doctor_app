@@ -7,16 +7,15 @@ import '../../common/constant/app_colors.dart';
 import 'chat_controller.dart';
 import 'message_model.dart';
 
-class ChatScreen extends StatelessWidget {
+class ChatScreen extends GetView<ChatController> {
   const ChatScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(ChatController());
     final size = MediaQuery.of(context).size;
-
     return Scaffold(
-      backgroundColor: const Color(0xFFF0F4FF),
+      appBar: AppBar(title: Text('ChatScreenPage')),
+
       body: SafeArea(
         child: Column(
           children: [
@@ -333,3 +332,27 @@ class ChatScreen extends StatelessWidget {
     );
   }
 }
+
+// class ChatScreen extends StatelessWidget {
+//   const ChatScreen({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     final controller = Get.put(ChatController());
+//     final size = MediaQuery.of(context).size;
+
+//     return Scaffold(
+//       backgroundColor: const Color(0xFFF0F4FF),
+//       body: SafeArea(
+//         child: Column(
+//           children: [
+//             _buildAppBar(context),
+//             Expanded(child: _buildMessageList(controller, size)),
+//             _buildInputArea(controller, context),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+
+// }

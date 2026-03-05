@@ -1,4 +1,5 @@
 import 'package:doctor_app/src/features/auth/login/login.dart';
+import 'package:doctor_app/src/features/chat/chat_view.dart';
 import 'package:doctor_app/src/features/home/home_view.dart';
 import 'package:doctor_app/src/features/profile/profile_view.dart';
 import 'package:doctor_app/src/features/search/doctor_view.dart';
@@ -15,10 +16,10 @@ class CustomNavigation extends StatefulWidget {
   const CustomNavigation({super.key, this.initialIndex = 0});
 
   @override
-  _CustomNavigationState createState() => _CustomNavigationState();
+  CustomNavigationState createState() => CustomNavigationState();
 }
 
-class _CustomNavigationState extends State<CustomNavigation> {
+class CustomNavigationState extends State<CustomNavigation> {
   final navigationCont = Get.put(NavigationController());
 
   final List<double> _turns = List<double>.filled(4, 0.0);
@@ -29,7 +30,7 @@ class _CustomNavigationState extends State<CustomNavigation> {
     HomeView(),
     DoctorView(),
     PersonalInfoScreen(),
-    ProfileView(),
+    ChatScreen(),
     const OtpView(), // FAB Page
   ];
 

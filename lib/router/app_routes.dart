@@ -5,7 +5,7 @@ class AppRoutes {
   static const personalInfo = "/personal-info";
   static const date = "/date";
 
-  static const phone = '/phone';
+  static const email = '/email';
   static const otp = '/otp';
   static const onlineConsultation = '/online-consultation';
   static const onlineConsultationDetails = '/online-consultation-details';
@@ -25,5 +25,5 @@ class AppRoutes {
   static const time = '/time';
   static const attachments = '/attachments';
   static const generateLogin = '/generate-login';
-  static const generatingPassword = '/generatingPassword';
+  static const createPassword = '/create-password';
 }
