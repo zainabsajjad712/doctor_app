@@ -37,7 +37,7 @@ class OtpView extends GetView<OtpController> {
                         fit: BoxFit.contain,
                       ),
                     ),
-                    const SizedBox(height: 22),
+                    SizedBox(height: 26.h),
 
                     const Text(
                       "OTP authentication",
@@ -75,8 +75,6 @@ class OtpView extends GetView<OtpController> {
                     ),
 
                     const SizedBox(height: 18),
-
-                    /// ✅ Loading indicator (since no button now)
                     Obx(() {
                       if (!c.isLoading.value) {
                         return const SizedBox.shrink();

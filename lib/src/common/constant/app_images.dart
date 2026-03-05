@@ -9,6 +9,8 @@ class AppImages {
 
 class AppIcons {
   static String filter = 'assets/icons/filter.svg';
+  static String phone = 'assets/icons/phoneIcon.svg';
+
   static String search = 'assets/icons/search.svg';
   static String save = 'assets/icons/save.svg';
   static String star = 'assets/icons/star.svg';

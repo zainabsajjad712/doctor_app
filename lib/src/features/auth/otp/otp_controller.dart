@@ -104,11 +104,11 @@ class OtpController extends GetxController {
 
     isLoading.value = false;
 
-    Get.offAllNamed(AppRoutes.generatingPassword);
+    Get.offAllNamed(AppRoutes.createPassword);
   }
 
   void changeNumber() {
-    Get.offAllNamed(AppRoutes.phone);
+    Get.offAllNamed(AppRoutes.email);
   }
 
   @override

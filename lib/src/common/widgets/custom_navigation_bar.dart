@@ -1031,8 +1031,8 @@
 //   @override
 //   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 // }
+import 'package:doctor_app/src/features/auth/login/login.dart';
 import 'package:doctor_app/src/features/home/home_view.dart';
-import 'package:doctor_app/src/features/most_search/search_view.dart';
 import 'package:doctor_app/src/features/profile/profile_view.dart';
 import 'package:doctor_app/src/features/search/doctor_view.dart';
 import 'package:flutter/material.dart';
@@ -1040,6 +1040,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../features/auth/otp/otp_view.dart';
+import '../../features/chat/chat_controller.dart';
 import '../../features/controllers/navigation_controller.dart';
 import '../constant/app_colors.dart';
 
@@ -1048,13 +1049,14 @@ class CustomNavigation extends StatefulWidget {
   const CustomNavigation({super.key, this.initialIndex = 0});
 
   @override
-  _CustomNavigationState createState() => _CustomNavigationState();
+  CustomNavigationState createState() => CustomNavigationState();
 }
 
-class _CustomNavigationState extends State<CustomNavigation> {
+class CustomNavigationState extends State<CustomNavigation> {
   final navigationCont = Get.put(NavigationController());
+  final ctrl = Get.put(ChatController());
+  final ctrl1 = Get.put(OnlineConsultationController());
 
-  // NEW: per-tab rotation turns (0..3 for the four nav icons)
   final List<double> _turns = List<double>.filled(4, 0.0);
   // NEW: press state for tiny bounce
   int? _pressedIndex;
@@ -1062,19 +1064,10 @@ class _CustomNavigationState extends State<CustomNavigation> {
   static final List<Widget> _widgetOptions = <Widget>[
     HomeView(),
     DoctorView(),
-    SearchView(),
+    PersonalInfoScreen(),
     ProfileView(),
     const OtpView(), // FAB Page
   ];
-
-  //   const PhoneView(),
-  //   OtpView(),
-  //   OtpView(),
-  //   OtpView(),
-  //   OtpView(),
-
-  //   // Placeholder for Floating Button
-  // ];
 
   @override
   void initState() {
@@ -1120,7 +1113,7 @@ class _CustomNavigationState extends State<CustomNavigation> {
                     smooth: 30, // smoothness
                   ),
                   child: Container(
-                    height: height * 0.098,
+                    height: height * 0.090,
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
@@ -1149,7 +1142,7 @@ class _CustomNavigationState extends State<CustomNavigation> {
                   ),
                 ),
                 Positioned(
-                  bottom: height * 0.06,
+                  bottom: height * 0.052,
                   child: IconButton(
                     enableFeedback: false,
                     onPressed: () {
