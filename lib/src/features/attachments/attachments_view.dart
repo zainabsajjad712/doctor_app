@@ -68,7 +68,7 @@ class AttachmentsView extends GetView<AttachmentsController> {
                     const SizedBox(height: 20),
                   ],
                 );
-              }).toList(),
+              }),
             ],
           ),
         ),

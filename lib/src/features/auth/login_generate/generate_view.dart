@@ -108,7 +108,6 @@
 //   }
 // }
 import 'package:doctor_app/src/common/constant/app_colors.dart';
-import 'package:doctor_app/src/common/utils/validation.dart';
 import 'package:doctor_app/src/common/widgets/custom_button.dart';
 import 'package:doctor_app/src/common/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';

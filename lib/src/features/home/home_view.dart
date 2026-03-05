@@ -591,7 +591,7 @@ class HomeView extends GetView<HomeController> {
                         right: 0,
                         left: 195,
                         child: SizedBox(
-                          height: 160, // 🔥 increase here
+                          height: 160,
                           width: 190,
                           child: Image.asset(
                             "assets/images/doctor.png",

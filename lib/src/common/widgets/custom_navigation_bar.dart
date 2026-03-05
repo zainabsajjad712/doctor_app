@@ -1031,8 +1031,8 @@
 //   @override
 //   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 // }
-import 'package:doctor_app/src/features/auth/login/login.dart';
 import 'package:doctor_app/src/features/home/home_view.dart';
+import 'package:doctor_app/src/features/most_search/search_view.dart';
 import 'package:doctor_app/src/features/profile/profile_view.dart';
 import 'package:doctor_app/src/features/search/doctor_view.dart';
 import 'package:flutter/material.dart';
@@ -1041,8 +1041,6 @@ import 'package:get/get.dart';
 
 import '../../features/auth/otp/otp_view.dart';
 import '../../features/controllers/navigation_controller.dart';
-import '../../features/home/home_view.dart';
-import '../../features/online_consultation/online_consultation_controller.dart';
 import '../constant/app_colors.dart';
 
 class CustomNavigation extends StatefulWidget {
@@ -1064,7 +1062,7 @@ class _CustomNavigationState extends State<CustomNavigation> {
   static final List<Widget> _widgetOptions = <Widget>[
     HomeView(),
     DoctorView(),
-    PersonalInfoScreen(),
+    SearchView(),
     ProfileView(),
     const OtpView(), // FAB Page
   ];

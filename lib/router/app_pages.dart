@@ -1,4 +1,6 @@
 import 'package:doctor_app/src/common/widgets/custom_navigation_bar.dart';
+import 'package:doctor_app/src/features/account/account_binding.dart';
+import 'package:doctor_app/src/features/account/account_view.dart';
 import 'package:doctor_app/src/features/appointment/appointment_binding.dart';
 import 'package:doctor_app/src/features/appointment/appointment_view.dart';
 import 'package:doctor_app/src/features/attachments/attachments_binding.dart';
@@ -7,12 +9,6 @@ import 'package:doctor_app/src/features/auth/login/login.dart';
 import 'package:doctor_app/src/features/auth/login/login_binding.dart';
 import 'package:doctor_app/src/features/createpassword/generate_login_binding.dart';
 import 'package:doctor_app/src/features/createpassword/generate_login_view.dart';
-import 'package:doctor_app/src/features/date/date_binding.dart';
-import 'package:doctor_app/src/features/date/date_screen.dart';
-import 'package:doctor_app/src/features/auth/login_generate/generate_binding.dart'
-    hide GenerateLoginBinding;
-import 'package:doctor_app/src/features/auth/login_generate/generate_view.dart'
-    hide GenerateLoginView;
 import 'package:doctor_app/src/features/auth/otp/otp_binding.dart';
 import 'package:doctor_app/src/features/auth/otp/otp_view.dart';
 import 'package:doctor_app/src/features/auth/phone_verification/phone_binding.dart';
@@ -21,23 +17,33 @@ import 'package:doctor_app/src/features/doctor_call/doctor_call_binding.dart';
 import 'package:doctor_app/src/features/doctor_call/doctor_call_view.dart';
 import 'package:doctor_app/src/features/doctor_video_call/doctor_video_call_binding.dart';
 import 'package:doctor_app/src/features/doctor_video_call/doctor_video_call_view.dart';
+import 'package:doctor_app/src/features/doctorprofile/doctor_profile_binding.dart';
+import 'package:doctor_app/src/features/doctorprofile/doctor_profile_view.dart';
 import 'package:doctor_app/src/features/feedback_screen/feedback_binding.dart';
 import 'package:doctor_app/src/features/feedback_screen/feedback_view.dart';
 import 'package:doctor_app/src/features/filter/filter_binding.dart';
 import 'package:doctor_app/src/features/filter/filter_view.dart';
+import 'package:doctor_app/src/features/interestedlist/interest_list_binding.dart';
+import 'package:doctor_app/src/features/interestedlist/interest_list_view.dart';
+import 'package:doctor_app/src/features/most_search/search_binding.dart';
+import 'package:doctor_app/src/features/most_search/search_view.dart';
+import 'package:doctor_app/src/features/news/news_binding.dart';
+import 'package:doctor_app/src/features/news/news_detail_view.dart';
+import 'package:doctor_app/src/features/news/news_view.dart';
 import 'package:doctor_app/src/features/onboarding/onboarding_binding.dart';
 import 'package:doctor_app/src/features/onboarding/onboarding_view.dart';
 import 'package:doctor_app/src/features/online_consultation/online_consultation_binding.dart';
 import 'package:doctor_app/src/features/online_consultation/online_consultation_detail/online_consultation_detail_binding.dart';
 import 'package:doctor_app/src/features/online_consultation/online_consultation_detail/online_consultation_detail_view.dart';
 import 'package:doctor_app/src/features/online_consultation/online_consultation_view.dart';
-import 'package:doctor_app/src/features/profile/profile_binding.dart'
-    hide PhoneBinding;
+import 'package:doctor_app/src/features/profile/profile_binding.dart';
 import 'package:doctor_app/src/features/profile/profile_view.dart';
 import 'package:doctor_app/src/features/reviews/review_binding.dart';
 import 'package:doctor_app/src/features/reviews/review_view.dart';
 import 'package:doctor_app/src/features/search/doctor_binding.dart';
 import 'package:doctor_app/src/features/search/doctor_view.dart';
+import 'package:doctor_app/src/features/security/password/security_binding.dart';
+import 'package:doctor_app/src/features/security/password/security_view.dart';
 import 'package:doctor_app/src/features/select%20time/time_binding.dart';
 import 'package:doctor_app/src/features/select%20time/time_view.dart';
 import 'package:get/get.dart';
@@ -180,6 +186,43 @@ class AppPages {
       page: () => const GenerateLoginView(),
       binding: GenerateLoginBinding(),
     ),
+    GetPage(
+      name: AppRoutes.search,
+      page: () => const SearchView(),
+      binding: SearchBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.news,
+      page: () => const NewsView(),
+      binding: NewsBinding(),
+    ),
+    GetPage(name: AppRoutes.newsdetail, page: () => const NewsDetailView()),
+    GetPage(
+      name: AppRoutes.account,
+      page: () => AccountView(),
+      binding: AccountBinding(),
+    ),
+    GetPage(
+name: AppRoutes.doctorprofile,
+page: ()=>const DoctorProfileView(),
+binding: DoctorProfileBinding(),
+),
+GetPage(
+  name: AppRoutes.passwordSecurity,
+  page: () => const PasswordSecurityView(),
+  binding: PasswordSecurityBinding(),
+),
+GetPage(
+  name: AppRoutes.interestList,
+  page: () => const InterestListView(),
+  binding: InterestListBinding(),
+),
+
+// GetPage(
+//   name: AppRoutes.passwordSecurity,
+//   page: () => const PasswordSecurityView(),
+//   binding: PasswordSecurityBinding(),
+// ),
 
     //Usman Routes Screens
     GetPage(name: AppRoutes.chatScreen, page: () => ChatScreen()),
