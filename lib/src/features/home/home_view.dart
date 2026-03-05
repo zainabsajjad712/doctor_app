@@ -433,76 +433,134 @@ class HomeView extends GetView<HomeController> {
                 const SizedBox(height: 25),
 
                 /// BLUE CARD
-                // Container(
-                //   height: 170,
-                //   width: size.width,
-                //   padding: const EdgeInsets.all(20),
-                //   decoration: BoxDecoration(
-                //     borderRadius: BorderRadius.circular(24),
-                //     gradient: const LinearGradient(
-                //       colors: [Color(0xff3A7BFF), Color(0xff2673FF)],
-                //     ),
-                //   ),
-                //   child: Stack(
-                //     children: [
-                //       Column(
-                //         crossAxisAlignment: CrossAxisAlignment.start,
-                //         children: [
-                //           Text(
-                //             "Trusted doctor on your schedule 😊",
-                //             style: GoogleFonts.plusJakartaSans(
-                //               color: AppColor.white,
-                //               fontSize: 12,
-                //             ),
-                //           ),
-                //           const SizedBox(height: 10),
-                //           Text(
-                //             "Consult A Doctor\n— Book Today!",
-                //             style: GoogleFonts.plusJakartaSans(
-                //               color: AppColor.white,
-                //               fontSize: 18,
-                //               fontWeight: FontWeight.w700,
-                //             ),
-                //           ),
-                //           const Spacer(),
-                //           Row(
-                //             children: [
-                //               _buildStackAvatar(),
-                //               const SizedBox(width: 10),
-                //               Text(
-                //                 "30.000+\nHappy Patients",
-                //                 style: GoogleFonts.plusJakartaSans(
-                //                   color: AppColor.white,
-                //                   fontSize: 11,
-                //                 ),
-                //               ),
-                //             ],
-                //           ),
-                //         ],
-                //       ),
-                //       Positioned(
-                //         left: 160.w,
-                //         top: 14.h,
-                //         child: Image.asset(
-                //           "assets/images/doctor.png",
-                //           height: 199.h,
-                //           width: 174.w,
-                //           fit: BoxFit.contain,
-                //         ),
-                //       ),
-                //       // Positioned(
-                //       //   right: 0,
-                //       //   bottom: 0,
-                //       //   child: Image.asset(
-                //       //     "assets/images/doctor.png",
-                //       //     height: 199,
-                //       //     width: 174,
-                //       //   ),
-                //       // ),
-                //     ],
-                //   ),
-                // ),
                 Container(
+                  width: double.infinity,
+
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(28.r),
+                    gradient: const LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Color(0xff3E7BFA), Color(0xff2E63D6)],
+                    ),
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "Trusted doctor on your schedule 😉",
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                color: Colors.white.withOpacity(0.9),
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+
+                          SizedBox(height: 12.h),
+
+                          Text(
+                            "Consult A Doctor\n— Book Today!",
+                            style: TextStyle(
+                              fontSize: 22.sp,
+                              height: 1.25,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          SizedBox(height: 15.h),
+
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: 70.w,
+                                height: 30.h,
+                                child: Stack(
+                                  children: [
+                                    Positioned(
+                                      left: 0,
+                                      child: CircleAvatar(
+                                        radius: 16.r,
+                                        backgroundColor: Colors.white,
+                                        child: ClipOval(
+                                          child: CachedNetworkImage(
+                                            imageUrl:
+                                                "https://randomuser.me/api/portraits/women/44.jpg",
+                                            width: 30.w,
+                                            height: 30.w,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      left: 18.w,
+                                      child: CircleAvatar(
+                                        radius: 16.r,
+                                        backgroundColor: Colors.white,
+                                        child: ClipOval(
+                                          child: CachedNetworkImage(
+                                            imageUrl:
+                                                "https://randomuser.me/api/portraits/women/68.jpg",
+                                            width: 32.w,
+                                            height: 32.w,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Positioned(
+                                      left: 36.w,
+                                      child: CircleAvatar(
+                                        radius: 16.r,
+                                        backgroundColor: Colors.white,
+                                        child: ClipOval(
+                                          child: CachedNetworkImage(
+                                            imageUrl:
+                                                "https://randomuser.me/api/portraits/women/65.jpg",
+                                            width: 32.w,
+                                            height: 32.w,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                              SizedBox(width: 12.w),
+
+                              Text(
+                                "30.000+ \nHappy Patients",
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  height: 1.3,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+
+                      Image.asset(
+                        "assets/images/doctor.png",
+                        fit: BoxFit.contain,
+                        height: 140.h,
+                      ),
+                    ],
+                  ),
+                ),
+
+                /*Container(
                   height: 180.h,
                   width: double.infinity,
                   // padding: EdgeInsets.symmetric(
@@ -596,8 +654,7 @@ class HomeView extends GetView<HomeController> {
                       ),
                     ],
                   ),
-                ),
-
+                ),*/
                 const SizedBox(height: 30),
 
                 /// SECTION TITLE

@@ -1,216 +1,244 @@
 class Validation {
-  static String? fieldValidation(String? value, String field) {
-    if (value!.isEmpty) {
-      return '${'please_enter'} $field';
+  static String? fieldValidation(String? value, String fieldName) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Please enter $fieldName';
     }
     return null;
   }
 
   static String? emailValidation(String? value) {
-    String pattern = r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[\w-]{2,4}$';
-    RegExp regex = RegExp(pattern);
-    if (!regex.hasMatch(value!.trim())) {
-      return 'enter_valid_email';
+    if (value == null || value.trim().isEmpty) {
+      return 'Please enter email';
+    }
+
+    final email = value.trim();
+    final regex = RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[\w-]{2,}$');
+
+    if (!regex.hasMatch(email)) {
+      return 'Please enter a valid email';
     }
     return null;
   }
 
   static String? nameValidation(String? value) {
     if (value == null || value.trim().isEmpty) {
-      return 'enter_your_name';
+      return 'Please enter your name';
     }
 
-    // remove extra spaces
     final name = value.trim();
 
-    // minimum length
     if (name.length < 3) {
-      return 'name_too_short';
+      return 'Name is too short';
     }
 
-    String? dobValidation(String? value) {
-      if (value == null || value.trim().isEmpty) {
-        return 'select_your_date_of_birth';
-      }
-
-      try {
-        final parts = value.split('/');
-
-        if (parts.length != 3) {
-          return 'invalid_date_format';
-        }
-
-        int day = int.parse(parts[0]);
-        int month = int.parse(parts[1]);
-        int year = int.parse(parts[2]);
-
-        DateTime dob = DateTime(year, month, day);
-
-        // check invalid dates like 31/02/2024
-        if (dob.day != day || dob.month != month || dob.year != year) {
-          return 'invalid_date';
-        }
-
-        // future date check
-        if (dob.isAfter(DateTime.now())) {
-          return 'future_date_not_allowed';
-        }
-
-        // age calculation
-        int age = DateTime.now().year - dob.year;
-        if (DateTime.now().month < dob.month ||
-            (DateTime.now().month == dob.month &&
-                DateTime.now().day < dob.day)) {
-          age--;
-        }
-
-        if (age < 18) {
-          return 'age_must_be_18_plus';
-        }
-
-        return null;
-      } catch (e) {
-        return 'invalid_date';
-      }
-    }
-
-    // only alphabets and space allowed
-    String pattern = r"^[a-zA-Z ]+$";
-    RegExp regex = RegExp(pattern);
-
+    final regex = RegExp(r'^[a-zA-Z ]+$');
     if (!regex.hasMatch(name)) {
-      return 'name_should_not_contain_numbers';
+      return 'Name should contain only letters';
     }
 
     return null;
   }
 
+  static String? dobValidation(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Please select your date of birth';
+    }
+
+    try {
+      // Expected format: DD/MM/YYYY
+      final parts = value.trim().split('/');
+      if (parts.length != 3) return 'Invalid date format (DD/MM/YYYY)';
+
+      final day = int.parse(parts[0]);
+      final month = int.parse(parts[1]);
+      final year = int.parse(parts[2]);
+
+      final dob = DateTime(year, month, day);
+
+      // Invalid dates like 31/02/2024
+      if (dob.day != day || dob.month != month || dob.year != year) {
+        return 'Invalid date';
+      }
+
+      if (dob.isAfter(DateTime.now())) {
+        return 'Future date is not allowed';
+      }
+
+      // Age check
+      int age = DateTime.now().year - dob.year;
+      if (DateTime.now().month < dob.month ||
+          (DateTime.now().month == dob.month && DateTime.now().day < dob.day)) {
+        age--;
+      }
+
+      if (age < 18) {
+        return 'Age must be 18+';
+      }
+
+      return null;
+    } catch (_) {
+      return 'Invalid date';
+    }
+  }
+
+  // static String? passwordValidation(String? value) {
+  //   if (value == null || value.isEmpty) {
+  //     return 'Please enter password';
+  //   }
+  //   if (value.length < 6) {
+  //     return 'Password must be at least 6 characters';
+  //   }
+  //   if (!value.contains(RegExp(r'[A-Z]'))) {
+  //     return 'Password must contain at least 1 uppercase letter';
+  //   }
+  //   if (!value.contains(RegExp(r'[a-z]'))) {
+  //     return 'Password must contain at least 1 lowercase letter';
+  //   }
+  //   if (!value.contains(RegExp(r'[0-9]'))) {
+  //     return 'Password must contain at least 1 digit';
+  //   }
+  //   if (!value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
+  //     return 'Password must contain at least 1 special character';
+  //   }
+  //   return null;
+  // }
   static String? passwordValidation(String? value) {
-    if (value!.isEmpty) {
-      return 'please_enter_password';
+    if (value == null || value.trim().isEmpty) {
+      return 'Please enter password';
     }
-    if (value.length < 6) {
-      return 'at_least_six_characters';
-    }
-    if (!value.contains(RegExp(r'[A-Z]'))) {
-      return 'at_least_one_uppercase';
-    }
-    if (!value.contains(RegExp(r'[a-z]'))) {
-      return 'at_least_one_lowercase';
-    }
-    if (!value.contains(RegExp(r'[0-9]'))) {
-      return 'at_least_one_digit';
-    }
-    if (!value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
-      return 'at_least_one_special_character';
-    }
-    return null;
-  }
 
-  static String? confirmPassword(String? value, String confirm) {
-    if (value != confirm) {
-      return 'password_dont_match';
-    } else if (passwordValidation(value) != null) {
-      return passwordValidation(value);
-    }
-    return null;
-  }
+    final v = value.trim();
 
-  static String? phoneNumberValidation(String? value) {
-    if (value!.isEmpty) {
-      return 'enter_ph_no';
+    // Only digits + exactly 6
+    if (!RegExp(r'^\d{6}$').hasMatch(v)) {
+      return 'Password must be exactly 6 digits';
     }
-    RegExp regex = RegExp(r'^\+\d{1,3}\d{10,14}$');
-    if (!regex.hasMatch(value)) {
-      return 'invalid_ph_no_format';
-    }
-    return null;
-  }
 
-  static String? cardNumberValidation(String? value) {
-    if (value!.isEmpty) {
-      return 'enter_card_no';
-    }
-    RegExp regex = RegExp(r'^\d{4}\s\d{4}\s\d{4}\s\d{4}$');
-    if (!regex.hasMatch(value)) {
-      return 'enter_valid_card_no';
-    }
-    return null;
-  }
-
-  static String? expiryDateValidation(String? value) {
-    if (value!.isEmpty) {
-      return 'enter_expiry_date';
-    }
-    RegExp regex = RegExp(r'^(0[1-9]|1[0-2])\/\d{2}$');
-    if (!regex.hasMatch(value)) {
-      return 'enter_valid_expiry_date';
-    }
-    return null;
-  }
-
-  static String? cvvValidation(String? value) {
-    if (value!.isEmpty) {
-      return 'enter_cvv_no';
-    }
-    RegExp regex = RegExp(r'^\d{3}$');
-    if (!regex.hasMatch(value)) {
-      return 'enter_valid_cvv_no';
-    }
     return null;
   }
 
   static String? confirmPasswordValidation(String? value, String original) {
     if (value == null || value.trim().isEmpty) {
-      return 'enter_confirm_password';
+      return 'Please enter confirm password';
     }
-    if (value.trim() != original.trim()) {
-      return 'password_not_match';
+
+    final confirm = value.trim();
+    final pass = original.trim();
+
+    // Optional: validate confirm format too (same 6 digits rule)
+    if (!RegExp(r'^\d{6}$').hasMatch(confirm)) {
+      return 'Confirm password must be exactly 6 digits';
     }
+
+    if (confirm != pass) {
+      return 'Passwords do not match';
+    }
+
     return null;
   }
 
-  static String? numberValidation(String? value, {String field = "number"}) {
-    if (value == null || value.isEmpty) {
-      return '${'please_enter_a'} $field';
+  static String? phoneNumberValidation(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Please enter phone number';
     }
-    // Regular expression to check if the input is only digits
-    RegExp regex = RegExp(r'^\d+$');
-    if (!regex.hasMatch(value)) {
-      return '${'please_enter_a_valid'} $field (${'only_digit'})';
+
+    // Format example: +923001234567
+    final regex = RegExp(r'^\+\d{1,3}\d{10,14}$');
+    if (!regex.hasMatch(value.trim())) {
+      return 'Invalid phone number format (e.g. +923001234567)';
     }
+
+    return null;
+  }
+
+  static String? cardNumberValidation(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Please enter card number';
+    }
+
+    // Format: 1234 5678 9012 3456
+    final regex = RegExp(r'^\d{4}\s\d{4}\s\d{4}\s\d{4}$');
+    if (!regex.hasMatch(value.trim())) {
+      return 'Please enter a valid card number (#### #### #### ####)';
+    }
+
+    return null;
+  }
+
+  static String? expiryDateValidation(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Please enter expiry date';
+    }
+
+    // Format: MM/YY
+    final regex = RegExp(r'^(0[1-9]|1[0-2])\/\d{2}$');
+    if (!regex.hasMatch(value.trim())) {
+      return 'Please enter a valid expiry date (MM/YY)';
+    }
+
+    return null;
+  }
+
+  static String? cvvValidation(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Please enter CVV';
+    }
+
+    final regex = RegExp(r'^\d{3}$');
+    if (!regex.hasMatch(value.trim())) {
+      return 'Please enter a valid CVV (3 digits)';
+    }
+
+    return null;
+  }
+
+  static String? numberValidation(
+    String? value, {
+    String fieldName = "number",
+  }) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Please enter $fieldName';
+    }
+
+    final regex = RegExp(r'^\d+$');
+    if (!regex.hasMatch(value.trim())) {
+      return 'Please enter a valid $fieldName (digits only)';
+    }
+
     return null;
   }
 
   static String? ageValidation(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'please_enter_age';
+    if (value == null || value.trim().isEmpty) {
+      return 'Please enter age';
     }
-    RegExp regex = RegExp(r'^\d+$');
-    if (!regex.hasMatch(value)) {
-      return 'please_enter_valid_age';
+
+    final regex = RegExp(r'^\d+$');
+    if (!regex.hasMatch(value.trim())) {
+      return 'Please enter a valid age';
     }
-    int age = int.parse(value);
+
+    final age = int.parse(value.trim());
     if (age < 0 || age > 30) {
-      return 'age_must_be_between_0_and_30';
+      return 'Age must be between 0 and 30';
     }
+
     return null;
   }
 
   static String? weightValidation(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'please_enter_weight';
+    if (value == null || value.trim().isEmpty) {
+      return 'Please enter weight';
     }
 
-    // Updated regex to allow decimal numbers
-    RegExp regex = RegExp(r'^\d+(\.\d+)?$');
-    if (!regex.hasMatch(value)) {
-      return 'please_enter_valid_weight';
+    final regex = RegExp(r'^\d+(\.\d+)?$');
+    if (!regex.hasMatch(value.trim())) {
+      return 'Please enter a valid weight';
     }
 
-    double weight = double.parse(value); // Parsing the value as a double
+    final weight = double.parse(value.trim());
     if (weight < 0 || weight > 200) {
-      return 'weight_must_be_between_0_and_200';
+      return 'Weight must be between 0 and 200';
     }
 
     return null;

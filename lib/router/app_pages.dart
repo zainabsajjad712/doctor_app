@@ -3,12 +3,15 @@ import 'package:doctor_app/src/features/appointment/appointment_binding.dart';
 import 'package:doctor_app/src/features/appointment/appointment_view.dart';
 import 'package:doctor_app/src/features/attachments/attachments_binding.dart';
 import 'package:doctor_app/src/features/attachments/attachments_view.dart';
+import 'package:doctor_app/src/features/auth/create_password/create_password_binding.dart';
+import 'package:doctor_app/src/features/auth/create_password/create_password_view.dart';
 import 'package:doctor_app/src/features/auth/login/login.dart';
 import 'package:doctor_app/src/features/auth/login/login_binding.dart';
 import 'package:doctor_app/src/features/auth/otp/otp_binding.dart';
 import 'package:doctor_app/src/features/auth/otp/otp_view.dart';
-import 'package:doctor_app/src/features/auth/phone_verification/phone_binding.dart';
-import 'package:doctor_app/src/features/auth/phone_verification/phone_view.dart';
+import 'package:doctor_app/src/features/auth/signup/email_binding.dart';
+import 'package:doctor_app/src/features/auth/signup/email_view.dart';
+import 'package:doctor_app/src/features/chat/chat_binding.dart';
 import 'package:doctor_app/src/features/createpassword/generate_login_binding.dart';
 import 'package:doctor_app/src/features/createpassword/generate_login_view.dart';
 import 'package:doctor_app/src/features/doctor_call/doctor_call_binding.dart';
@@ -48,9 +51,9 @@ class AppPages {
       binding: OnboardingBinding(),
     ),
     GetPage(
-      name: AppRoutes.phone,
-      page: () => const PhoneView(),
-      binding: PhoneBinding(),
+      name: AppRoutes.email,
+      page: () => const EmailView(),
+      binding: EmailBinding(),
     ),
     GetPage(
       name: AppRoutes.otp,
@@ -165,12 +168,21 @@ class AppPages {
       //   name: AppRoutes.customNavigation,
       //   page: () => const CustomNavigation(),
       // ),
-      name: AppRoutes.generatingPassword,
-      page: () => const GenerateLoginView(),
-      binding: GenerateLoginBinding(),
+      name: AppRoutes.createPassword,
+      page: () => const CreatePasswordView(),
+      binding: CreatePasswordBinding(),
     ),
 
     //Usman Routes Screens
-    GetPage(name: AppRoutes.chatScreen, page: () => ChatScreen()),
+    GetPage(
+      //   name: AppRoutes.customNavigation,
+      //   page: () => const CustomNavigation(),
+      // ),
+      name: AppRoutes.chatScreen,
+      page: () => const ChatScreen(),
+      binding: ChatBinding(),
+    ),
+
+    //  GetPage(name: AppRoutes.chatScreen, page: () => ChatScreen()),
   ];
 }
