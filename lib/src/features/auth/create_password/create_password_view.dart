@@ -1,23 +1,24 @@
 import 'package:doctor_app/src/common/utils/validation.dart';
 import 'package:doctor_app/src/common/widgets/custom_button.dart';
 import 'package:doctor_app/src/common/widgets/custom_text_field.dart';
+import 'package:doctor_app/src/features/auth/controller/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../common/constant/app_colors.dart';
-import 'create_password_controller.dart';
 
-class CreatePasswordView extends GetView<CreatePasswordController> {
-  const CreatePasswordView({super.key});
+class CreatePasswordView extends GetView<AuthController> {
+  CreatePasswordView({super.key});
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColor.white,
 
-      /// ✅ Button fixed at bottom
       bottomNavigationBar: Padding(
         padding: EdgeInsets.all(20.w),
         child: Obx(() {
@@ -40,7 +41,7 @@ class CreatePasswordView extends GetView<CreatePasswordController> {
           child: Padding(
             padding: EdgeInsets.all(20.w),
             child: Form(
-              key: controller.formKey,
+              key: controller.formKey2,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -81,7 +82,7 @@ class CreatePasswordView extends GetView<CreatePasswordController> {
                   SizedBox(height: 15.h),
 
                   CustomTextFormField(
-                    controller: controller.passwordController,
+                    controller: passwordController,
                     hint: "Enter 6 digit password",
                     obscureText: true,
                     validator: Validation.passwordValidation,
@@ -102,16 +103,15 @@ class CreatePasswordView extends GetView<CreatePasswordController> {
                   SizedBox(height: 15.h),
 
                   CustomTextFormField(
-                    controller: controller.confirmPasswordController,
+                    controller: confirmPasswordController,
                     hint: "Enter confirm password",
                     obscureText: true,
                     validator: (value) => Validation.confirmPasswordValidation(
                       value,
-                      controller.passwordController.text,
+                      passwordController.text,
                     ),
                   ),
 
-                  /// 👇 extra space so keyboard overlap na kare
                   SizedBox(height: 120.h),
                 ],
               ),

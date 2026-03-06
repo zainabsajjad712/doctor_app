@@ -5,13 +5,11 @@ import 'package:doctor_app/src/features/appointment/appointment_binding.dart';
 import 'package:doctor_app/src/features/appointment/appointment_view.dart';
 import 'package:doctor_app/src/features/attachments/attachments_binding.dart';
 import 'package:doctor_app/src/features/attachments/attachments_view.dart';
-import 'package:doctor_app/src/features/auth/create_password/create_password_binding.dart';
+import 'package:doctor_app/src/features/auth/controller/auth_binding.dart';
 import 'package:doctor_app/src/features/auth/create_password/create_password_view.dart';
 import 'package:doctor_app/src/features/auth/login/login.dart';
-import 'package:doctor_app/src/features/auth/login/login_binding.dart';
 import 'package:doctor_app/src/features/createpassword/generate_login_binding.dart';
 import 'package:doctor_app/src/features/createpassword/generate_login_view.dart';
-import 'package:doctor_app/src/features/auth/otp/otp_binding.dart';
 import 'package:doctor_app/src/features/auth/otp/otp_view.dart';
 import 'package:doctor_app/src/features/auth/signup/email_binding.dart';
 import 'package:doctor_app/src/features/auth/signup/email_view.dart';
@@ -66,14 +64,21 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.email,
-      page: () => const EmailView(),
-      binding: EmailBinding(),
+      page: () => EmailView(),
+      binding: AuthBinding(),
     ),
     GetPage(
-      name: AppRoutes.otp,
-      page: () => const OtpView(),
-      binding: OtpBinding(),
+      name: AppRoutes.createPassword,
+      page: () => CreatePasswordView(),
+      binding: AuthBinding(),
     ),
+    GetPage(
+      name: AppRoutes.personalInfo,
+      page: () => PersonalInfoScreen(),
+      binding: AuthBinding(),
+    ),
+
+    GetPage(name: AppRoutes.otp, page: () => OtpView(), binding: AuthBinding()),
 
     GetPage(
       name: AppRoutes.onlineConsultation,
@@ -101,19 +106,6 @@ class AppPages {
       binding: FeedbackBinding(),
     ),
     /////Mozma Routes Screens
-    GetPage(
-      name: AppRoutes.personalInfo,
-      page: () => PersonalInfoScreen(),
-      binding: PersonalInfoBinding(),
-    ),
-
-    //
-    // GetPage(
-    //   name: AppRoutes.date,
-    //   page: () => DateScreen(),
-    //
-    //   binding: DateBinding(),
-    // ),
 
     // GetPage(
     //   name: AppRoutes.date,
@@ -178,14 +170,7 @@ class AppPages {
       page: () => const GenerateLoginView(),
       binding: GenerateLoginBinding(),
     ),
-    GetPage(
-      //   name: AppRoutes.customNavigation,
-      //   page: () => const CustomNavigation(),
-      // ),
-      name: AppRoutes.createPassword,
-      page: () => const CreatePasswordView(),
-      binding: CreatePasswordBinding(),
-    ),
+
     GetPage(
       name: AppRoutes.search,
       page: () => const SearchView(),
@@ -203,26 +188,26 @@ class AppPages {
       binding: AccountBinding(),
     ),
     GetPage(
-name: AppRoutes.doctorprofile,
-page: ()=>const DoctorProfileView(),
-binding: DoctorProfileBinding(),
-),
-GetPage(
-  name: AppRoutes.passwordSecurity,
-  page: () => const PasswordSecurityView(),
-  binding: PasswordSecurityBinding(),
-),
-GetPage(
-  name: AppRoutes.interestList,
-  page: () => const InterestListView(),
-  binding: InterestListBinding(),
-),
+      name: AppRoutes.doctorprofile,
+      page: () => const DoctorProfileView(),
+      binding: DoctorProfileBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.passwordSecurity,
+      page: () => const PasswordSecurityView(),
+      binding: PasswordSecurityBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.interestList,
+      page: () => const InterestListView(),
+      binding: InterestListBinding(),
+    ),
 
-// GetPage(
-//   name: AppRoutes.passwordSecurity,
-//   page: () => const PasswordSecurityView(),
-//   binding: PasswordSecurityBinding(),
-// ),
+    // GetPage(
+    //   name: AppRoutes.passwordSecurity,
+    //   page: () => const PasswordSecurityView(),
+    //   binding: PasswordSecurityBinding(),
+    // ),
 
     //Usman Routes Screens
     GetPage(

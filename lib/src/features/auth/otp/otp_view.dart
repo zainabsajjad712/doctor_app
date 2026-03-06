@@ -1,20 +1,18 @@
 import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:doctor_app/src/common/constant/app_images.dart';
+import 'package:doctor_app/src/features/auth/controller/auth_controller.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import 'otp_controller.dart';
-
-class OtpView extends GetView<OtpController> {
+class OtpView extends GetView<AuthController> {
   const OtpView({super.key});
 
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.sizeOf(context).width;
-    final c = Get.find<OtpController>();
 
     return Scaffold(
       backgroundColor: AppColor.white,
@@ -51,7 +49,7 @@ class OtpView extends GetView<OtpController> {
 
                     Obx(() {
                       return Text(
-                        'Enter the verification code sent to ${c.phone.value}',
+                        'Enter the verification code sent to ${controller.phone.value}',
                         style: TextStyle(
                           fontSize: 12,
                           height: 1.3,
@@ -68,7 +66,7 @@ class OtpView extends GetView<OtpController> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: List.generate(
-                          OtpController.otpLength,
+                          controller.otpLength,
                           (i) => _OtpBox(index: i),
                         ),
                       ),
@@ -76,7 +74,7 @@ class OtpView extends GetView<OtpController> {
 
                     const SizedBox(height: 18),
                     Obx(() {
-                      if (!c.isLoading.value) {
+                      if (!controller.isOtpLoading.value) {
                         return const SizedBox.shrink();
                       }
                       return const Center(
@@ -100,7 +98,7 @@ class OtpView extends GetView<OtpController> {
                 child: Column(
                   children: [
                     Obx(() {
-                      final s = c.secondsLeft.value;
+                      final s = controller.secondsLeft.value;
                       final canResend = s == 0;
 
                       final mm = (s ~/ 60).toString().padLeft(2, '0');
@@ -128,7 +126,9 @@ class OtpView extends GetView<OtpController> {
                                     : Colors.black.withOpacity(0.35),
                               ),
                               recognizer: TapGestureRecognizer()
-                                ..onTap = canResend ? c.resendOtp : null,
+                                ..onTap = canResend
+                                    ? controller.resendOtp
+                                    : null,
                             ),
                             if (!canResend)
                               TextSpan(
@@ -146,13 +146,14 @@ class OtpView extends GetView<OtpController> {
                     const SizedBox(height: 14),
 
                     GestureDetector(
-                      onTap: c.changeNumber,
+                      onTap: controller.changeNumber,
                       child: Text(
                         "Sign in with another phone number",
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
-                          color: AppColor.black                        ),
+                          color: AppColor.black,
+                        ),
                       ),
                     ),
                   ],
@@ -168,7 +169,7 @@ class OtpView extends GetView<OtpController> {
   }
 }
 
-class _OtpBox extends GetView<OtpController> {
+class _OtpBox extends GetView<AuthController> {
   final int index;
   const _OtpBox({required this.index});
 
@@ -185,13 +186,12 @@ class _OtpBox extends GetView<OtpController> {
         style: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w700,
-          color: AppColor.black        ),
+          color: AppColor.black,
+        ),
         decoration: InputDecoration(
           counterText: '',
           enabledBorder: UnderlineInputBorder(
-            borderSide: BorderSide(
-              color: AppColor.black ,             width: 2,
-            ),
+            borderSide: BorderSide(color: AppColor.black, width: 2),
           ),
           focusedBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: AppColor.primaryButton, width: 2),

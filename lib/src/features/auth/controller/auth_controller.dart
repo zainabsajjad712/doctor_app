@@ -3,24 +3,52 @@ import 'dart:async';
 import 'package:doctor_app/router/app_routes.dart';
 import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/get_navigation/src/snackbar/snackbar.dart';
+import 'package:get/state_manager.dart';
 
-class OtpController extends GetxController {
+class AuthController extends GetxController {
+  final formKey = GlobalKey<FormState>();
+  final formKey2 = GlobalKey<FormState>();
+  final formKey3 = GlobalKey<FormState>();
+
+  final isLoading = false.obs;
+  Future<void> onNext() async {
+    final isValid = formKey2.currentState?.validate() ?? false;
+    if (!isValid) return;
+
+    isLoading.value = true;
+    try {
+      await Future.delayed(const Duration(seconds: 1)); // demo
+
+      Get.toNamed(AppRoutes.personalInfo);
+    } catch (_) {
+      Get.snackbar("Error", "Something went wrong");
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
+  // !         login controller data
+  RxString gender = ''.obs;
+
+  void selectGender(String value) {
+    gender.value = value;
+  }
+
+  // !        Otp controller
   final RxString phone = ''.obs;
 
-  static const int otpLength = 6;
+  int otpLength = 6;
 
   final List<TextEditingController> controllers = List.generate(
-    otpLength,
+    6,
     (_) => TextEditingController(),
   );
 
-  final List<FocusNode> focusNodes = List.generate(
-    otpLength,
-    (_) => FocusNode(),
-  );
+  final List<FocusNode> focusNodes = List.generate(6, (_) => FocusNode());
 
-  final RxBool isLoading = false.obs;
+  final RxBool isOtpLoading = false.obs;
 
   final RxInt secondsLeft = 20.obs;
   Timer? _timer;
@@ -70,7 +98,7 @@ class OtpController extends GetxController {
         FocusManager.instance.primaryFocus?.unfocus();
 
         /// ✅ AUTO VERIFY HERE
-        if (isOtpComplete && !isLoading.value) {
+        if (isOtpComplete && !isOtpLoading.value) {
           verifyOtp();
         }
       }
@@ -94,15 +122,15 @@ class OtpController extends GetxController {
   }
 
   Future<void> verifyOtp() async {
-    if (isLoading.value) return;
+    if (isOtpLoading.value) return;
 
     if (!isOtpComplete) return;
 
-    isLoading.value = true;
+    isOtpLoading.value = true;
 
     await Future.delayed(const Duration(seconds: 1)); // demo delay
 
-    isLoading.value = false;
+    isOtpLoading.value = false;
 
     Get.offAllNamed(AppRoutes.createPassword);
   }
@@ -120,6 +148,24 @@ class OtpController extends GetxController {
     for (final f in focusNodes) {
       f.dispose();
     }
+
     super.onClose();
+  }
+
+  // !  ---------------       email controller data --------------------=
+
+  Future<void> onEmailNext() async {
+    final isValid = formKey.currentState?.validate() ?? false;
+    if (!isValid) return;
+
+    isLoading.value = true;
+
+    try {
+      await Future.delayed(const Duration(seconds: 2));
+
+      Get.toNamed(AppRoutes.otp);
+    } finally {
+      isLoading.value = false;
+    }
   }
 }

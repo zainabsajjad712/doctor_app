@@ -2,6 +2,7 @@ import 'package:doctor_app/src/common/constant/app_images.dart';
 import 'package:doctor_app/src/common/utils/validation.dart';
 import 'package:doctor_app/src/common/widgets/custom_button.dart';
 import 'package:doctor_app/src/common/widgets/custom_text_field.dart';
+import 'package:doctor_app/src/features/auth/controller/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -9,9 +10,9 @@ import 'package:get/get.dart';
 import '../../../common/constant/app_colors.dart';
 import 'email_controller.dart';
 
-class EmailView extends GetView<EmailController> {
-  const EmailView({super.key});
-
+class EmailView extends GetView<AuthController> {
+  EmailView({super.key});
+  TextEditingController emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +21,7 @@ class EmailView extends GetView<EmailController> {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 22.w),
           child: Form(
-            key: controller.formKey, // ✅ attach formKey
+            key: controller.formKey,
             child: Column(
               children: [
                 Expanded(
@@ -34,7 +35,7 @@ class EmailView extends GetView<EmailController> {
                       ),
                       SizedBox(height: 26.h),
                       CustomTextFormField(
-                        controller: controller.emailController,
+                        controller: emailController,
                         hint: 'Enter email',
                         keyboardType: TextInputType.emailAddress,
                         validator: Validation.emailValidation,
@@ -62,7 +63,7 @@ class EmailView extends GetView<EmailController> {
                   return CustomButton(
                     onTap: () {
                       if (!loading) {
-                        controller.onNext();
+                        controller.onEmailNext();
                       }
                     },
                     text: 'Next',

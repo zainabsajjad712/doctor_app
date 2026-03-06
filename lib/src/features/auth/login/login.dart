@@ -3,14 +3,17 @@ import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:doctor_app/src/common/utils/validation.dart';
 import 'package:doctor_app/src/common/widgets/custom_button.dart';
 import 'package:doctor_app/src/common/widgets/custom_text_field.dart';
-import 'package:doctor_app/src/features/auth/login/controller.dart';
+import 'package:doctor_app/src/features/auth/controller/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class PersonalInfoScreen extends GetView<PersonalInfoController> {
-  const PersonalInfoScreen({super.key});
+class PersonalInfoScreen extends GetView<AuthController> {
+  PersonalInfoScreen({super.key});
+  TextEditingController nameController = TextEditingController();
+  TextEditingController dobController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +84,7 @@ class PersonalInfoScreen extends GetView<PersonalInfoController> {
                       ),
                       SizedBox(height: 10.h),
                       CustomTextFormField(
-                        controller: controller.nameController,
+                        controller: nameController,
                         hint: "Enter name",
                         validator: Validation.nameValidation,
                         borderRadius: 10.r,
@@ -120,7 +123,7 @@ class PersonalInfoScreen extends GetView<PersonalInfoController> {
                       ),
                       SizedBox(height: 10.h),
                       CustomTextFormField(
-                        controller: controller.dobController,
+                        controller: dobController,
                         hint: "Choose your date",
                         readOnly: true,
                         validator: Validation.dobValidation, // ✅ add validator
@@ -135,7 +138,7 @@ class PersonalInfoScreen extends GetView<PersonalInfoController> {
                             );
 
                             if (picked != null) {
-                              controller.dobController.text =
+                              dobController.text =
                                   "${picked.day}/${picked.month}/${picked.year}";
                               // ✅ revalidate if needed
                               controller.formKey.currentState?.validate();
@@ -157,7 +160,7 @@ class PersonalInfoScreen extends GetView<PersonalInfoController> {
                       ),
                       SizedBox(height: 10.h),
                       CustomTextFormField(
-                        controller: controller.emailController,
+                        controller: emailController,
                         hint: "Enter your email",
                         validator: Validation.emailValidation,
                         borderRadius: 10.r,
@@ -178,14 +181,11 @@ class PersonalInfoScreen extends GetView<PersonalInfoController> {
   }
 
   Widget genderButton(String text) {
-    final c = Get.find<PersonalInfoController>();
+    final c = Get.find<AuthController>();
     return Obx(
       () => GestureDetector(
         onTap: () {
           c.selectGender(text);
-
-          // ❌ NOTE: yahan navigation mat karo warna flow break hoga
-          // Get.toNamed(AppRoutes.date);
         },
         child: Container(
           height: 50.h,
