@@ -1,3 +1,4 @@
+import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -47,7 +48,7 @@ class CustomTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
 
   // ✅ your input fill color
-  static const Color inputFill = Color(0xFFD9D9D9);
+  static const Color inputFill = Color.fromARGB(106, 217, 217, 217);
 
   const CustomTextFormField({
     super.key,
@@ -91,7 +92,8 @@ class CustomTextFormField extends StatelessWidget {
     this.onChanged,
     this.onFieldSubmitted,
     this.onTapOutside,
-    this.controller,
+    required this.controller, // 🔥 REQUIRED hona chahiye
+    // this.controller,
     this.validator,
   });
 
@@ -102,14 +104,14 @@ class CustomTextFormField extends StatelessWidget {
       focusNode: focusNode,
       maxLength: maxLength,
       obscureText: obscureText ?? false,
-      cursorColor: cursorColor ?? Colors.black,
+      cursorColor: cursorColor ?? AppColor.black,
       maxLines: (obscureText ?? false) ? 1 : (maxline ?? 1),
       textInputAction: inputAction,
-      initialValue: initialValue,
+      // initialValue: initialValue,
       style:
           textStyle ??
           GoogleFonts.openSans(
-            color: inputColor ?? Colors.black,
+            color: inputColor ?? AppColor.black,
             fontSize: 14,
             fontWeight: FontWeight.w500,
           ),
@@ -127,7 +129,7 @@ class CustomTextFormField extends StatelessWidget {
             counterText: '',
             hintText: hint,
             hintStyle: GoogleFonts.openSans(
-              color: hintColor ?? Colors.grey,
+              color: hintColor ?? AppColor.lightGreyTextColor,
               fontSize: hintSize ?? 14,
             ),
             filled: filled ?? true,
@@ -155,23 +157,17 @@ class CustomTextFormField extends StatelessWidget {
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: focusBorderColor ?? Colors.black.withOpacity(0.5),
+                color: focusBorderColor ?? Colors.transparent,
                 width: 1,
               ),
               borderRadius: BorderRadius.circular(borderRadius ?? 6),
             ),
             errorBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.red.withOpacity(0.7),
-                width: 1,
-              ),
+              borderSide: BorderSide(color: AppColor.redColor, width: 1),
               borderRadius: BorderRadius.circular(borderRadius ?? 6),
             ),
             focusedErrorBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.red.withOpacity(0.7),
-                width: 1,
-              ),
+              borderSide: BorderSide(color: AppColor.redColor, width: 1),
               borderRadius: BorderRadius.circular(borderRadius ?? 6),
             ),
             disabledBorder: OutlineInputBorder(
