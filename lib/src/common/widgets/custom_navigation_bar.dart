@@ -1031,12 +1031,10 @@
 //   @override
 //   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 // }
-import 'package:doctor_app/src/features/auth/login/login.dart';
 import 'package:doctor_app/src/features/home/home_view.dart';
 import 'package:doctor_app/src/features/most_search/search_view.dart';
 import 'package:doctor_app/src/features/online_consultation/online_consultation_controller.dart';
 import 'package:doctor_app/src/features/online_consultation/online_consultation_view.dart';
-import 'package:doctor_app/src/features/profile/profile_view.dart';
 import 'package:doctor_app/src/features/search/doctor_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -1045,6 +1043,7 @@ import 'package:get/get.dart';
 import '../../features/auth/otp/otp_view.dart';
 import '../../features/chat/chat_controller.dart';
 import '../../features/controllers/navigation_controller.dart';
+import '../../features/most_search/search_controller.dart';
 import '../constant/app_colors.dart';
 
 class CustomNavigation extends StatefulWidget {
@@ -1059,8 +1058,7 @@ class CustomNavigationState extends State<CustomNavigation> {
   final navigationCont = Get.put(NavigationController());
   final ctrl = Get.put(ChatController());
   final onlineConsultant = Get.put(OnlineConsultationController());
-    final searchView = Get.put(SearchController());
-
+  final searchView = Get.put(SearchesController());
 
   final List<double> _turns = List<double>.filled(4, 0.0);
   // NEW: press state for tiny bounce
