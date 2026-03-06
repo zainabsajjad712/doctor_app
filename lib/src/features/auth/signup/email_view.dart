@@ -30,10 +30,9 @@ class EmailView extends GetView<EmailController> {
                       SvgPicture.asset(
                         AppIcons.phone,
                         width: 150.w,
-                        height: 150.w,
+                        height: 150.h,
                       ),
                       SizedBox(height: 26.h),
-
                       CustomTextFormField(
                         controller: controller.emailController,
                         hint: 'Enter email',
@@ -41,8 +40,7 @@ class EmailView extends GetView<EmailController> {
                         validator: Validation.emailValidation,
                       ),
 
-                      const SizedBox(height: 10),
-
+                      SizedBox(height: 10.h),
                       Text(
                         'You agree to our terms and conditions of use by clicking\n'
                         'the "continue" button.',
