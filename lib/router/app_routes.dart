@@ -25,5 +25,15 @@ class AppRoutes {
   static const time = '/time';
   static const attachments = '/attachments';
   static const generateLogin = '/generate-login';
+  static const generatingPassword = '/generatingPassword';
+  static const search = '/search';
+  static const news = '/news';
+static const newsdetail = '/news_detail';
+static const account = '/account';
+static const doctorprofile = "/doctor_profile";
+  static const interestList = "/interest-list";
+  static const passwordSecurity = "/password-security";
+
+
   static const createPassword = '/create-password';
 }

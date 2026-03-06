@@ -214,7 +214,7 @@ class ProfileView extends GetView<ProfileController> {
                       ),
                       elevation: 0,
                     ),
-                    onPressed: () => Get.toNamed(AppRoutes.appointment),
+                    onPressed: () => Get.toNamed(AppRoutes.reviews),
                     child: Text(
                       "Book an appointment",
                       style: GoogleFonts.plusJakartaSans(
@@ -339,18 +339,26 @@ Widget _buildDoctorCard() {
                 ),
               ],
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 12),
-              decoration: BoxDecoration(
-                color: Color(0xffE6F0FF),
-                borderRadius: BorderRadius.circular(30),
-                border: Border.all(color: AppColor.primaryBlue),
-              ),
-              child: Text(
-                "Book Now",
-                style: GoogleFonts.plusJakartaSans(
-                  color: AppColor.primaryBlue,
-                  fontWeight: FontWeight.w600,
+            GestureDetector(
+              onTap: () {
+                Get.toNamed(AppRoutes.reviews);
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 25,
+                  vertical: 12,
+                ),
+                decoration: BoxDecoration(
+                  color: Color(0xffE6F0FF),
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(color: AppColor.primaryBlue),
+                ),
+                child: Text(
+                  "Book Now",
+                  style: GoogleFonts.plusJakartaSans(
+                    color: AppColor.primaryBlue,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             ),

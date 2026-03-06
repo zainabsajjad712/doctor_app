@@ -3,6 +3,7 @@ import 'package:doctor_app/src/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'filter_controller.dart';
 
 class FilterView extends StatelessWidget {
@@ -33,7 +34,12 @@ class FilterView extends StatelessWidget {
               /// Header
               Row(
                 children: [
-                  const Icon(Icons.arrow_back),
+                  GestureDetector(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: const Icon(Icons.arrow_back),
+                  ),
                   const SizedBox(width: 10),
                   Text(
                     "Filter",

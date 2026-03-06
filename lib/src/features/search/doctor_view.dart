@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'doctor_controller.dart';
@@ -41,7 +42,8 @@ class FindDoctorView extends GetView<OnlineConsultationController> {
               child: Center(
                 child: GestureDetector(
                   onTap: () {
-                    Get.toNamed(AppRoutes.filter);
+                    context.pushNamed(AppRoutes.filter);
+                    // Get.toNamed(AppRoutes.filter);
                   },
                   child: SvgPicture.asset(
                     AppIcons.filter,
@@ -219,20 +221,25 @@ class DoctorView extends StatelessWidget {
                     ),
                   ),
                   const Spacer(),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: AppColor.inputFill,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Center(
-                      child: SvgPicture.asset(
-                        AppIcons.filter,
-                        width: 18.w,
-                        height: 18.w,
-                        colorFilter: const ColorFilter.mode(
-                          Color(0xFF111827),
-                          BlendMode.srcIn,
+                  InkWell(
+                    onTap: () {
+                      Get.toNamed(AppRoutes.filter);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: AppColor.inputFill,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Center(
+                        child: SvgPicture.asset(
+                          AppIcons.filter,
+                          width: 18.w,
+                          height: 18.w,
+                          colorFilter: const ColorFilter.mode(
+                            Color(0xFF111827),
+                            BlendMode.srcIn,
+                          ),
                         ),
                       ),
                     ),
@@ -342,7 +349,13 @@ class DoctorView extends StatelessWidget {
                           itemBuilder: (context, index) {
                             final doctor =
                                 controller.filteredDoctors[index + 1];
-                            return _doctorCard(doctor);
+                            return GestureDetector(
+                              onTap: () {
+                                print('object-----------------------');
+                                Get.toNamed(AppRoutes.profile);
+                              },
+                              child: _doctorCard(doctor),
+                            );
                           },
                         ),
                       ],
