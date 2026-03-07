@@ -11,51 +11,46 @@ class PasswordSecurityView extends GetView<PasswordSecurityController> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      backgroundColor: AppColor.white,
+      backgroundColor: Colors.grey.shade100,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Row(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: Icon(Icons.arrow_back),
+                  ),
 
-              /// BACK BUTTON
-              GestureDetector(
-                onTap: () {
-                  Get.back();
-                },
-                child: Icon(Icons.arrow_back),
+                  SizedBox(width: 20.w),
+                  Text(
+                    "Password and Security",
+                    style: GoogleFonts.poppins(
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
               ),
-
-              SizedBox(height: 20.h),
-
-              /// TITLE
-              Text(
-                "Password and Security",
-                style: GoogleFonts.poppins(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-
               SizedBox(height: 30.h),
-
-              /// CHANGE PASSWORD CARD
               GestureDetector(
                 onTap: () {
-                  // Get.toNamed(AppRoutes.changePassword);
+                  Get.toNamed(AppRoutes.changePassword);
                 },
                 child: Container(
                   padding: EdgeInsets.all(16.w),
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade100,
+                    color: AppColor.white,
                     borderRadius: BorderRadius.circular(15.r),
                   ),
                   child: Row(
                     children: [
-
                       Icon(Icons.lock, color: AppColor.primaryButton),
 
                       SizedBox(width: 15.w),
@@ -64,7 +59,7 @@ class PasswordSecurityView extends GetView<PasswordSecurityController> {
                         child: Text(
                           "Change the password",
                           style: GoogleFonts.poppins(
-                            fontSize: 14.sp,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -76,19 +71,18 @@ class PasswordSecurityView extends GetView<PasswordSecurityController> {
                 ),
               ),
 
-              SizedBox(height: 15.h),
+              SizedBox(height: 20.h),
 
               /// FACE ID SWITCH
               Obx(
                 () => Container(
                   padding: EdgeInsets.all(16.w),
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade100,
+                    color: AppColor.white,
                     borderRadius: BorderRadius.circular(15.r),
                   ),
                   child: Row(
                     children: [
-
                       Icon(Icons.fingerprint, color: Colors.green),
 
                       SizedBox(width: 15.w),
@@ -97,7 +91,7 @@ class PasswordSecurityView extends GetView<PasswordSecurityController> {
                         child: Text(
                           "Face ID",
                           style: GoogleFonts.poppins(
-                            fontSize: 14.sp,
+                            fontSize: 16.sp,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -112,7 +106,6 @@ class PasswordSecurityView extends GetView<PasswordSecurityController> {
                   ),
                 ),
               ),
-
             ],
           ),
         ),

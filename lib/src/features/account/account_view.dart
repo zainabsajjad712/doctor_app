@@ -22,7 +22,7 @@ class AccountView extends GetView<AccountController> {
         ),
         child: Row(
           children: [
-            Icon(icon, color: color ?? Colors.blue),
+            Icon(icon, color: color ?? AppColor.primaryBlue),
             SizedBox(width: 15.w),
 
             Expanded(
@@ -45,32 +45,16 @@ class AccountView extends GetView<AccountController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffF6F6F6),
+      backgroundColor: AppColor.scaffoldBg,
 
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.all(20.w),
-
           child: Column(
             children: [
               SizedBox(height: 20.h),
-
-              /// PROFILE HEADER
-              // Container(
-              //   padding: EdgeInsets.all(15.w),
-              //   decoration: BoxDecoration(
-              //     color: Colors.white,
-              //     borderRadius: BorderRadius.circular(20.r),
-              //   ),
-
-              // child:
               Row(
                 children: [
-                  // CircleAvatar(
-                  //   radius: 25.r,
-                  //   backgroundImage: NetworkImage(
-                  //       "https://randomuser.me/api/portraits/men/32.jpg"),
-                  // ),
                   Container(
                     height: 50,
                     width: 50,
@@ -85,7 +69,6 @@ class AccountView extends GetView<AccountController> {
                     ),
                   ),
                   SizedBox(width: 15.w),
-
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
@@ -106,21 +89,19 @@ class AccountView extends GetView<AccountController> {
                             "Personal information",
                             style: GoogleFonts.poppins(
                               fontSize: 12.sp,
-                              color: Colors.grey,
+                              color: AppColor.grey,
                             ),
                           ),
                         ],
                       ),
                     ),
                   ),
-
-                  /// Notification
                   Stack(
                     children: [
                       Container(
                         padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: AppColor.white,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: const Icon(Icons.notifications_on_outlined),
@@ -135,7 +116,7 @@ class AccountView extends GetView<AccountController> {
                                   height: 10,
                                   width: 10,
                                   decoration: const BoxDecoration(
-                                    color: Colors.green,
+                                    color: AppColor.greenColor,
                                     shape: BoxShape.circle,
                                   ),
                                 )
@@ -164,12 +145,14 @@ class AccountView extends GetView<AccountController> {
                 },
               ),
               menuItem(Icons.people, "Join the community"),
-              menuItem(Icons.description, "Terms and Policy"),
+              menuItem(Icons.description, "Terms and Policy",    onTap: () {
+                  Get.toNamed(AppRoutes.terms);
+                },),
               menuItem(Icons.help, "Frequently asked questions"),
 
-              menuItem(Icons.phone, "Hotline 1900-2020", color: Colors.blue),
+              menuItem(Icons.phone, "Hotline 1900-2020", color: AppColor.primaryBlue),
 
-              menuItem(Icons.logout, "Log out", color: Colors.grey),
+              menuItem(Icons.logout, "Log out", color: AppColor.grey),
             ],
           ),
         ),
