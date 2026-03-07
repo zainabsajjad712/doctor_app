@@ -10,6 +10,8 @@ class AppColor {
   static const Color lightBlueBg = Color(0xFFEEF4FF);
   static const Color white = Colors.white;
   static const Color black = Colors.black;
+  static const Color grey = Colors.grey;
+
 
 
   // 🔘 Borders & Dividers

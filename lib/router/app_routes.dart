@@ -36,4 +36,9 @@ static const doctorprofile = "/doctor_profile";
 
 
   static const createPassword = '/create-password';
+  static const changePassword = "/change_password";
+  static const privacyPolicy = "/privacy_policy";
+  static const terms = "/terms";
+
+
 }

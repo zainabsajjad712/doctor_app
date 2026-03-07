@@ -27,7 +27,7 @@
 import 'package:doctor_app/router/app_routes.dart';
 import 'package:get/get.dart';
 
-class SearchController extends GetxController {
+class SearchesController extends GetxController {
   RxList<String> mostSearched = <String>[
     "Covid-19",
     "Vaccine",
