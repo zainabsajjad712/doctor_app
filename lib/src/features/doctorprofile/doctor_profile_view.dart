@@ -94,6 +94,7 @@ class DoctorProfileView extends GetView<DoctorProfileController> {
                         ],
                       ),
 
+                      //
                       SizedBox(height: 15.h),
 
                       /// PHONE
