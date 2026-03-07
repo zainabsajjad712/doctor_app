@@ -4,13 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class DoctorProfileView extends GetView<DoctorProfileController> {
   const DoctorProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: const Color(0xffF6F6F6),
 
@@ -18,7 +16,6 @@ class DoctorProfileView extends GetView<DoctorProfileController> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-
               /// BLUE HEADER
               Container(
                 height: 200.h,
@@ -34,25 +31,29 @@ class DoctorProfileView extends GetView<DoctorProfileController> {
                 child: Align(
                   alignment: Alignment.topLeft,
                   child: IconButton(
-                    onPressed: ()=>Get.back(),
-                    icon: const Icon(Icons.arrow_back,color: Colors.white),
+                    onPressed: () => Get.back(),
+                    icon: const Icon(Icons.arrow_back, color: Colors.white),
                   ),
                 ),
               ),
 
               Transform.translate(
-                offset: Offset(0,-50),
+                offset: Offset(0, -50),
                 child: CircleAvatar(
                   radius: 50.r,
                   backgroundImage: NetworkImage(
-                      "https://randomuser.me/api/portraits/men/32.jpg"),
+                    "https://randomuser.me/api/portraits/men/32.jpg",
+                  ),
                 ),
               ),
 
-              Text("Elon Musk",
-                  style: GoogleFonts.poppins(
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.w600)),
+              Text(
+                "Elon Musk",
+                style: GoogleFonts.poppins(
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
 
               SizedBox(height: 20.h),
 
@@ -63,12 +64,11 @@ class DoctorProfileView extends GetView<DoctorProfileController> {
                   key: controller.formKey,
                   child: Column(
                     children: [
-
                       /// NAME
                       TextFormField(
                         controller: controller.nameController,
-                        validator: (v){
-                          if(v!.isEmpty){
+                        validator: (v) {
+                          if (v!.isEmpty) {
                             return "Enter name";
                           }
                           return null;
@@ -76,7 +76,7 @@ class DoctorProfileView extends GetView<DoctorProfileController> {
                         decoration: InputDecoration(
                           hintText: "Elon Musk",
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15)
+                            borderRadius: BorderRadius.circular(15),
                           ),
                         ),
                       ),
@@ -84,28 +84,23 @@ class DoctorProfileView extends GetView<DoctorProfileController> {
                       SizedBox(height: 15.h),
 
                       /// GENDER
-                      Obx(()=>Row(
+                      Row(
                         children: [
-
-                          Expanded(
-                            child: genderButton("Male"),
-                          ),
+                          Expanded(child: genderButton("Male")),
 
                           SizedBox(width: 10.w),
 
-                          Expanded(
-                            child: genderButton("Female"),
-                          )
+                          Expanded(child: genderButton("Female")),
                         ],
-                      )),
+                      ),
 
                       SizedBox(height: 15.h),
 
                       /// PHONE
                       TextFormField(
                         controller: controller.phoneController,
-                        validator: (v){
-                          if(v!.isEmpty){
+                        validator: (v) {
+                          if (v!.isEmpty) {
                             return "Enter phone";
                           }
                           return null;
@@ -113,7 +108,7 @@ class DoctorProfileView extends GetView<DoctorProfileController> {
                         decoration: InputDecoration(
                           hintText: "Enter phone number",
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15)
+                            borderRadius: BorderRadius.circular(15),
                           ),
                         ),
                       ),
@@ -123,8 +118,8 @@ class DoctorProfileView extends GetView<DoctorProfileController> {
                       /// EMAIL
                       TextFormField(
                         controller: controller.emailController,
-                        validator: (v){
-                          if(!GetUtils.isEmail(v!)){
+                        validator: (v) {
+                          if (!GetUtils.isEmail(v!)) {
                             return "Enter valid email";
                           }
                           return null;
@@ -132,7 +127,7 @@ class DoctorProfileView extends GetView<DoctorProfileController> {
                         decoration: InputDecoration(
                           hintText: "Email",
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15)
+                            borderRadius: BorderRadius.circular(15),
                           ),
                         ),
                       ),
@@ -146,18 +141,17 @@ class DoctorProfileView extends GetView<DoctorProfileController> {
                         child: ElevatedButton(
                           onPressed: controller.saveProfile,
                           style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30)
-                              )
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
                           ),
-                          child: Text("Save",
-                              style: GoogleFonts.poppins()),
+                          child: Text("Save", style: GoogleFonts.poppins()),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -165,26 +159,26 @@ class DoctorProfileView extends GetView<DoctorProfileController> {
     );
   }
 
-  Widget genderButton(String value){
-
+  Widget genderButton(String value) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         controller.gender.value = value;
       },
-      child: Obx(()=>Container(
-        padding: const EdgeInsets.symmetric(vertical:15),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
+      child: Obx(
+        () => Container(
+          padding: const EdgeInsets.symmetric(vertical: 15),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             border: Border.all(
-                color: controller.gender.value == value
-                    ? Colors.blue
-                    : Colors.grey
-            )
+              color: controller.gender.value == value
+                  ? Colors.blue
+                  : Colors.grey,
+            ),
+          ),
+          child: Text(value, style: GoogleFonts.poppins()),
         ),
-        child: Text(value,
-            style: GoogleFonts.poppins()),
-      )),
+      ),
     );
   }
 }

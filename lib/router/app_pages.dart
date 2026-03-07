@@ -8,6 +8,8 @@ import 'package:doctor_app/src/features/attachments/attachments_view.dart';
 import 'package:doctor_app/src/features/auth/controller/auth_binding.dart';
 import 'package:doctor_app/src/features/auth/create_password/create_password_view.dart';
 import 'package:doctor_app/src/features/auth/login/login.dart';
+import 'package:doctor_app/src/features/changepassword/change_password_binding.dart';
+import 'package:doctor_app/src/features/changepassword/change_password_view.dart';
 import 'package:doctor_app/src/features/createpassword/generate_login_binding.dart';
 import 'package:doctor_app/src/features/createpassword/generate_login_view.dart';
 import 'package:doctor_app/src/features/auth/otp/otp_view.dart';
@@ -48,6 +50,10 @@ import 'package:doctor_app/src/features/security/password/security_binding.dart'
 import 'package:doctor_app/src/features/security/password/security_view.dart';
 import 'package:doctor_app/src/features/select%20time/time_binding.dart';
 import 'package:doctor_app/src/features/select%20time/time_view.dart';
+import 'package:doctor_app/src/features/term/policy/privacy_policy_binding.dart';
+import 'package:doctor_app/src/features/term/policy/privacy_policy_view.dart';
+import 'package:doctor_app/src/features/term/policy/terms_policy_binding.dart';
+import 'package:doctor_app/src/features/term/policy/terms_policy_view.dart';
 import 'package:get/get.dart';
 
 import '../src/features/chat/chat_view.dart';
@@ -200,6 +206,36 @@ class AppPages {
       name: AppRoutes.interestList,
       page: () => const InterestListView(),
       binding: InterestListBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.doctorprofile,
+      page: () => const DoctorProfileView(),
+      binding: DoctorProfileBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.passwordSecurity,
+      page: () => const PasswordSecurityView(),
+      binding: PasswordSecurityBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.interestList,
+      page: () => const InterestListView(),
+      binding: InterestListBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.changePassword,
+      page: () => ChangePasswordView(),
+      binding: ChangePasswordBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.privacyPolicy,
+      page: () => const PrivacyPolicyView(),
+      binding: PrivacyPolicyBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.terms,
+      page: () => const TermsPolicyView(),
+      binding: TermsPolicyBinding(),
     ),
 
     // GetPage(

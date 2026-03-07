@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,
           scaffoldMessengerKey: scaffoldMessengerKey,
-          initialRoute: AppRoutes.onboarding,
+          initialRoute: AppRoutes.homescreen,
           getPages: AppPages.pages,
         );
       },

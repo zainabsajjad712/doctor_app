@@ -1,8 +1,9 @@
+import 'package:doctor_app/src/features/doctorprofile/doctor_profile_controller.dart';
 import 'package:get/get.dart';
 
-class DoctorProfileBinding extends Bindings{
+class DoctorProfileBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => DoctorProfileBinding());
+    Get.lazyPut<DoctorProfileController>(() => DoctorProfileController());
   }
 }
