@@ -11,7 +11,6 @@ import 'package:doctor_app/src/features/auth/login/login.dart';
 import 'package:doctor_app/src/features/createpassword/generate_login_binding.dart';
 import 'package:doctor_app/src/features/createpassword/generate_login_view.dart';
 import 'package:doctor_app/src/features/auth/otp/otp_view.dart';
-import 'package:doctor_app/src/features/auth/signup/email_binding.dart';
 import 'package:doctor_app/src/features/auth/signup/email_view.dart';
 import 'package:doctor_app/src/features/chat/chat_binding.dart';
 import 'package:doctor_app/src/features/createpassword/generate_login_binding.dart';

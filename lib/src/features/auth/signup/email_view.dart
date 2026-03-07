@@ -8,7 +8,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../../common/constant/app_colors.dart';
-import 'email_controller.dart';
 
 class EmailView extends GetView<AuthController> {
   EmailView({super.key});
